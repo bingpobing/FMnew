@@ -1,0 +1,74 @@
+//
+//  FM.pch
+//  FM
+//
+//  Created by lanou3g on 15/10/6.
+//  Copyright (c) 2015年 YT. All rights reserved.
+//
+
+#ifndef FM_FM_pch
+#define FM_FM_pch
+
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+//推荐接口
+#define url_Recommend @"http://fmlive.shuoba.org/v3/playback/recommend/page_info"
+//音乐接口
+#define url_Music @"http://fmlive.shuoba.org/v3/playback/category/3/page_info"
+//资讯接口
+#define url_Information @"http://fmlive.shuoba.org/v3/playback/category/4/page_info"
+//娱乐接口
+#define url_Recreation @"http://fmlive.shuoba.org/v3/playback/category/2/page_info"
+//财经接口
+#define url_Economics @"http://fmlive.shuoba.org/v3/playback/category/6/page_info"
+//文化接口
+#define url_Culture @"http://fmlive.shuoba.org/v3/playback/category/11/page_info"
+//生活接口
+#define url_Live @"http://fmlive.shuoba.org/v3/playback/category/9/page_info"
+//体育接口
+#define url_Sports @"http://fmlive.shuoba.org/v3/playback/category/10/page_info"
+//故事接口
+#define url_Story @"http://fmlive.shuoba.org/v3/playback/category/7/page_info"
+//情感接口
+#define url_Emotion @"http://fmlive.shuoba.org/v3/playback/category/5/page_info"
+//校园接口
+#define url_Schoolyard @"http://fm.shuoba.org/v3/playback/category/12/page_info"
+//汽车接口
+#define url_Car @"http://fm.shuoba.org/v3/playback/category/8/page_info"
+
+
+
+
+
+//热播榜
+#define hot_url @"http://fmlive.shuoba.org/hot_list/0/0"
+//音乐台
+#define music_url @"http://fmlive.shuoba.org/program_info_list/type/2/type_key/6"
+//新闻台
+#define news_url @"http://fmlive.shuoba.org/program_info_list/type/2/type_key/1"
+//北京台
+#define BeiJing_url @"http://fmlive.shuoba.org/program_info_list/type/1/type_key/7"
+
+//国家台
+#define Country_url @"http://fmlive.shuoba.org/program_info_list/type/1/type_key/3"
+//省市台
+#define Privince_url @"http://fmlive.shuoba.org/hot_list/0/0"
+//娱乐
+#define Play_url @"http://fmlive.shuoba.org/program_info_list/type/2/type_key/2"
+//情感
+#define Emotion_url @"http://fmlive.shuoba.org/program_info_list/type/2/type_key/4"
+//生活
+#define Live_url @"http://fmlive.shuoba.org/program_info_list/type/2/type_key/9"
+//交通
+#define traffic_url @"http://fmlive.shuoba.org/program_info_list/type/2/type_key/8"
+//方言
+#define dialect_url @"http://fmlive.shuoba.org/program_info_list/type/2/type_key/10"
+//网络
+#define Net_url @"http://fmlive.shuoba.org/program_info_list/type/1/type_key/1"
+//财经
+#define Economic_url @"http://fmlive.shuoba.org/program_info_list/type/2/type_key/5"
+//体育
+#define Sports_url @"http://fmlive.shuoba.org/program_info_list/type/2/type_key/3"
+
+#endif
