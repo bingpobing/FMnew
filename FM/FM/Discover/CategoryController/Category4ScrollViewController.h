@@ -1,5 +1,5 @@
 //
-//  DiscoverController.h
+//  Category4ScrollViewController.h
 //  FM
 //
 //  Created by lanou3g on 15/10/9.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoverController : UIViewController
+@interface Category4ScrollViewController : UIViewController
 
 @end
