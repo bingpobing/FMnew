@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "ListCell.h"
 #import "ListModel.h"
+#import "PlayerController.h"
 
 
 #define URL @"http://mobile.ximalaya.com/mobile/others/ca/album/track/%ld/true/1/30?device=iPhone"
@@ -50,6 +51,9 @@
             model.playtime = [NSString stringWithFormat:@"%@",Dic[@"playtimes"]];
             model.likes = [NSString stringWithFormat:@"%@",Dic[@"likes"]];
             model.duration = [NSString stringWithFormat:@"%@",Dic[@"duration"]];
+            
+            model.playPathAacv224 = Dic[@"playPathAacv224"];//电台地址
+            
             [_Array addObject:model];
             [_DIC setObject:_Array forKey:responseObject[@"tracks"][@"list"]];
               [self.tableView reloadData];
@@ -86,6 +90,26 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    PlayerController *playerVC = [[PlayerController alloc]init];
+    
+    NSString *key = self.DIC.allKeys[indexPath.section];
+    NSArray *array =self.DIC[key];
+    
+    ListModel *model = array[indexPath.row];
+    
+    playerVC.PicUrl = model.PicUrl;
+    playerVC.radioTitle = model.title;
+    playerVC.nickname = model.nickname;
+    playerVC.duration = model.duration;
+    playerVC.playPathAacv224 = model.playPathAacv224;
+    
+    [self.navigationController pushViewController:playerVC animated:YES];
+}
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -11,6 +11,18 @@
 @interface PlayerController : UIViewController
 
 
+//图片
+@property(nonatomic , strong) NSURL *PicUrl;
+//小标题
+@property(nonatomic , strong) NSString *radioTitle;
+//主持电台
+@property(nonatomic , strong) NSString *nickname;
+//持续时间
+@property(nonatomic , strong) NSString *duration;
+//电台地址
+@property (nonatomic,strong)NSString *playPathAacv224;
+
+
 @property (nonatomic,strong)UIImageView *imgView;
 @property (nonatomic,strong)UILabel *titleLab;
 @property (nonatomic,strong)UILabel *djLab;
@@ -32,5 +44,6 @@
 
 //因为这个页面要一直存在,所以要使用单例
 + (PlayerController *)shareController;
+
 
 @end

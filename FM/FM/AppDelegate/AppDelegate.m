@@ -53,19 +53,17 @@
     UIImage *image4 = [UIImage imageNamed:@"mine"];
     mineVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"我的" image:image4 selectedImage:image4];
     
-    [[UINavigationBar appearance] setBarTintColor:[UIColor brownColor]];
+
     
     NSArray *allNC = @[discoverNC,RadioNC,playerNC,mineNC];
     UITabBarController *tabBarVC = [[UITabBarController alloc]init];
     
     tabBarVC.viewControllers = allNC;
     
-    tabBarVC.tabBar.barTintColor = [UIColor cyanColor];
     tabBarVC.tabBar.tintColor = [UIColor orangeColor];
     
     self.window.rootViewController = tabBarVC;
     
-
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

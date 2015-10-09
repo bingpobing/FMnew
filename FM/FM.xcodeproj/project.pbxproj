@@ -85,7 +85,6 @@
 		C26C86D51BC69650001ED1E1 /* xiazai.png in Resources */ = {isa = PBXBuildFile; fileRef = C26C86C61BC69650001ED1E1 /* xiazai.png */; };
 		C26C86D61BC69650001ED1E1 /* yishoucang.png in Resources */ = {isa = PBXBuildFile; fileRef = C26C86C71BC69650001ED1E1 /* yishoucang.png */; };
 		C26C86D71BC69650001ED1E1 /* zanting.png in Resources */ = {isa = PBXBuildFile; fileRef = C26C86C81BC69650001ED1E1 /* zanting.png */; };
-		C26C86D81BC69650001ED1E1 /* 电台图片.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C26C86C91BC69650001ED1E1 /* 电台图片.jpeg */; };
 		C2E35AB11BC6053A00FB1685 /* BG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2E35AAF1BC6053A00FB1685 /* BG.jpg */; };
 		C2E35AB21BC6053A00FB1685 /* 阿狸.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2E35AB01BC6053A00FB1685 /* 阿狸.jpg */; };
 		C2E35B841BC64CFF00FB1685 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E35B831BC64CFF00FB1685 /* AVOSCloud.framework */; };
@@ -100,6 +99,7 @@
 		C2E35BB61BC68CA000FB1685 /* LiebiaoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E35BA31BC68CA000FB1685 /* LiebiaoTableViewController.m */; };
 		C2E35BB71BC68CA000FB1685 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E35BA51BC68CA000FB1685 /* PlayerController.m */; };
 		C2E35BC41BC68CA100FB1685 /* PlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E35BB51BC68CA000FB1685 /* PlayerModel.m */; };
+		C2F5CFFD1BC80A2800B76FDA /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F5CFFC1BC80A2800B76FDA /* 1.png */; };
 		C2F6B0AC1BC74D7C0004D155 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F6B09A1BC74D7B0004D155 /* AFHTTPRequestOperation.m */; };
 		C2F6B0AD1BC74D7C0004D155 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F6B09C1BC74D7B0004D155 /* AFHTTPRequestOperationManager.m */; };
 		C2F6B0AE1BC74D7C0004D155 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F6B09E1BC74D7B0004D155 /* AFHTTPSessionManager.m */; };
@@ -262,7 +262,6 @@
 		C26C86C61BC69650001ED1E1 /* xiazai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xiazai.png; sourceTree = "<group>"; };
 		C26C86C71BC69650001ED1E1 /* yishoucang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yishoucang.png; sourceTree = "<group>"; };
 		C26C86C81BC69650001ED1E1 /* zanting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zanting.png; sourceTree = "<group>"; };
-		C26C86C91BC69650001ED1E1 /* 电台图片.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "电台图片.jpeg"; sourceTree = "<group>"; };
 		C2E35AAF1BC6053A00FB1685 /* BG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BG.jpg; sourceTree = "<group>"; };
 		C2E35AB01BC6053A00FB1685 /* 阿狸.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "阿狸.jpg"; sourceTree = "<group>"; };
 		C2E35B831BC64CFF00FB1685 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
@@ -282,6 +281,7 @@
 		C2E35BA51BC68CA000FB1685 /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
 		C2E35BB41BC68CA000FB1685 /* PlayerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerModel.h; sourceTree = "<group>"; };
 		C2E35BB51BC68CA000FB1685 /* PlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerModel.m; sourceTree = "<group>"; };
+		C2F5CFFC1BC80A2800B76FDA /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		C2F6B0991BC74D7B0004D155 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		C2F6B09A1BC74D7B0004D155 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		C2F6B09B1BC74D7B0004D155 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -568,6 +568,7 @@
 		C26C86BA1BC69650001ED1E1 /* 图片 */ = {
 			isa = PBXGroup;
 			children = (
+				C2F5CFFC1BC80A2800B76FDA /* 1.png */,
 				C26C86BF1BC69650001ED1E1 /* faxian.png */,
 				C26C86BD1BC69650001ED1E1 /* diantai.png */,
 				C26C86BC1BC69650001ED1E1 /* bofangyemian.png */,
@@ -582,7 +583,6 @@
 				C26C86C81BC69650001ED1E1 /* zanting.png */,
 				C26C86C31BC69650001ED1E1 /* shang.png */,
 				C26C86C51BC69650001ED1E1 /* xia.png */,
-				C26C86C91BC69650001ED1E1 /* 电台图片.jpeg */,
 			);
 			path = "图片";
 			sourceTree = "<group>";
@@ -622,10 +622,10 @@
 		C2E35BA11BC68CA000FB1685 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C2E35BA21BC68CA000FB1685 /* LiebiaoTableViewController.h */,
-				C2E35BA31BC68CA000FB1685 /* LiebiaoTableViewController.m */,
 				C2E35BA41BC68CA000FB1685 /* PlayerController.h */,
 				C2E35BA51BC68CA000FB1685 /* PlayerController.m */,
+				C2E35BA21BC68CA000FB1685 /* LiebiaoTableViewController.h */,
+				C2E35BA31BC68CA000FB1685 /* LiebiaoTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -914,6 +914,7 @@
 				C2FFA51E1BC3B068004B69B0 /* Images.xcassets in Resources */,
 				C26C86D21BC69650001ED1E1 /* shang.png in Resources */,
 				C26C86D31BC69650001ED1E1 /* weishoucang.png in Resources */,
+				C2F5CFFD1BC80A2800B76FDA /* 1.png in Resources */,
 				C26C86CD1BC69650001ED1E1 /* dingshi.png in Resources */,
 				C23340591BC54DE10045EA8E /* RegisterViewController.xib in Resources */,
 				C26C86CF1BC69650001ED1E1 /* gengduo.png in Resources */,
@@ -924,7 +925,6 @@
 				C26C86D51BC69650001ED1E1 /* xiazai.png in Resources */,
 				C26C86CC1BC69650001ED1E1 /* diantai.png in Resources */,
 				C23340561BC54DE10045EA8E /* OpinionController.xib in Resources */,
-				C26C86D81BC69650001ED1E1 /* 电台图片.jpeg in Resources */,
 				C26C86D71BC69650001ED1E1 /* zanting.png in Resources */,
 				C223BAD71BC771ED00EA4C8F /* SCNavTabBar.bundle in Resources */,
 				C2E35AB21BC6053A00FB1685 /* 阿狸.jpg in Resources */,

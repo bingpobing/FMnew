@@ -22,4 +22,7 @@
 
 @property(nonatomic , strong) NSString *duration;
 
+//电台地址
+@property (nonatomic,strong)NSString *playPathAacv224;
+
 @end
