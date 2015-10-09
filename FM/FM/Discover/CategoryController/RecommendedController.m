@@ -1,18 +1,18 @@
 //
-//  DiscoverController.m
+//  RecommendedController.m
 //  FM
 //
 //  Created by lanou3g on 15/10/9.
 //  Copyright (c) 2015年 YT. All rights reserved.
 //
 
-#import "DiscoverController.h"
+#import "RecommendedController.h"
 
-@interface DiscoverController ()
+@interface RecommendedController ()
 
 @end
 
-@implementation DiscoverController
+@implementation RecommendedController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

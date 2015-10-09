@@ -1,18 +1,18 @@
 //
-//  DiscoverController.m
+//  Category4EasyViewController.m
 //  FM
 //
 //  Created by lanou3g on 15/10/9.
 //  Copyright (c) 2015年 YT. All rights reserved.
 //
 
-#import "DiscoverController.h"
+#import "Category4EasyViewController.h"
 
-@interface DiscoverController ()
+@interface Category4EasyViewController ()
 
 @end
 
-@implementation DiscoverController
+@implementation Category4EasyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

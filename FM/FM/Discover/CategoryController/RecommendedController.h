@@ -1,5 +1,5 @@
 //
-//  DiscoverController.h
+//  RecommendedController.h
 //  FM
 //
 //  Created by lanou3g on 15/10/9.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoverController : UIViewController
+@interface RecommendedController : UIViewController
 
 @end
