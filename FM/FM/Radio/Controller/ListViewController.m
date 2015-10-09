@@ -7,12 +7,19 @@
 //
 
 #import "ListViewController.h"
-
+#import "AFNetworking.h"
+#import "ListCell.h"
+#import "ListModel.h"
 
 
 #define URL @"http://mobile.ximalaya.com/mobile/others/ca/album/track/%ld/true/1/30?device=iPhone"
 
 @interface ListViewController ()
+
+
+@property(nonatomic , strong) NSMutableArray *Array;
+
+@property(nonatomic , strong) NSMutableDictionary *DIC;
 
 @end
 
@@ -20,32 +27,65 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self networking];
+    self.tableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
     
+    self.tableView.separatorColor = [UIColor whiteColor];
+    [self.tableView registerClass:[ListCell class] forCellReuseIdentifier:@"cell"];
+  
+ 
+}
+
+-(void)networking{
+    _DIC = [NSMutableDictionary new];
+    _Array = [NSMutableArray new];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
+    [manager GET:[NSString stringWithFormat:URL,_ID] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        for (NSDictionary *Dic in responseObject[@"tracks"][@"list"]) {
+            ListModel *model = [ListModel new];
+            model.PicUrl = Dic[@"coverLarge"];
+            model.title = Dic[@"title"];
+            model.nickname = Dic[@"nickname"];
+            model.playtime = [NSString stringWithFormat:@"%@",Dic[@"playtimes"]];
+            model.likes = [NSString stringWithFormat:@"%@",Dic[@"likes"]];
+            model.duration = [NSString stringWithFormat:@"%@",Dic[@"duration"]];
+            [_Array addObject:model];
+            [_DIC setObject:_Array forKey:responseObject[@"tracks"][@"list"]];
+              [self.tableView reloadData];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error%@",error);
+    }];
     
     
 }
-
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 0;
+    return _DIC.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return _Array.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    ListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    NSString *key = _DIC.allKeys[indexPath.section];
+    NSArray *arr = _DIC[key];
+    ListModel *model = arr[indexPath.row];
+    cell.model = model;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor colorWithRed:0.234 green:0.560 blue:1.000 alpha:1.000];
     return cell;
 }
-*/
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
 
 /*
 // Override to support conditional editing of the table view.

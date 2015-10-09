@@ -50,7 +50,8 @@
                 self.objId = dic[@"objectId"];
                 loginmineVC.temp = self.objId;
                 NSLog(@"成功");
-                
+                self.lab4Password.text = @"";
+                self.lab4Name.text = @"";
                 [self.navigationController pushViewController:loginmineVC animated:YES];
                 break;
             }

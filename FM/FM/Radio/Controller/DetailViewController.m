@@ -44,7 +44,7 @@
     [_Segment addTarget:self action:@selector(Action:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:_Segment];
    
-    _tab = [[UITableView alloc]initWithFrame:CGRectMake(0, _Segment.frame.origin.y + _Segment.frame.size.height,self.view.frame.size.width,self.view.frame.size.height - _Segment.frame.size.height - 49-rectNav.size.height - 20) style:UITableViewStyleGrouped];
+    _tab = [[UITableView alloc]initWithFrame:CGRectMake(0, _Segment.frame.origin.y + _Segment.frame.size.height,self.view.frame.size.width,self.view.frame.size.height - _Segment.frame.size.height - 49-rectNav.size.height - 20) style:UITableViewStylePlain];
     _tab.backgroundColor = [UIColor colorWithRed:0.562 green:0.683 blue:1.000 alpha:1.000];
     _tab.dataSource = self;
     _tab.delegate = self;
@@ -71,6 +71,7 @@
                 model.title = dd[@"title"];
                 model.picUrl = dd[@"albumCoverUrl290"];
                 model.number = dd[@"playsCounts"];
+                model.ID = [dd[@"id"]floatValue];
                 [_Array addObject:model];
                 [_DIC setObject:_Array forKey:DataDic[@"list"]];
             }
@@ -87,6 +88,7 @@
                 model.title = dd[@"title"];
                 model.picUrl = dd[@"albumCoverUrl290"];
                 model.number = dd[@"playsCounts"];
+                model.ID = [dd[@"id"]floatValue];
                 [_Array addObject:model];
                 [_DIC setObject:_Array forKey:DataDic[@"list"]];
             }
@@ -103,6 +105,7 @@
             model.title = dd[@"title"];
             model.picUrl = dd[@"albumCoverUrl290"];
             model.number = dd[@"playsCounts"];
+            model.ID = [dd[@"id"]floatValue];
             [_Array addObject:model];
             [_DIC setObject:_Array forKey:DataDic[@"list"]];
             
@@ -151,6 +154,7 @@
    NSArray *arr =self.DIC[key];
    DetailModel *model = arr[indexPath.row];
     cell.Detail = model;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = [UIColor colorWithRed:0.562 green:0.683 blue:1.000 alpha:1.000];
     return cell;
     
