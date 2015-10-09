@@ -10,4 +10,16 @@
 
 @interface DiscoverCell : UICollectionViewCell
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *img4play_url;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *lab4play_name;
+
+@property (weak, nonatomic) IBOutlet UILabel *lab4play_summarize;
+
+
+
+
+
 @end

@@ -10,4 +10,10 @@
 
 @interface HeaderView : UICollectionReusableView
 
+
+
+@property (weak, nonatomic) IBOutlet UILabel *lab4headerName;
+
+
+
 @end

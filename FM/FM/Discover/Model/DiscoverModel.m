@@ -10,4 +10,17 @@
 
 @implementation DiscoverModel
 
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
+    NSLog(@"==========%@",key);
+}
+
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@", self.record_play_image_url];
+}
+
+
+
 @end

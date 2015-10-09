@@ -10,4 +10,9 @@
 
 @interface Category4ScrollViewController : UIViewController
 
+
+//自定义用来传值的方法
+- (instancetype)initWithNSInteger:(NSInteger)nsmuber;
+
+
 @end
