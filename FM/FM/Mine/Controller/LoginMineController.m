@@ -41,7 +41,7 @@
     [self.rightBtn addTarget:self action:@selector(action4Quit) forControlEvents:UIControlEventTouchUpInside];
     self.rightBtn.frame = CGRectMake(0, 0, 100, 0);
     self.titleLabel.text = @"";
-    
+    self.tempID = self.temp;
 }
 -(void)action4Quit{
     NSLog(@"退出登录");

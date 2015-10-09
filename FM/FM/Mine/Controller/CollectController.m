@@ -8,9 +8,11 @@
 
 #import "CollectController.h"
 #import "CollectCell.h"
-
+#import "FMmodel.h"
+#import <AVOSCloud/AVOSCloud.h>
 @interface CollectController ()<UITableViewDelegate,UITableViewDataSource>
-
+@property(nonatomic,strong) NSArray *array;
+@property(nonatomic,strong) NSArray *nameArr;
 @end
 
 @implementation CollectController
@@ -25,6 +27,15 @@
     [tableview registerClass:[CollectCell class] forCellReuseIdentifier:@"cell"];
     //防止tableview上面有空白
     self.edgesForExtendedLayout = UIRectEdgeNone;
+   
+    //查询音乐
+    AVQuery *query = [AVQuery queryWithClassName:@"FM"];
+    AVObject *post = [query getObjectWithId:self.temID];
+
+    self.nameArr = [post objectForKey:@"musicName"];
+    
+
+    
     [self.view addSubview:tableview];
 }
 
@@ -36,22 +47,26 @@
 
 #pragma mark ---tableview---
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.nameArr.count;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 1;
 }
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return @"电台";
-    }else{
-        return @"节目";
-    }
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    if (section == 0) {
+//        return @"电台";
+//    }else{
+//        return @"节目";
+//    }
+//}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CollectCell *cell = [[CollectCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    cell.textLabel.text = @"11";
+    cell.lab4Name.text = self.nameArr[indexPath.row];
+//    cell.lab4Name.text = @"1";
     return cell;
 }
 
@@ -64,5 +79,16 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+-(NSArray *)array{
+    if (_array == nil) {
+        _array = [NSArray array];
+    }
+    return _array;
+}
+-(NSArray *)nameArr{
+    if (_nameArr ==nil) {
+        _nameArr = [NSArray array];
+    }
+    return _nameArr;
+}
 @end

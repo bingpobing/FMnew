@@ -20,7 +20,7 @@
 @property (nonatomic, strong) UIButton *leftBtn;
 @property (nonatomic, strong) UIButton *rightBtn;
 
-
+@property (nonatomic, strong) NSString *tempID;
 -(void)leftBtnAction;
 
 -(void)rightBtnAction;

@@ -1,14 +1,14 @@
 //
-//  CollectCell.m
+//  RecentlyViewCell.m
 //  FM
 //
-//  Created by lanou3g on 15/10/7.
+//  Created by lanou3g on 15/10/9.
 //  Copyright (c) 2015年 YT. All rights reserved.
 //
 
-#import "CollectCell.h"
+#import "RecentlyViewCell.h"
 #import "FMmodel.h"
-@implementation CollectCell
+@implementation RecentlyViewCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -19,11 +19,10 @@
 
     // Configure the view for the selected state
 }
-
 -(void)setModel:(FMmodel *)model{
+    NSString *url = model.imgUrl;
     self.lab4Name.numberOfLines = 0;
     self.lab4Name.text = model.musicName;
-  
+    [self.img4Music sd_setImageWithURL:[NSURL URLWithString:url]];
 }
-
 @end

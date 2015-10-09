@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CollectController : UIViewController
-
+@property (nonatomic,strong) NSString *temID;
 @end

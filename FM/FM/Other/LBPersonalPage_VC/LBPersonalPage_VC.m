@@ -160,6 +160,7 @@ const CGFloat HeadImageHeight= 80;
         [self.navigationController pushViewController:loginVC animated:YES];
     }else if ([self.array[index] isEqualToString:@"收藏列表"]){
         CollectController *collectVC = [CollectController new];
+        collectVC.temID = self.tempID;
         [self.navigationController pushViewController:collectVC animated:YES];
     }else if ([self.array[index] isEqualToString:@"下载列表"]){
         DownLoadController *downVC = [DownLoadController new];
