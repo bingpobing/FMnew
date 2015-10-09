@@ -7,7 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListModel.h"
 
 @interface ListCell : UITableViewCell
+
+@property(nonatomic , strong) UIImageView *albumImage;
+
+@property(nonatomic , strong) UILabel *titleLabel;
+
+@property(nonatomic , strong) UILabel *nicknameLabel;
+
+@property(nonatomic , strong) UILabel *playtimesLabel;
+
+@property(nonatomic , strong) UILabel *likesLabel;
+
+@property(nonatomic , strong) UILabel *durationLabel;
+
+@property(nonatomic , strong) ListModel *model;
+
 
 @end

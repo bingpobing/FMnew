@@ -10,4 +10,16 @@
 
 @interface ListModel : NSObject
 
+@property(nonatomic , strong) NSURL *PicUrl;
+
+@property(nonatomic , strong) NSString *title;
+
+@property(nonatomic , strong) NSString *nickname;
+
+@property(nonatomic , strong) NSString *playtime;
+
+@property(nonatomic , strong) NSString *likes;
+
+@property(nonatomic , strong) NSString *duration;
+
 @end
