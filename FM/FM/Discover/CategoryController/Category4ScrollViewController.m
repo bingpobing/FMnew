@@ -1,18 +1,18 @@
 //
-//  DiscoverController.m
+//  Category4ScrollViewController.m
 //  FM
 //
 //  Created by lanou3g on 15/10/9.
 //  Copyright (c) 2015年 YT. All rights reserved.
 //
 
-#import "DiscoverController.h"
+#import "Category4ScrollViewController.h"
 
-@interface DiscoverController ()
+@interface Category4ScrollViewController ()
 
 @end
 
-@implementation DiscoverController
+@implementation Category4ScrollViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

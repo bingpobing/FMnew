@@ -26,7 +26,7 @@
     
     
     //1
-    DiscoverController *discoverVC = [[DiscoverController alloc]initWithStyle:UITableViewStylePlain];
+    DiscoverController *discoverVC = [[DiscoverController alloc]init];
     UINavigationController *discoverNC = [[UINavigationController alloc]initWithRootViewController:discoverVC];
     discoverVC.title = @"发现";
     UIImage *image1 = [UIImage imageNamed:@"faxian"];

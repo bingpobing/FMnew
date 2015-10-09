@@ -45,6 +45,7 @@
 }
 -(void)action4Quit{
     NSLog(@"退出登录");
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
