@@ -734,13 +734,13 @@
 		C2FFA5451BC3B4B4004B69B0 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
+
 				C2F6B0981BC74D7B0004D155 /* AFNetworking */,
-=======
+
 				C223BAC91BC771ED00EA4C8F /* CarouselFingure.h */,
 				C223BACA1BC771ED00EA4C8F /* CarouselFingure.m */,
 				C223BACB1BC771ED00EA4C8F /* SCNavTabBar */,
->>>>>>> 7b98020647e0ad42bcd732144789c390e7fe6c26
+
 				C2E35B981BC6561600FB1685 /* XWAlterview.h */,
 				C2E35B991BC6561600FB1685 /* XWAlterview.m */,
 				C2E35B911BC64D9300FB1685 /* Framework */,
@@ -951,22 +951,21 @@
 				C223BAE41BC790E800EA4C8F /* RecommendedController.m in Sources */,
 				C255C7641BC6A98900EAF02C /* DetailModel.m in Sources */,
 				C233408E1BC54E200045EA8E /* SDWebImageCompat.m in Sources */,
-<<<<<<< HEAD
+
 				C233405A1BC54DE10045EA8E /* SettingController.m in Sources */,
 				C2F6B0B21BC74D7C0004D155 /* AFURLRequestSerialization.m in Sources */,
 				C2F6B0B41BC74D7C0004D155 /* AFURLSessionManager.m in Sources */,
-=======
->>>>>>> 7b98020647e0ad42bcd732144789c390e7fe6c26
+
+
 				C23340981BC54E200045EA8E /* UIImageView+HighlightedWebCache.m in Sources */,
 				C2E35BA01BC670AD00FB1685 /* LoginMineController.m in Sources */,
 				C223BAD81BC771ED00EA4C8F /* SCNavTabBarController.m in Sources */,
 				C23340931BC54E200045EA8E /* SDWebImagePrefetcher.m in Sources */,
 				C23340911BC54E200045EA8E /* SDWebImageDownloaderOperation.m in Sources */,
-<<<<<<< HEAD
+
 				C2F6B0AC1BC74D7C0004D155 /* AFHTTPRequestOperation.m in Sources */,
 				C2FFA5C21BC3EDB2004B69B0 /* DiscoverView.m in Sources */,
-=======
->>>>>>> 7b98020647e0ad42bcd732144789c390e7fe6c26
+
 				C23340901BC54E200045EA8E /* SDWebImageDownloader.m in Sources */,
 				C233408C1BC54E200045EA8E /* NSData+ImageContentType.m in Sources */,
 				C233405B1BC54DE10045EA8E /* TimeController.m in Sources */,
@@ -1004,11 +1003,11 @@
 				C23340941BC54E200045EA8E /* UIButton+WebCache.m in Sources */,
 				C2F6B0AF1BC74D7C0004D155 /* AFNetworkReachabilityManager.m in Sources */,
 				C23340581BC54DE10045EA8E /* RegisterViewController.m in Sources */,
-<<<<<<< HEAD
+
 				C2F6B0AD1BC74D7C0004D155 /* AFHTTPRequestOperationManager.m in Sources */,
-=======
+
 				C223BAEE1BC7924800EA4C8F /* DiscoverCell.m in Sources */,
->>>>>>> 7b98020647e0ad42bcd732144789c390e7fe6c26
+
 				C23340551BC54DE10045EA8E /* OpinionController.m in Sources */,
 				C223BADE1BC7731600EA4C8F /* DiscoverController.m in Sources */,
 				C255C7691BC6A98900EAF02C /* RadioViewCell.m in Sources */,
