@@ -98,7 +98,6 @@
 		C2E35B901BC64D5800FB1685 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E35B8F1BC64D5800FB1685 /* SystemConfiguration.framework */; };
 		C2E35B9A1BC6561600FB1685 /* XWAlterview.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E35B991BC6561600FB1685 /* XWAlterview.m */; };
 		C2E35BA01BC670AD00FB1685 /* LoginMineController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E35B9F1BC670AD00FB1685 /* LoginMineController.m */; };
-		C2E35BB61BC68CA000FB1685 /* LiebiaoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E35BA31BC68CA000FB1685 /* LiebiaoTableViewController.m */; };
 		C2E35BB71BC68CA000FB1685 /* PlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E35BA51BC68CA000FB1685 /* PlayerController.m */; };
 		C2E35BC41BC68CA100FB1685 /* PlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E35BB51BC68CA000FB1685 /* PlayerModel.m */; };
 		C2F5CFFD1BC80A2800B76FDA /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C2F5CFFC1BC80A2800B76FDA /* 1.png */; };
@@ -281,8 +280,6 @@
 		C2E35B991BC6561600FB1685 /* XWAlterview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWAlterview.m; sourceTree = "<group>"; };
 		C2E35B9E1BC670AD00FB1685 /* LoginMineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginMineController.h; sourceTree = "<group>"; };
 		C2E35B9F1BC670AD00FB1685 /* LoginMineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginMineController.m; sourceTree = "<group>"; };
-		C2E35BA21BC68CA000FB1685 /* LiebiaoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiebiaoTableViewController.h; sourceTree = "<group>"; };
-		C2E35BA31BC68CA000FB1685 /* LiebiaoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiebiaoTableViewController.m; sourceTree = "<group>"; };
 		C2E35BA41BC68CA000FB1685 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
 		C2E35BA51BC68CA000FB1685 /* PlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerController.m; sourceTree = "<group>"; };
 		C2E35BB41BC68CA000FB1685 /* PlayerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerModel.h; sourceTree = "<group>"; };
@@ -634,8 +631,6 @@
 			children = (
 				C2E35BA41BC68CA000FB1685 /* PlayerController.h */,
 				C2E35BA51BC68CA000FB1685 /* PlayerController.m */,
-				C2E35BA21BC68CA000FB1685 /* LiebiaoTableViewController.h */,
-				C2E35BA31BC68CA000FB1685 /* LiebiaoTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1008,7 +1003,6 @@
 				C23340921BC54E200045EA8E /* SDWebImageManager.m in Sources */,
 				C223BAEA1BC791AD00EA4C8F /* Category4EasyViewController.m in Sources */,
 				C233405E1BC54DE10045EA8E /* CollectCell.m in Sources */,
-				C2E35BB61BC68CA000FB1685 /* LiebiaoTableViewController.m in Sources */,
 				C2FFA5491BC3B4B4004B69B0 /* AppDelegate.m in Sources */,
 				C23340521BC54DE10045EA8E /* LoginController.m in Sources */,
 				C233408B1BC54E200045EA8E /* MKAnnotationView+WebCache.m in Sources */,

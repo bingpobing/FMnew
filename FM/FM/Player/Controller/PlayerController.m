@@ -7,7 +7,6 @@
 //
 
 #import "PlayerController.h"
-#import "LiebiaoTableViewController.h"
 #import "UIImageView+WebCache.h"
 #import <AVFoundation/AVFoundation.h>
 #import "FMmodel.h"
@@ -52,23 +51,12 @@
         [model insertToTable];
     }
     
+    
     //背景颜色
     self.view.backgroundColor = [UIColor colorWithRed:193/255.0 green:230/255.0 blue:252/255.0 alpha:1];
     
-    
-    
-    //设置导航栏右边按钮:图片
-    //图片渲染(保持原有的特性)(如果图片不是镂空的,必须渲染)
-    UIImage *image = [UIImage imageNamed:@"gengduo"];
-    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];//翻译;表现 模式 //原始的;最初的
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(clickChange)];
-    
-    
-    
     self.radioPalyer = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:_playPathAacv224]];
     [self.radioPalyer play];
-    
-    
     
     [self loadViewStyle];
     
@@ -78,130 +66,114 @@
 
 - (void)loadViewStyle{
     
-    UIImage *image = [UIImage imageNamed:@"1"];
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
-    imageView.center = CGPointMake(kScreenWidth/2, kScreenHeight/2-150);
-    imageView.layer.cornerRadius = 100;
-    imageView.layer.masksToBounds = YES;
-    imageView.image = image;
-    [self.view addSubview:imageView];
+    //返回按钮
+    _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _backBtn.frame = CGRectMake(0, 0, 100, 64);
+    [_backBtn setTitle:@"返回" forState:UIControlStateNormal];
+    [_backBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_backBtn addTarget:self action:@selector(clickBackBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_backBtn];
     
+    //传过来的图片
+    _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
+    [_imgView sd_setImageWithURL:_PicUrl];
+    _imgView.layer.cornerRadius = 100;
+    _imgView.layer.masksToBounds = YES;
+    _imgView.center = CGPointMake(kScreenWidth/2, kScreenHeight/2-150);
+    [self.view addSubview:_imgView];
     
-    self.imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
-    [self.imgView sd_setImageWithURL:self.PicUrl];
-    self.imgView.layer.cornerRadius = 100;
-    self.imgView.layer.masksToBounds = YES;
-    self.imgView.center = CGPointMake(kScreenWidth/2, kScreenHeight/2-150);
-    [self.view addSubview:self.imgView];
+    //小标题
+    _titleLab = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_imgView.frame)+20, self.view.frame.size.width, 30)];
+    _titleLab.text = self.radioTitle;
+    _titleLab.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_titleLab];
     
-    
-    self.titleLab = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.imgView.frame)+20, self.view.frame.size.width, 30)];
-    self.titleLab.text = self.radioTitle;
-    self.titleLab.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:self.titleLab];
-    
-    
-    self.djLab = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.imgView.frame)+70, self.view.frame.size.width, 30)];
-    self.djLab.text = self.nickname;
-    self.djLab.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:self.djLab];
-    
+    //电台主持
+    _djLab = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_imgView.frame)+60, self.view.frame.size.width, 30)];
+    _djLab.text = self.nickname;
+    _djLab.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_djLab];
     
     //列表
-    self.liebiaoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.liebiaoBtn.frame = CGRectMake(0, 0, 50, 50);
-    self.liebiaoBtn.center = CGPointMake(kScreenWidth/2-150, kScreenHeight/2+100);
-    [self.liebiaoBtn setImage:[UIImage imageNamed:@"liebiao"] forState:UIControlStateNormal];
-    [self.liebiaoBtn addTarget:self action:@selector(clickLiebiaoBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.liebiaoBtn];
+    _liebiaoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _liebiaoBtn.frame = CGRectMake(0, 0, 50, 50);
+    _liebiaoBtn.center = CGPointMake(kScreenWidth/2-100, kScreenHeight/2+100);
+    [_liebiaoBtn setImage:[UIImage imageNamed:@"liebiao"] forState:UIControlStateNormal];
+    [_liebiaoBtn addTarget:self action:@selector(clickLiebiaoBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_liebiaoBtn];
     
-    self.liebiaoLab = [[UILabel alloc]init];
-    self.liebiaoLab.frame = CGRectMake(0, 0, 50, 50);
-    self.liebiaoLab.center = CGPointMake(kScreenWidth/2-145, kScreenHeight/2+125);
-    self.liebiaoLab.text = @"列表";
-    [self.view addSubview:self.liebiaoLab];
-    
-    
-    //定时
-    self.dingshiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.dingshiBtn.frame = CGRectMake(0, 0, 50, 50);
-    self.dingshiBtn.center = CGPointMake(kScreenWidth/2-50, kScreenHeight/2+100);
-    [self.dingshiBtn setImage:[UIImage imageNamed:@"dingshi"] forState:UIControlStateNormal];
-    [self.dingshiBtn addTarget:self action:@selector(clickDingshiBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.dingshiBtn];
-    
-    self.dingshiLab = [[UILabel alloc]init];
-    self.dingshiLab.frame = CGRectMake(0, 0, 50, 50);
-    self.dingshiLab.center = CGPointMake(kScreenWidth/2-45, kScreenHeight/2+125);
-    self.dingshiLab.text = @"定时";
-    [self.view addSubview:self.dingshiLab];
-    
+    _liebiaoLab = [[UILabel alloc]init];
+    _liebiaoLab.frame = CGRectMake(0, 0, 50, 50);
+    _liebiaoLab.center = CGPointMake(kScreenWidth/2-95, kScreenHeight/2+130);
+    _liebiaoLab.text = @"列表";
+    [self.view addSubview:_liebiaoLab];
     
     //下载
-    self.xiazaiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.xiazaiBtn.frame = CGRectMake(0, 0, 50, 50);
-    self.xiazaiBtn.center = CGPointMake(kScreenWidth/2+50, kScreenHeight/2+100);
-    [self.xiazaiBtn setImage:[UIImage imageNamed:@"xiazai"] forState:UIControlStateNormal];
-    [self.xiazaiBtn addTarget:self action:@selector(clickXiazaiBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.xiazaiBtn];
+    _xiazaiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _xiazaiBtn.frame = CGRectMake(0, 0, 50, 50);
+    self.xiazaiBtn.center = CGPointMake(kScreenWidth/2, kScreenHeight/2+100);
+    [_xiazaiBtn setImage:[UIImage imageNamed:@"xiazai"] forState:UIControlStateNormal];
+    [_xiazaiBtn addTarget:self action:@selector(clickXiazaiBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_xiazaiBtn];
     
-    self.xiazaiLab = [[UILabel alloc]init];
-    self.xiazaiLab.frame = CGRectMake(0, 0, 50, 50);
-    self.xiazaiLab.center = CGPointMake(kScreenWidth/2+55, kScreenHeight/2+125);
-    self.xiazaiLab.text = @"下载";
-    [self.view addSubview:self.xiazaiLab];
-    
+    _xiazaiLab = [[UILabel alloc]init];
+    _xiazaiLab.frame = CGRectMake(0, 0, 50, 50);
+    _xiazaiLab.center = CGPointMake(kScreenWidth/2+5, kScreenHeight/2+130);
+    _xiazaiLab.text = @"下载";
+    [self.view addSubview:_xiazaiLab];
     
     //收藏
-    self.shoucangBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.shoucangBtn.frame = CGRectMake(0, 0, 50, 50);
-    self.shoucangBtn.center = CGPointMake(kScreenWidth/2+150, kScreenHeight/2+100);
-    [self.shoucangBtn setImage:[UIImage imageNamed:@"weishoucang"] forState:UIControlStateNormal];
-    [self.shoucangBtn addTarget:self action:@selector(clickShoucangBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.shoucangBtn];
+    _shoucangBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _shoucangBtn.frame = CGRectMake(0, 0, 50, 50);
+    _shoucangBtn.center = CGPointMake(kScreenWidth/2+100, kScreenHeight/2+100);
+    [_shoucangBtn setImage:[UIImage imageNamed:@"weishoucang"] forState:UIControlStateNormal];
+    [_shoucangBtn addTarget:self action:@selector(clickShoucangBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_shoucangBtn];
     
-    self.shoucangLab = [[UILabel alloc]init];
-    self.shoucangLab.frame = CGRectMake(0, 0, 50, 50);
-    self.shoucangLab.center = CGPointMake(kScreenWidth/2+155, kScreenHeight/2+125);
-    self.shoucangLab.text = @"收藏";
-    [self.view addSubview:self.shoucangLab];
-    
+    _shoucangLab = [[UILabel alloc]init];
+    _shoucangLab.frame = CGRectMake(0, 0, 50, 50);
+    _shoucangLab.center = CGPointMake(kScreenWidth/2+105, kScreenHeight/2+130);
+    _shoucangLab.text = @"收藏";
+    [self.view addSubview:_shoucangLab];
     
     //滑块
-    self.timeSlider = [[UISlider alloc]initWithFrame:CGRectMake(40, CGRectGetMaxY(self.imgView.frame)+210, kScreenWidth-80, 31)];
+    _timeSlider = [[UISlider alloc]initWithFrame:CGRectMake(40, CGRectGetMaxY(_imgView.frame)+210, kScreenWidth-80, 31)];
+    [_timeSlider addTarget:self action:@selector(timeSliderAction:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_timeSlider];
     
-    [self.timeSlider addTarget:self action:@selector(timeSliderAction:) forControlEvents:UIControlEventValueChanged];
+    //播放时间
+    _playedTimeLab = [[UILabel alloc]initWithFrame:CGRectMake(40, CGRectGetMaxY(_imgView.frame)+215, 100, 100)];
+    _playedTimeLab.text = @"播放时间";
+    [self.view addSubview:_playedTimeLab];
     
-    [self.timeSlider addTarget:self action:@selector(volumeChange) forControlEvents:UIControlEventValueChanged];
-    self.timeSlider.minimumValue = 0;
-    self.timeSlider.maximumValue = 10;
-    //初始化音量为1
-    self.timeSlider.value = 1;
-    [self.view addSubview:self.timeSlider];
-    
+    //剩余时间
+    _lastTimeLab = [[UILabel alloc]initWithFrame:CGRectMake(40+kScreenWidth-80-70, CGRectGetMaxY(_imgView.frame)+215, 100, 100)];
+    _lastTimeLab.text = @"剩余时间";
+    [self.view addSubview:_lastTimeLab];
     
     //开始暂停
-    self.startOrPuaseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.startOrPuaseBtn.frame = CGRectMake(0, 0, 50, 50);
-    self.startOrPuaseBtn.center = CGPointMake(kScreenWidth/2, kScreenHeight/2+220);
-    [self.startOrPuaseBtn setImage:[UIImage imageNamed:@"zanting"] forState:UIControlStateNormal];
-    [self.view addSubview:self.startOrPuaseBtn];
-    
+    _startOrPuaseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _startOrPuaseBtn.frame = CGRectMake(0, 0, 50, 50);
+    _startOrPuaseBtn.center = CGPointMake(kScreenWidth/2, kScreenHeight/2+260);
+    [_startOrPuaseBtn setImage:[UIImage imageNamed:@"zanting"] forState:UIControlStateNormal];
+    [_startOrPuaseBtn addTarget:self action:@selector(clickStartOrPuaseBtnBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_startOrPuaseBtn];
     
     //上一首
-    self.previousBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.previousBtn.frame = CGRectMake(0, 0, 50, 50);
-    self.previousBtn.center = CGPointMake(kScreenWidth/2-80, kScreenHeight/2+220);
-    [self.previousBtn setImage:[UIImage imageNamed:@"shang"] forState:UIControlStateNormal];
-    [self.view addSubview:self.previousBtn];
-    
+    _previousBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _previousBtn.frame = CGRectMake(0, 0, 50, 50);
+    _previousBtn.center = CGPointMake(kScreenWidth/2-80, kScreenHeight/2+260);
+    [_previousBtn setImage:[UIImage imageNamed:@"shang"] forState:UIControlStateNormal];
+    [_previousBtn addTarget:self action:@selector(clickPreviousBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_previousBtn];
     
     //下一首
-    self.nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.nextBtn.frame = CGRectMake(0, 0, 50, 50);
-    self.nextBtn.center = CGPointMake(kScreenWidth/2+80, kScreenHeight/2+220);
-    [self.nextBtn setImage:[UIImage imageNamed:@"xia"] forState:UIControlStateNormal];
-    [self.view addSubview:self.nextBtn];
+    _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _nextBtn.frame = CGRectMake(0, 0, 50, 50);
+    _nextBtn.center = CGPointMake(kScreenWidth/2+80, kScreenHeight/2+260);
+    [_nextBtn setImage:[UIImage imageNamed:@"xia"] forState:UIControlStateNormal];
+    [_nextBtn addTarget:self action:@selector(clickNextBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_nextBtn];
 }
 
 
@@ -211,78 +183,20 @@
 }
 
 
-//导航栏按钮
-- (void)clickChange{
+//返回事件
+- (void)clickBackBtn:(UIButton *)sender{
     
-    //上拉菜单 ActionSheet
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"分享到" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-    //常规
-    UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"新浪微博" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-    }];
-    UIAlertAction *alertAction2 = [UIAlertAction actionWithTitle:@"" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-    }];
-    //取消
-    UIAlertAction *alertAction3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-    }];
-    
-    [alert addAction:alertAction1];
-    [alert addAction:alertAction2];
-    [alert addAction:alertAction3];
-    
-    [self presentViewController:alert animated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 //时间滑条拖动事件
 - (void)timeSliderAction:(UISlider *)sender{
     NSLog(@"%f",sender.value);
     
 }
-- (void)volumeChange{
-    
-    self.radioPalyer.volume = self.timeSlider.value;
-}
 //列表事件
 - (void)clickLiebiaoBtn:(UIButton *)sender{
     
-    LiebiaoTableViewController *liebiaoTableVC = [[LiebiaoTableViewController alloc]init];
-    
-    [self.navigationController pushViewController:liebiaoTableVC animated:YES];
-}
-//定时事件
-- (void)clickDingshiBtn:(UIButton *)sender{
-    
-    //上拉菜单 ActionSheet
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"定时" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-    //常规
-    UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"取消定时" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-    }];
-    UIAlertAction *alertAction2 = [UIAlertAction actionWithTitle:@"10分钟" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-    }];
-    UIAlertAction *alertAction3 = [UIAlertAction actionWithTitle:@"30分钟" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-    }];
-    UIAlertAction *alertAction4 = [UIAlertAction actionWithTitle:@"50分钟" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-    }];
-    UIAlertAction *alertAction5 = [UIAlertAction actionWithTitle:@"70分钟" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-    }];
-    UIAlertAction *alertAction6 = [UIAlertAction actionWithTitle:@"90分钟" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-    }];
-    //警示
-    UIAlertAction *alertAction7 = [UIAlertAction actionWithTitle:@"该节目播放完毕后自动关闭" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-    }];
-    //取消
-    UIAlertAction *alertAction8 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-    }];
-    
-    [alert addAction:alertAction1];
-    [alert addAction:alertAction2];
-    [alert addAction:alertAction3];
-    [alert addAction:alertAction4];
-    [alert addAction:alertAction5];
-    [alert addAction:alertAction6];
-    [alert addAction:alertAction7];
-    [alert addAction:alertAction8];
-    
-    //显示提示框视图控制器
-    [self presentViewController:alert animated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 //下载事件
 - (void)clickXiazaiBtn:(UIButton *)sender{

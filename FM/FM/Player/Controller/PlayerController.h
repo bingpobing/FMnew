@@ -24,21 +24,25 @@
 
 @property (nonatomic,strong)FMmodel *playModel;
 
+
+
+@property (nonatomic,strong)UIButton *backBtn;
 @property (nonatomic,strong)UIImageView *imgView;
+
 @property (nonatomic,strong)UILabel *titleLab;
 @property (nonatomic,strong)UILabel *djLab;
 
 @property (nonatomic,strong)UIButton *liebiaoBtn;
-@property (nonatomic,strong)UIButton *dingshiBtn;
 @property (nonatomic,strong)UIButton *xiazaiBtn;
 @property (nonatomic,strong)UIButton *shoucangBtn;
 
 @property (nonatomic,strong)UILabel *liebiaoLab;
-@property (nonatomic,strong)UILabel *dingshiLab;
 @property (nonatomic,strong)UILabel *xiazaiLab;
 @property (nonatomic,strong)UILabel *shoucangLab;
 
 @property (nonatomic,strong)UISlider *timeSlider;
+@property (nonatomic,strong)UILabel *playedTimeLab;
+@property (nonatomic,strong)UILabel *lastTimeLab;
 @property (nonatomic,strong)UIButton *previousBtn;
 @property (nonatomic,strong)UIButton *startOrPuaseBtn;
 @property (nonatomic,strong)UIButton *nextBtn;

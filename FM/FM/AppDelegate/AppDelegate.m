@@ -10,7 +10,7 @@
 #import "DiscoverController.h"
 #import "RadioController.h"
 #import "MineController.h"
-#import "PlayerController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -40,13 +40,6 @@
     radioVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"电台" image:image2 selectedImage:image2];
     
     //3
-    PlayerController *playerVC = [[PlayerController alloc]init];
-    UINavigationController *playerNC = [[UINavigationController alloc]initWithRootViewController:playerVC];
-    playerVC.title = @"播放";
-    UIImage *image3 = [UIImage imageNamed:@"bofangyemian"];
-    playerVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"播放" image:image3 selectedImage:image3];
-    
-    //4
     MineController *mineVC = [MineController new];
     UINavigationController *mineNC = [[UINavigationController alloc]initWithRootViewController:mineVC];
     mineVC.title = @"我的";
@@ -55,7 +48,7 @@
     
 
     
-    NSArray *allNC = @[discoverNC,RadioNC,playerNC,mineNC];
+    NSArray *allNC = @[discoverNC,RadioNC,mineNC];
     UITabBarController *tabBarVC = [[UITabBarController alloc]init];
     
     tabBarVC.viewControllers = allNC;

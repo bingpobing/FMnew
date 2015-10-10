@@ -17,12 +17,16 @@
 
 @interface ListViewController ()
 
+//因为播放页面一直存在,所以做成一个属性直接放在列表页面
+@property (nonatomic,strong)PlayerController *playerController;
+
 
 @property(nonatomic , strong) NSMutableArray *Array;
 
 @property(nonatomic , strong) NSMutableDictionary *DIC;
 
 @end
+
 
 @implementation ListViewController
 
@@ -94,20 +98,29 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    PlayerController *playerVC = [[PlayerController alloc]init];
-    
     NSString *key = self.DIC.allKeys[indexPath.section];
     NSArray *array =self.DIC[key];
     
     ListModel *model = array[indexPath.row];
     
-    playerVC.PicUrl = model.PicUrl;
-    playerVC.radioTitle = model.title;
-    playerVC.nickname = model.nickname;
-    playerVC.duration = model.duration;
-    playerVC.playPathAacv224 = model.playPathAacv224;
+    self.playerController = [[PlayerController alloc]init];
     
-    [self.navigationController pushViewController:playerVC animated:YES];
+    self.playerController.PicUrl = model.PicUrl;
+    self.playerController.radioTitle = model.title;
+    self.playerController.nickname = model.nickname;
+    self.playerController.duration = model.duration;
+    self.playerController.playPathAacv224 = model.playPathAacv224;
+    
+    [self showDetailViewController:self.playerController sender:nil];
+}
+
+
+//#pragma mark - lazy load 初始化
+- (PlayerController *)playerController{
+    if (_playerController == nil) {
+        _playerController = [PlayerController shareController];
+    }
+    return _playerController;
 }
 
 
