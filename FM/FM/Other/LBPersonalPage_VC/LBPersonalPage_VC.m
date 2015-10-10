@@ -15,10 +15,10 @@
 #import "LoginController.h"
 #import "CollectController.h"
 #import "DownLoadController.h"
-#import "RecentlyController.h"
 #import "TimeController.h"
 #import "SettingController.h"
 #import "OpinionController.h"
+#import "RecentlyViewController.h"
 const CGFloat BackGroupHeight = 200;
 const CGFloat HeadImageHeight= 80;
 
@@ -166,8 +166,9 @@ const CGFloat HeadImageHeight= 80;
         DownLoadController *downVC = [DownLoadController new];
         [self.navigationController pushViewController:downVC animated:YES];
     }else if ([self.array[index] isEqualToString:@"最近收听"]){
-        RecentlyController *recentlyVC = [RecentlyController new];
-        [self.navigationController pushViewController:recentlyVC animated:YES];
+        RecentlyViewController *recent = [RecentlyViewController new];
+      
+        [self.navigationController pushViewController:recent animated:YES];
     }else if ([self.array[index] isEqualToString:@"定时功能"]){
         TimeController *timeVC = [TimeController new];
         [self.navigationController pushViewController:timeVC animated:YES];

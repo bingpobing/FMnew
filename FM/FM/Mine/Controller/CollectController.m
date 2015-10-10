@@ -24,7 +24,8 @@
     UITableView *tableview = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
     tableview.delegate = self;
     tableview.dataSource = self;
-    [tableview registerClass:[CollectCell class] forCellReuseIdentifier:@"cell"];
+//    [tableview registerClass:[CollectCell class] forCellReuseIdentifier:@"cell"];
+    [tableview registerNib:[UINib nibWithNibName:@"CollectCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     //防止tableview上面有空白
     self.edgesForExtendedLayout = UIRectEdgeNone;
    
@@ -47,7 +48,8 @@
 
 #pragma mark ---tableview---
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.nameArr.count;
+//    return self.nameArr.count;
+    return 3;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -65,8 +67,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CollectCell *cell = [[CollectCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    cell.lab4Name.text = self.nameArr[indexPath.row];
-//    cell.lab4Name.text = @"1";
+//    cell.lab4Name.text = self.nameArr[indexPath.row];
+    cell.lab4Name.text = @"1";
     return cell;
 }
 

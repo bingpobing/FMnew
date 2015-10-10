@@ -25,8 +25,6 @@
 		C2319E971BC7BA330054BBE7 /* FMmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2319E961BC7BA330054BBE7 /* FMmodel.m */; };
 		C2319E991BC7BA4A0054BBE7 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2319E981BC7BA4A0054BBE7 /* libsqlite3.0.dylib */; };
 		C2319E9C1BC7BA910054BBE7 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2319E9B1BC7BA910054BBE7 /* DatabaseManager.m */; };
-		C2319EA51BC7F91F0054BBE7 /* RecentlyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2319EA31BC7F91F0054BBE7 /* RecentlyViewCell.m */; };
-		C2319EA61BC7F91F0054BBE7 /* RecentlyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2319EA41BC7F91F0054BBE7 /* RecentlyViewCell.xib */; };
 		C23340501BC54DE10045EA8E /* CollectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340321BC54DE10045EA8E /* CollectController.m */; };
 		C23340511BC54DE10045EA8E /* DownLoadController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340341BC54DE10045EA8E /* DownLoadController.m */; };
 		C23340521BC54DE10045EA8E /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340361BC54DE10045EA8E /* LoginController.m */; };
@@ -34,7 +32,6 @@
 		C23340541BC54DE10045EA8E /* MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340391BC54DE10045EA8E /* MineController.m */; };
 		C23340551BC54DE10045EA8E /* OpinionController.m in Sources */ = {isa = PBXBuildFile; fileRef = C233403B1BC54DE10045EA8E /* OpinionController.m */; };
 		C23340561BC54DE10045EA8E /* OpinionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C233403C1BC54DE10045EA8E /* OpinionController.xib */; };
-		C23340571BC54DE10045EA8E /* RecentlyController.m in Sources */ = {isa = PBXBuildFile; fileRef = C233403E1BC54DE10045EA8E /* RecentlyController.m */; };
 		C23340581BC54DE10045EA8E /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340401BC54DE10045EA8E /* RegisterViewController.m */; };
 		C23340591BC54DE10045EA8E /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23340411BC54DE10045EA8E /* RegisterViewController.xib */; };
 		C233405B1BC54DE10045EA8E /* TimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340451BC54DE10045EA8E /* TimeController.m */; };
@@ -85,6 +82,11 @@
 		C26C86D51BC69650001ED1E1 /* xiazai.png in Resources */ = {isa = PBXBuildFile; fileRef = C26C86C61BC69650001ED1E1 /* xiazai.png */; };
 		C26C86D61BC69650001ED1E1 /* yishoucang.png in Resources */ = {isa = PBXBuildFile; fileRef = C26C86C71BC69650001ED1E1 /* yishoucang.png */; };
 		C26C86D71BC69650001ED1E1 /* zanting.png in Resources */ = {isa = PBXBuildFile; fileRef = C26C86C81BC69650001ED1E1 /* zanting.png */; };
+		C2B32C1C1BC8AD180079AD55 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B32C1B1BC8AD180079AD55 /* AboutController.m */; };
+		C2B32C1F1BC8AED50079AD55 /* AboutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B32C1E1BC8AED50079AD55 /* AboutCell.m */; };
+		C2B32C231BC8EB5D0079AD55 /* RecentlyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B32C211BC8EB5D0079AD55 /* RecentlyViewCell.m */; };
+		C2B32C241BC8EB5D0079AD55 /* RecentlyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B32C221BC8EB5D0079AD55 /* RecentlyViewCell.xib */; };
+		C2B32C271BC8EFF10079AD55 /* RecentlyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B32C261BC8EFF10079AD55 /* RecentlyViewController.m */; };
 		C2E35AB11BC6053A00FB1685 /* BG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2E35AAF1BC6053A00FB1685 /* BG.jpg */; };
 		C2E35AB21BC6053A00FB1685 /* 阿狸.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2E35AB01BC6053A00FB1685 /* 阿狸.jpg */; };
 		C2E35B841BC64CFF00FB1685 /* AVOSCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E35B831BC64CFF00FB1685 /* AVOSCloud.framework */; };
@@ -162,9 +164,6 @@
 		C2319E981BC7BA4A0054BBE7 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		C2319E9A1BC7BA910054BBE7 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		C2319E9B1BC7BA910054BBE7 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
-		C2319EA21BC7F91F0054BBE7 /* RecentlyViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentlyViewCell.h; sourceTree = "<group>"; };
-		C2319EA31BC7F91F0054BBE7 /* RecentlyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentlyViewCell.m; sourceTree = "<group>"; };
-		C2319EA41BC7F91F0054BBE7 /* RecentlyViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecentlyViewCell.xib; sourceTree = "<group>"; };
 		C23340311BC54DE10045EA8E /* CollectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectController.h; sourceTree = "<group>"; };
 		C23340321BC54DE10045EA8E /* CollectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectController.m; sourceTree = "<group>"; };
 		C23340331BC54DE10045EA8E /* DownLoadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadController.h; sourceTree = "<group>"; };
@@ -177,8 +176,6 @@
 		C233403A1BC54DE10045EA8E /* OpinionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpinionController.h; sourceTree = "<group>"; };
 		C233403B1BC54DE10045EA8E /* OpinionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpinionController.m; sourceTree = "<group>"; };
 		C233403C1BC54DE10045EA8E /* OpinionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpinionController.xib; sourceTree = "<group>"; };
-		C233403D1BC54DE10045EA8E /* RecentlyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentlyController.h; sourceTree = "<group>"; };
-		C233403E1BC54DE10045EA8E /* RecentlyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentlyController.m; sourceTree = "<group>"; };
 		C233403F1BC54DE10045EA8E /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		C23340401BC54DE10045EA8E /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		C23340411BC54DE10045EA8E /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -262,6 +259,15 @@
 		C26C86C61BC69650001ED1E1 /* xiazai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xiazai.png; sourceTree = "<group>"; };
 		C26C86C71BC69650001ED1E1 /* yishoucang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yishoucang.png; sourceTree = "<group>"; };
 		C26C86C81BC69650001ED1E1 /* zanting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zanting.png; sourceTree = "<group>"; };
+		C2B32C1A1BC8AD180079AD55 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		C2B32C1B1BC8AD180079AD55 /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		C2B32C1D1BC8AED50079AD55 /* AboutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutCell.h; sourceTree = "<group>"; };
+		C2B32C1E1BC8AED50079AD55 /* AboutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutCell.m; sourceTree = "<group>"; };
+		C2B32C201BC8EB5D0079AD55 /* RecentlyViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentlyViewCell.h; sourceTree = "<group>"; };
+		C2B32C211BC8EB5D0079AD55 /* RecentlyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentlyViewCell.m; sourceTree = "<group>"; };
+		C2B32C221BC8EB5D0079AD55 /* RecentlyViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecentlyViewCell.xib; sourceTree = "<group>"; };
+		C2B32C251BC8EFF10079AD55 /* RecentlyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentlyViewController.h; sourceTree = "<group>"; };
+		C2B32C261BC8EFF10079AD55 /* RecentlyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentlyViewController.m; sourceTree = "<group>"; };
 		C2E35AAF1BC6053A00FB1685 /* BG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BG.jpg; sourceTree = "<group>"; };
 		C2E35AB01BC6053A00FB1685 /* 阿狸.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "阿狸.jpg"; sourceTree = "<group>"; };
 		C2E35B831BC64CFF00FB1685 /* AVOSCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AVOSCloud.framework; sourceTree = "<group>"; };
@@ -415,13 +421,15 @@
 				C233403A1BC54DE10045EA8E /* OpinionController.h */,
 				C233403B1BC54DE10045EA8E /* OpinionController.m */,
 				C233403C1BC54DE10045EA8E /* OpinionController.xib */,
-				C233403D1BC54DE10045EA8E /* RecentlyController.h */,
-				C233403E1BC54DE10045EA8E /* RecentlyController.m */,
+				C2B32C251BC8EFF10079AD55 /* RecentlyViewController.h */,
+				C2B32C261BC8EFF10079AD55 /* RecentlyViewController.m */,
 				C233403F1BC54DE10045EA8E /* RegisterViewController.h */,
 				C23340401BC54DE10045EA8E /* RegisterViewController.m */,
 				C23340411BC54DE10045EA8E /* RegisterViewController.xib */,
 				C2319E1B1BC766B00054BBE7 /* SettingController.h */,
 				C2319E1C1BC766B00054BBE7 /* SettingController.m */,
+				C2B32C1A1BC8AD180079AD55 /* AboutController.h */,
+				C2B32C1B1BC8AD180079AD55 /* AboutController.m */,
 				C23340441BC54DE10045EA8E /* TimeController.h */,
 				C23340451BC54DE10045EA8E /* TimeController.m */,
 				C23340461BC54DE10045EA8E /* TimeController.xib */,
@@ -448,11 +456,13 @@
 				C233404B1BC54DE10045EA8E /* CollectCell.h */,
 				C233404C1BC54DE10045EA8E /* CollectCell.m */,
 				C233404D1BC54DE10045EA8E /* CollectCell.xib */,
-				C2319EA21BC7F91F0054BBE7 /* RecentlyViewCell.h */,
-				C2319EA31BC7F91F0054BBE7 /* RecentlyViewCell.m */,
-				C2319EA41BC7F91F0054BBE7 /* RecentlyViewCell.xib */,
+				C2B32C201BC8EB5D0079AD55 /* RecentlyViewCell.h */,
+				C2B32C211BC8EB5D0079AD55 /* RecentlyViewCell.m */,
+				C2B32C221BC8EB5D0079AD55 /* RecentlyViewCell.xib */,
 				C233404E1BC54DE10045EA8E /* MineView.h */,
 				C233404F1BC54DE10045EA8E /* MineView.m */,
+				C2B32C1D1BC8AED50079AD55 /* AboutCell.h */,
+				C2B32C1E1BC8AED50079AD55 /* AboutCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -919,8 +929,8 @@
 				C23340591BC54DE10045EA8E /* RegisterViewController.xib in Resources */,
 				C26C86CF1BC69650001ED1E1 /* gengduo.png in Resources */,
 				C26C86CA1BC69650001ED1E1 /* bofang.png in Resources */,
+				C2B32C241BC8EB5D0079AD55 /* RecentlyViewCell.xib in Resources */,
 				C26C86D41BC69650001ED1E1 /* xia.png in Resources */,
-				C2319EA61BC7F91F0054BBE7 /* RecentlyViewCell.xib in Resources */,
 				C255C7611BC6A98900EAF02C /* iconfont-svgmoban16.png in Resources */,
 				C26C86D51BC69650001ED1E1 /* xiazai.png in Resources */,
 				C26C86CC1BC69650001ED1E1 /* diantai.png in Resources */,
@@ -954,7 +964,6 @@
 				C2F6B0B11BC74D7C0004D155 /* AFURLConnectionOperation.m in Sources */,
 				C23340951BC54E200045EA8E /* UIImage+GIF.m in Sources */,
 				C23340601BC54DE10045EA8E /* MineView.m in Sources */,
-				C2319EA51BC7F91F0054BBE7 /* RecentlyViewCell.m in Sources */,
 				C2319E1D1BC766B00054BBE7 /* SettingController.m in Sources */,
 				C2FFA5D41BC3EE04004B69B0 /* PlayerView.m in Sources */,
 				C233409A1BC54E200045EA8E /* UIView+WebCacheOperation.m in Sources */,
@@ -988,12 +997,14 @@
 				C223BAD61BC771ED00EA4C8F /* CarouselFingure.m in Sources */,
 				C2E35BC41BC68CA100FB1685 /* PlayerModel.m in Sources */,
 				C255C7671BC6A98900EAF02C /* DetailCell.m in Sources */,
+				C2B32C271BC8EFF10079AD55 /* RecentlyViewController.m in Sources */,
 				C223BADA1BC771ED00EA4C8F /* SCPopView.m in Sources */,
 				C2E35BB71BC68CA000FB1685 /* PlayerController.m in Sources */,
 				C255C7621BC6A98900EAF02C /* ListViewController.m in Sources */,
 				C2F6B0B01BC74D7C0004D155 /* AFSecurityPolicy.m in Sources */,
 				C23340991BC54E200045EA8E /* UIImageView+WebCache.m in Sources */,
 				C255C7661BC6A98900EAF02C /* RadioModel.m in Sources */,
+				C2B32C1F1BC8AED50079AD55 /* AboutCell.m in Sources */,
 				C23340921BC54E200045EA8E /* SDWebImageManager.m in Sources */,
 				C223BAEA1BC791AD00EA4C8F /* Category4EasyViewController.m in Sources */,
 				C233405E1BC54DE10045EA8E /* CollectCell.m in Sources */,
@@ -1015,10 +1026,11 @@
 				C23340581BC54DE10045EA8E /* RegisterViewController.m in Sources */,
 				C2F6B0AD1BC74D7C0004D155 /* AFHTTPRequestOperationManager.m in Sources */,
 				C223BAEE1BC7924800EA4C8F /* DiscoverCell.m in Sources */,
+				C2B32C231BC8EB5D0079AD55 /* RecentlyViewCell.m in Sources */,
 				C23340551BC54DE10045EA8E /* OpinionController.m in Sources */,
 				C223BADE1BC7731600EA4C8F /* DiscoverController.m in Sources */,
 				C255C7691BC6A98900EAF02C /* RadioViewCell.m in Sources */,
-				C23340571BC54DE10045EA8E /* RecentlyController.m in Sources */,
+				C2B32C1C1BC8AD180079AD55 /* AboutController.m in Sources */,
 				C223BAD91BC771ED00EA4C8F /* SCNavTabBar.m in Sources */,
 				C23340511BC54DE10045EA8E /* DownLoadController.m in Sources */,
 				C255C7601BC6A98900EAF02C /* DetailViewController.m in Sources */,

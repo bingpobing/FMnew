@@ -16,13 +16,15 @@
 @property (nonatomic,strong) NSString *musicName;
 //图片
 @property (nonatomic,strong) NSString *imgUrl;
+//电台地址
+@property (nonatomic,strong)NSString *playPath;
 
 //去数据库中创建表格
 + (void)creatTable;
 //查找所有音乐
-+ (NSArray *)arrMusic;
++ (NSMutableArray *)arrMusic;
 
-+ (FMmodel *)modelWithMusicName: (NSString *)musicName people:(NSString*)people imgUrl: (NSString *)imgUrl;
++ (FMmodel *)modelWithMusicName: (NSString *)musicName people:(NSString*)people imgUrl: (NSString *)imgUrl playPath: (NSString *)playPath;
 
 //插入
 - (void) insertToTable;

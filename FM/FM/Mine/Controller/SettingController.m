@@ -7,6 +7,7 @@
 //
 
 #import "SettingController.h"
+#import "AboutController.h"
 const CGFloat BackHeight = 0;
 @interface SettingController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -20,7 +21,7 @@ const CGFloat BackHeight = 0;
     self.title = @"设置";
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.array=[[NSMutableArray alloc]initWithObjects:@"关于FM",@"版权声明",@"版权保护投诉指引",@"关闭FM",nil];
+    self.array=[[NSMutableArray alloc]initWithObjects:@"关于FM",@"版权声明",@"版权保护投诉指引",nil];
         [self createUI];
     // Do any additional setup after loading the view.
 }
@@ -74,7 +75,10 @@ const CGFloat BackHeight = 0;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%ld",(long)indexPath.row);
     NSInteger index = indexPath.row;
-    
+    if (index == 0) {
+        AboutController *aboutVC = [AboutController new];
+        [self.navigationController pushViewController:aboutVC animated:YES];
+    }
 }
 
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class FMmodel;
 @interface PlayerController : UIViewController
 
 
@@ -22,6 +22,7 @@
 //电台地址
 @property (nonatomic,strong)NSString *playPathAacv224;
 
+@property (nonatomic,strong)FMmodel *playModel;
 
 @property (nonatomic,strong)UIImageView *imgView;
 @property (nonatomic,strong)UILabel *titleLab;

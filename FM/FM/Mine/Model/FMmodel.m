@@ -15,7 +15,7 @@
     sqlite3 *db = [[DatabaseManager sharedManager] openDB];
     
     //设置主键:id
-    NSString *sqlstr = @"create table FM (id integer primary key autoincrement not null,musicName text,people text ,imgUrl text);";
+    NSString *sqlstr = @"create table FM (id integer primary key autoincrement not null,musicName text,people text ,imgUrl text,playPath text);";
     
     int result = sqlite3_exec(db, sqlstr.UTF8String, nil, nil, nil);
     if (result == SQLITE_OK) {
@@ -26,14 +26,15 @@
     //关闭数据库
     [[DatabaseManager sharedManager] closeDB];
 }
-+(FMmodel *)modelWithMusicName:(NSString *)musicName  people:(NSString *)people imgUrl:(NSString *)imgUrl{
++(FMmodel *)modelWithMusicName:(NSString *)musicName  people:(NSString *)people imgUrl:(NSString *)imgUrl playPath: (NSString *)playPath{
     FMmodel *model = [[FMmodel alloc]init];
     model.musicName = musicName;
     model.people = people;
     model.imgUrl = imgUrl;
+    model.playPath = playPath;
     return model;
 }
-+(NSArray *)arrMusic{
++(NSMutableArray *)arrMusic{
     sqlite3 *db = [[DatabaseManager sharedManager] openDB];
     NSString *sqlstr = @"select * from FM";
     //用户存放获取的数据
@@ -44,16 +45,13 @@
         NSLog(@"sql语句转stmt成功");
         while (sqlite3_step(stmt) == SQLITE_ROW) {
             int ID = sqlite3_column_int(stmt, 0);//第一列
-            const unsigned char * musicName = sqlite3_column_text(stmt, 1);//第二列
-            const unsigned char * people = sqlite3_column_text(stmt, 2);
-            const unsigned char * imgUrl = sqlite3_column_text(stmt, 3);
-            
-            //将c字符串变成NSString类型
-            NSString *strname = [NSString stringWithFormat:@"%s",musicName];
-            NSString *strpeople = [NSString stringWithFormat:@"%s",people];
-            NSString *strimg = [NSString stringWithFormat:@"%s",imgUrl];
+
+            NSString *strname =[[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(stmt, 1)];//第二列
+            NSString *strpeople = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(stmt, 2)];//第三列
+            NSString *strimg = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(stmt, 3)];//第四列
+            NSString *strplayPath =[[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(stmt, 4)];
             //构造FM
-            FMmodel *model = [FMmodel modelWithMusicName:strname people:strpeople imgUrl:strimg];
+            FMmodel *model = [FMmodel modelWithMusicName:strname people:strpeople imgUrl:strimg playPath:strplayPath];
             model.ID = ID;
             //将FM装到数组中去
             [arr addObject:model];
@@ -67,7 +65,7 @@
 //插入
 -(void)insertToTable{
     sqlite3 *db = [[DatabaseManager sharedManager] openDB];
-    NSString *sqlstr = [NSString stringWithFormat:@"insert into FM (musicName,people,imgUrl) values ('%@','%@','%@');",self.musicName,self.people,self.imgUrl];
+    NSString *sqlstr = [NSString stringWithFormat:@"insert into FM (musicName,people,imgUrl,playPath) values ('%@','%@','%@','%@');",self.musicName,self.people,self.imgUrl,self.playPath];
     //执行语句
     int result = sqlite3_exec(db, sqlstr.UTF8String, nil, nil, nil);
     if (result == SQLITE_OK) {
@@ -92,7 +90,7 @@
 - (NSString *)description
 {
     
-    return [NSString stringWithFormat:@"name: %@,people:%@ imgUrl:%@", self.musicName,self.people,self.imgUrl];
+    return [NSString stringWithFormat:@"name: %@,people:%@ imgUrl:%@ playPath:%@", self.musicName,self.people,self.imgUrl,self.playPath];
 }
 
 

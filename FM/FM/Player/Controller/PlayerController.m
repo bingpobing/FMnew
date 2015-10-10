@@ -10,6 +10,7 @@
 #import "LiebiaoTableViewController.h"
 #import "UIImageView+WebCache.h"
 #import <AVFoundation/AVFoundation.h>
+#import "FMmodel.h"
 
 @interface PlayerController ()
 
@@ -20,6 +21,14 @@
 
 
 @implementation PlayerController
+
+-(void)setPlayModel:(FMmodel *)playModel{
+    NSURL *url = [NSURL URLWithString:playModel.imgUrl];
+    self.PicUrl = url;
+    self.playPathAacv224 = playModel.playPath;
+    self.radioTitle = playModel.musicName;
+    self.nickname = playModel.people;
+}
 
 //因为这个页面要一直存在,所以要使用单例
 +(PlayerController *)shareController{
@@ -34,6 +43,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [FMmodel creatTable];
+    NSString *img = [NSString stringWithFormat:@"%@",self.PicUrl];
+
+    FMmodel *model = [FMmodel modelWithMusicName:self.radioTitle people:self.nickname imgUrl:img playPath:self.playPathAacv224];
+    if (self.radioTitle != nil) {
+        [model insertToTable];
+    }
     
     //背景颜色
     self.view.backgroundColor = [UIColor colorWithRed:193/255.0 green:230/255.0 blue:252/255.0 alpha:1];
