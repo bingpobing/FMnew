@@ -193,6 +193,15 @@
     NSLog(@"%f",sender.value);
     
 }
+- (void)clickStartOrPuaseBtnBtn:(UIButton *)sender{
+    
+}
+- (void)clickPreviousBtn:(UIButton *)sender{
+    
+}
+- (void)clickNextBtn:(UIButton *)sender{
+    
+}
 //列表事件
 - (void)clickLiebiaoBtn:(UIButton *)sender{
     

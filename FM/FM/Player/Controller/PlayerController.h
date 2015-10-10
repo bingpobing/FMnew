@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class FMmodel;
+
 @interface PlayerController : UIViewController
 
 
@@ -49,6 +50,5 @@
 
 //因为这个页面要一直存在,所以要使用单例
 + (PlayerController *)shareController;
-
 
 @end

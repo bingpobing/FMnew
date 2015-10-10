@@ -76,7 +76,7 @@
    
     palyVC.playModel = self.array[indexPath.row];
    
-    [self.navigationController pushViewController:palyVC animated:YES];
+    [self showDetailViewController:palyVC sender:nil];
 }
 //删除
 -(void)deleteArr:(id)sender{
