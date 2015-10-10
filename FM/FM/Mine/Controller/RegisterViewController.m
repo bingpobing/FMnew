@@ -23,60 +23,104 @@
     self.title = @"注册";
 }
 - (IBAction)action4Register:(id)sender {
-    AVObject *Post = [AVObject objectWithClassName:@"FM"];
-    [Post setObject:self.txt4Name.text forKey:@"name"];
-    [Post setObject:self.txt4Password.text forKey:@"password"];
-    [Post setObject:self.txt4Password2.text forKey:@"passwords"];
-    AVQuery *query = [AVQuery queryWithClassName:@"FM"];
-    NSArray *arr = [query findObjects];
-    int cou = 0;
-    for (NSDictionary *dic in arr) {
-        cou++;
-        if ([dic[@"name" ] isEqualToString:self.txt4Name.text]) {
-            XWAlterview *alter=[[XWAlterview alloc]initWithTitle:@"注册失败" contentText:@"用户名已被占用,请重新注册" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
+    if ([self.txt4Name.text  isEqual: @""] || [self.txt4Password.text  isEqual: @""] || [self.txt4Password2.text  isEqual: @""]) {
+        XWAlterview *alter=[[XWAlterview alloc]initWithTitle:@"注册失败" contentText:@"不可以为空,请重新注册" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
+        
+        alter.rightBlock=^()
+        {
+            NSLog(@"右边按钮被点击");
+        };
+        alter.leftBlock=^()
+        {
             
-            alter.rightBlock=^()
-            {
-                NSLog(@"右边按钮被点击");
-            };
-            alter.leftBlock=^()
-            {
-                
-                NSLog(@"左边按钮被点击");
-            };
-            alter.dismissBlock=^()
-            {
-                self.view.alpha = 1;
-                
-                NSLog(@"窗口即将消失");
-            };
-            [alter show];
-            break;
+            NSLog(@"左边按钮被点击");
+        };
+        alter.dismissBlock=^()
+        {
+            self.view.alpha = 1;
             
-            
-        }else if(cou == arr.count){
-            [Post save];
-            XWAlterview *alter=[[XWAlterview alloc]initWithTitle:@"注册成功" contentText:@"请重新登录?" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
-            
-            alter.rightBlock=^()
-            {
-                NSLog(@"右边按钮被点击");
-            };
-            alter.leftBlock=^()
-            {
-                [self.navigationController popViewControllerAnimated:YES];
-                NSLog(@"左边按钮被点击");
-            };
-            alter.dismissBlock=^()
-            {
-                self.view.alpha = 1;
-                
-                NSLog(@"窗口即将消失");
-            };
-            [alter show];
-
-        }
+            NSLog(@"窗口即将消失");
+        };
+        [alter show];
+        return;
     }
+    if ([self.txt4Password.text isEqual:self.txt4Password2.text]) {
+        AVObject *Post = [AVObject objectWithClassName:@"FM"];
+        [Post setObject:self.txt4Name.text forKey:@"name"];
+        [Post setObject:self.txt4Password.text forKey:@"password"];
+        [Post setObject:self.txt4Password2.text forKey:@"passwords"];
+        AVQuery *query = [AVQuery queryWithClassName:@"FM"];
+        NSArray *arr = [query findObjects];
+        int cou = 0;
+        for (NSDictionary *dic in arr) {
+            cou++;
+            if ([dic[@"name" ] isEqualToString:self.txt4Name.text]) {
+                XWAlterview *alter=[[XWAlterview alloc]initWithTitle:@"注册失败" contentText:@"用户名已被占用,请重新注册" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
+                
+                alter.rightBlock=^()
+                {
+                    NSLog(@"右边按钮被点击");
+                };
+                alter.leftBlock=^()
+                {
+                    
+                    NSLog(@"左边按钮被点击");
+                };
+                alter.dismissBlock=^()
+                {
+                    self.view.alpha = 1;
+                    
+                    NSLog(@"窗口即将消失");
+                };
+                [alter show];
+                break;
+                
+                
+            }else if(cou == arr.count){
+                [Post save];
+                XWAlterview *alter=[[XWAlterview alloc]initWithTitle:@"注册成功" contentText:@"请重新登录?" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
+                
+                alter.rightBlock=^()
+                {
+                    NSLog(@"右边按钮被点击");
+                };
+                alter.leftBlock=^()
+                {
+                    [self.navigationController popViewControllerAnimated:YES];
+                    NSLog(@"左边按钮被点击");
+                };
+                alter.dismissBlock=^()
+                {
+                    self.view.alpha = 1;
+                    
+                    NSLog(@"窗口即将消失");
+                };
+                [alter show];
+                
+            }
+        }
+    }else{
+        XWAlterview *alter=[[XWAlterview alloc]initWithTitle:@"注册失败" contentText:@"两次密码不相同,请重新注册?" leftButtonTitle:@"确定" rightButtonTitle:@"取消"];
+        
+        alter.rightBlock=^()
+        {
+            NSLog(@"右边按钮被点击");
+        };
+        alter.leftBlock=^()
+        {
+           
+            NSLog(@"左边按钮被点击");
+        };
+        alter.dismissBlock=^()
+        {
+            self.view.alpha = 1;
+            
+            NSLog(@"窗口即将消失");
+        };
+        [alter show];
+
+    }
+    
     
     
     
