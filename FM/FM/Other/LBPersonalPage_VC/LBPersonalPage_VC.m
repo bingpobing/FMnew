@@ -13,12 +13,12 @@
 
 #import "LBPersonalPage_VC.h"
 #import "LoginController.h"
-#import "CollectController.h"
 #import "DownLoadController.h"
 #import "TimeController.h"
 #import "SettingController.h"
 #import "OpinionController.h"
 #import "RecentlyViewController.h"
+#import "CollectViewController.h"
 const CGFloat BackGroupHeight = 200;
 const CGFloat HeadImageHeight= 80;
 
@@ -159,9 +159,10 @@ const CGFloat HeadImageHeight= 80;
         LoginController *loginVC = [LoginController new];
         [self.navigationController pushViewController:loginVC animated:YES];
     }else if ([self.array[index] isEqualToString:@"收藏列表"]){
-        CollectController *collectVC = [CollectController new];
-        collectVC.temID = self.tempID;
-        [self.navigationController pushViewController:collectVC animated:YES];
+        CollectViewController *collecVC = [CollectViewController new];
+        collecVC.temID = self.tempID;
+     
+        [self.navigationController pushViewController:collecVC animated:YES];
     }else if ([self.array[index] isEqualToString:@"下载列表"]){
         DownLoadController *downVC = [DownLoadController new];
         [self.navigationController pushViewController:downVC animated:YES];

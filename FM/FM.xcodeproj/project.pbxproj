@@ -25,7 +25,6 @@
 		C2319E971BC7BA330054BBE7 /* FMmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2319E961BC7BA330054BBE7 /* FMmodel.m */; };
 		C2319E991BC7BA4A0054BBE7 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2319E981BC7BA4A0054BBE7 /* libsqlite3.0.dylib */; };
 		C2319E9C1BC7BA910054BBE7 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2319E9B1BC7BA910054BBE7 /* DatabaseManager.m */; };
-		C23340501BC54DE10045EA8E /* CollectController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340321BC54DE10045EA8E /* CollectController.m */; };
 		C23340511BC54DE10045EA8E /* DownLoadController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340341BC54DE10045EA8E /* DownLoadController.m */; };
 		C23340521BC54DE10045EA8E /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340361BC54DE10045EA8E /* LoginController.m */; };
 		C23340531BC54DE10045EA8E /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23340371BC54DE10045EA8E /* LoginController.xib */; };
@@ -58,6 +57,7 @@
 		C23340981BC54E200045EA8E /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340841BC54E200045EA8E /* UIImageView+HighlightedWebCache.m */; };
 		C23340991BC54E200045EA8E /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340861BC54E200045EA8E /* UIImageView+WebCache.m */; };
 		C233409A1BC54E200045EA8E /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340881BC54E200045EA8E /* UIView+WebCacheOperation.m */; };
+		C24CEAFD1BCB40840059ACC5 /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24CEAFC1BCB40840059ACC5 /* CollectViewController.m */; };
 		C255C7601BC6A98900EAF02C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C255C74C1BC6A98900EAF02C /* DetailViewController.m */; };
 		C255C7611BC6A98900EAF02C /* iconfont-svgmoban16.png in Resources */ = {isa = PBXBuildFile; fileRef = C255C74D1BC6A98900EAF02C /* iconfont-svgmoban16.png */; };
 		C255C7621BC6A98900EAF02C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C255C74F1BC6A98900EAF02C /* ListViewController.m */; };
@@ -163,8 +163,6 @@
 		C2319E981BC7BA4A0054BBE7 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		C2319E9A1BC7BA910054BBE7 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		C2319E9B1BC7BA910054BBE7 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
-		C23340311BC54DE10045EA8E /* CollectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectController.h; sourceTree = "<group>"; };
-		C23340321BC54DE10045EA8E /* CollectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectController.m; sourceTree = "<group>"; };
 		C23340331BC54DE10045EA8E /* DownLoadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadController.h; sourceTree = "<group>"; };
 		C23340341BC54DE10045EA8E /* DownLoadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadController.m; sourceTree = "<group>"; };
 		C23340351BC54DE10045EA8E /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
@@ -225,6 +223,8 @@
 		C23340861BC54E200045EA8E /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		C23340871BC54E200045EA8E /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		C23340881BC54E200045EA8E /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		C24CEAFB1BCB40840059ACC5 /* CollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectViewController.h; sourceTree = "<group>"; };
+		C24CEAFC1BCB40840059ACC5 /* CollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectViewController.m; sourceTree = "<group>"; };
 		C255C74B1BC6A98900EAF02C /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		C255C74C1BC6A98900EAF02C /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		C255C74D1BC6A98900EAF02C /* iconfont-svgmoban16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-svgmoban16.png"; sourceTree = "<group>"; };
@@ -408,8 +408,8 @@
 				C23340391BC54DE10045EA8E /* MineController.m */,
 				C2E35B9E1BC670AD00FB1685 /* LoginMineController.h */,
 				C2E35B9F1BC670AD00FB1685 /* LoginMineController.m */,
-				C23340311BC54DE10045EA8E /* CollectController.h */,
-				C23340321BC54DE10045EA8E /* CollectController.m */,
+				C24CEAFB1BCB40840059ACC5 /* CollectViewController.h */,
+				C24CEAFC1BCB40840059ACC5 /* CollectViewController.m */,
 				C23340331BC54DE10045EA8E /* DownLoadController.h */,
 				C23340341BC54DE10045EA8E /* DownLoadController.m */,
 				C23340351BC54DE10045EA8E /* LoginController.h */,
@@ -965,6 +965,7 @@
 				C233408A1BC54E200045EA8E /* Networking.m in Sources */,
 				C233405D1BC54DE10045EA8E /* MineModel.m in Sources */,
 				C2319E9C1BC7BA910054BBE7 /* DatabaseManager.m in Sources */,
+				C24CEAFD1BCB40840059ACC5 /* CollectViewController.m in Sources */,
 				C223BAE11BC7909500EA4C8F /* DiscoverListController.m in Sources */,
 				C2FFA5191BC3B068004B69B0 /* main.m in Sources */,
 				C233408D1BC54E200045EA8E /* SDImageCache.m in Sources */,
@@ -1008,7 +1009,6 @@
 				C233408B1BC54E200045EA8E /* MKAnnotationView+WebCache.m in Sources */,
 				C255C7651BC6A98900EAF02C /* ListModel.m in Sources */,
 				C2F6B0AE1BC74D7C0004D155 /* AFHTTPSessionManager.m in Sources */,
-				C23340501BC54DE10045EA8E /* CollectController.m in Sources */,
 				C23340891BC54E200045EA8E /* LBPersonalPage_VC.m in Sources */,
 				C223BAE71BC7916400EA4C8F /* Category4ScrollViewController.m in Sources */,
 				C23340961BC54E200045EA8E /* UIImage+MultiFormat.m in Sources */,
