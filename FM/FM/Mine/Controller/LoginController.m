@@ -11,6 +11,7 @@
 #import "XWAlterview.h"
 #import "LoginMineController.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "AppDelegate.h"
 @interface LoginController ()
 @property (weak, nonatomic) IBOutlet UIButton *btn4Login;
 @property (weak, nonatomic) IBOutlet UIButton *btn4Register;
@@ -49,6 +50,8 @@
                 NSLog(@"%@",dic);
                 self.objId = dic[@"objectId"];
                 loginmineVC.temp = self.objId;
+                AppDelegate *aaa = [[UIApplication sharedApplication] delegate];
+                aaa.tempID = YES;
                 NSLog(@"成功");
                 self.lab4Password.text = @"";
                 self.lab4Name.text = @"";
@@ -77,7 +80,7 @@
                 };
                 [alter show];
             }
-           
+            
             
         }else if(cou == arr.count){
             self.view.alpha = 0.3;
@@ -85,18 +88,18 @@
             alter.rightBlock=^()
             {
                 NSLog(@"右边按钮被点击");
-                            };
+            };
             alter.leftBlock=^()
             {
                 self.lab4Password.text = @"";
                 self.lab4Name.text = @"";
-          
+                
                 NSLog(@"左边按钮被点击");
             };
             alter.dismissBlock=^()
             {
                 self.view.alpha = 1;
-
+                
                 NSLog(@"窗口即将消失");
             };
             [alter show];
@@ -111,13 +114,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

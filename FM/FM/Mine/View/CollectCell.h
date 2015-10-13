@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class FMmodel;
+@class SCModel;
 @interface CollectCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *lab4Name;
+@property (weak, nonatomic) IBOutlet UIImageView *img4Name;
 
-@property (nonatomic,strong) FMmodel *model;
+@property (nonatomic,strong) SCModel *model;
 @end

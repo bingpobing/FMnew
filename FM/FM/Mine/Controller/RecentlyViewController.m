@@ -35,6 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title = @"最近收听";
     self.rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(deleteArr:)];
     self.navigationItem.rightBarButtonItem = self.rightBtn;
