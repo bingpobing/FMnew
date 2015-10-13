@@ -23,6 +23,8 @@
 #import "DiscoverCell.h"
 #import "DiscoverModel.h"
 #import "HeaderView.h"
+#import "DiscoverListModel.h"
+#import "DiscoverListCell.h"
 //第三方
 #import "CarouselFingure.h"
 #import "UIImageView+WebCache.h"

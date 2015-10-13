@@ -10,48 +10,231 @@
 
 @interface DiscoverListController ()
 
+@property (nonatomic,strong)NSMutableDictionary *valueDict;
+@property (nonatomic,strong)NSMutableArray *valueArr;
+@property (nonatomic,strong)NSMutableArray *valueArr_play;
+
+//TableHeaderView左视图
+@property (nonatomic,strong)UIImageView *imgViewUrl;
+//主持
+@property (nonatomic,strong)UILabel *lab4play_dj;
+//电台
+@property (nonatomic,strong)UILabel *lab4channel_name;
+//简介
+@property (nonatomic,strong)UILabel *lab4play_decription;
+
 @end
 
 @implementation DiscoverListController
 
+- (instancetype)initWithStyle:(UITableViewStyle)style{
+    if (self = [super initWithStyle:UITableViewStylePlain]) {
+        
+    }
+    return self;
+}
+
+#pragma mark ==============懒加载================
+
+- (NSMutableDictionary *)valueDict{
+    if (_valueDict == nil) {
+        _valueDict = [NSMutableDictionary dictionary];
+    }
+    return _valueDict;
+}
+
+- (NSMutableArray *)valueArr{
+    if (_valueArr == nil) {
+        _valueArr = [NSMutableArray array];
+    }
+    return _valueArr;
+}
+
+- (NSMutableArray *)value_play{
+    if (_valueArr_play
+        == nil) {
+        _valueArr_play = [NSMutableArray array];
+    }
+    return _valueArr_play;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    [self requestDateCell];
+    [self requestDateHeader];
+    [self myTableHeaderViewDidLoad];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title = self.string;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"DiscoverListCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)myTableHeaderViewDidLoad{
+    //TableHeaderView背景图片
+    UIImageView *imgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"headerView02"]];
+    imgView.frame = CGRectMake(0, 0, 375, 200);
+    //TableHeaderView左图片
+    self.imgViewUrl = [[UIImageView alloc]initWithFrame:CGRectMake(15, 40, 100, 100)];
+    self.imgViewUrl.backgroundColor = [UIColor redColor];
+    self.imgViewUrl.layer.cornerRadius = 3;
+    self.imgViewUrl.layer.masksToBounds = YES;
+    self.imgViewUrl.layer.borderWidth = 3;
+    self.imgViewUrl.layer.borderColor = [UIColor blackColor].CGColor;
+    [imgView addSubview:self.imgViewUrl];
+    //主持
+    self.lab4play_dj = [[UILabel alloc]initWithFrame:CGRectMake(150, 40, 150, 30)];
+    self.lab4play_dj.font = [UIFont systemFontOfSize:15];
+    [imgView addSubview:self.lab4play_dj];
+    //电台
+    self.lab4channel_name = [[UILabel alloc]initWithFrame:CGRectMake(150, 65, 150, 30)];
+    self.lab4channel_name.font = [UIFont systemFontOfSize:15];
+    [imgView addSubview:self.lab4channel_name];
+    
+    //简介
+    self.lab4play_decription = [[UILabel alloc]initWithFrame:CGRectMake(150, 90, 150, 80)];
+    self.lab4play_decription.font = [UIFont systemFontOfSize:15];
+    self.lab4play_decription.numberOfLines = 0;
+    [imgView addSubview:self.lab4play_decription];
+    
+    
+    
+    self.tableView.tableHeaderView = imgView;
+
+    
 }
+#pragma mark ================网路请求==================
+
+- (void)requestDateCell{
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://fmlive.shuoba.org/v3/playback/record_play/%@/detail_info?page_size=20&page_index=0",self.keyString]]];
+    NSLog(@"%@",self.keyString);
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSDictionary *dict1 = dict[@"records_info"];
+        NSArray *array = dict1[@"records"];
+        for (NSDictionary *dict2 in array) {
+            DiscoverListModel *model = [DiscoverListModel new];
+            [model setValuesForKeysWithDictionary:dict2];
+            [self.valueArr addObject:model];
+            NSLog(@"%@",model);
+        }
+        
+        [self.tableView reloadData];
+    }];
+    
+}
+
+- (void)requestDateHeader{
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://fmlive.shuoba.org/v3/playback/record_play/%@/detail_info?page_size=20&page_index=0",self.keyString]]];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        NSDictionary *dict1 = dict[@"record_play_info"];
+        
+        DiscoverListModel *model = [DiscoverListModel new];
+        [model setValuesForKeysWithDictionary:dict1];
+        [self.valueArr_play addObject:model];
+        
+        NSLog(@"1111111图片111111:%@",model.record_play_image_url);
+        
+        //请求到图片
+        [self.imgViewUrl sd_setImageWithURL:[NSURL URLWithString:model.record_play_image_url]];
+        //主持
+        self.lab4play_dj.text = [NSString stringWithFormat:@"主持: %@",model.record_play_dj];
+        //电台
+        self.lab4channel_name.text = [NSString stringWithFormat:@"电台: %@",model.channel_name];
+        //简介
+        self.lab4play_decription.text = [NSString stringWithFormat:@"简介: %@",model.record_play_decription];
+        
+        
+        [self.tableView reloadData];
+    }];
+    
+
+}
+
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
 
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
 
-    return 0;
+    return self.valueArr.count;
+}
+//cell区头的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 70;
+}
+//区头上headerView的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 50;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+//系统区头设置添加
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    // Configure the cell...
+    UIImageView *imgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"headerView2"]];
+    
+    //添加左播放按钮
+    UIButton *playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    playBtn.frame = CGRectMake(15, 5, 35, 35);
+    
+    [playBtn setImage:[UIImage imageNamed:@"play48"] forState:UIControlStateNormal];
+    
+    [playBtn setImage:[UIImage imageNamed:@"stop48"] forState:UIControlStateHighlighted];
+    
+    [imgView addSubview:playBtn];
+    //添加文本
+    UILabel *playCountLab = [[UILabel alloc]initWithFrame:CGRectMake(65, 10, 150, 30)];
+    
+    playCountLab.text = [NSString stringWithFormat:@"播放全部(%ld期)",self.valueArr.count];
+    
+    [imgView addSubview:playCountLab];
+    //添加下载和排序按钮
+    UIButton *downloadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    downloadBtn.frame = CGRectMake(250, 10, 50, 30);
+    
+    [downloadBtn setTitle:@"下载" forState:UIControlStateNormal];
+    
+    [downloadBtn setTitleColor:[UIColor magentaColor] forState:UIControlStateNormal];
+    
+    [imgView addSubview:downloadBtn];
+    
+    UIButton *rankBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    rankBtn.frame = CGRectMake(310,10, 50, 30);
+    
+    [rankBtn setTitle:@"排序" forState:UIControlStateNormal];
+    
+    [rankBtn setTitleColor:[UIColor magentaColor] forState:UIControlStateNormal];
+    
+    [imgView addSubview:rankBtn];
+    
+    
+    
+    return imgView;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DiscoverListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    DiscoverListModel *model = self.valueArr[indexPath.row];
+    
+    cell.discoverListModel = model;
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

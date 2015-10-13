@@ -192,6 +192,22 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     DiscoverListController *disListVC = [DiscoverListController new];
+    
+    
+    NSArray *array = self.valuedict[@"top"];
+    NSDictionary *dic = array[indexPath.section];
+    NSArray *arr = dic[@"top_info"];
+    NSDictionary *dic1 = arr[indexPath.row];
+    NSString *nameStr = dic1[@"record_play_name"];
+    
+    NSString *keyStr = dic1[@"record_play_key"];
+    
+    disListVC.keyString = keyStr;
+    disListVC.string = nameStr;
+    
+    
+    
+    
     [self showViewController:disListVC sender:nil];
     
 }

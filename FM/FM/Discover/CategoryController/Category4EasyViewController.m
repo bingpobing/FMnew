@@ -142,6 +142,19 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DiscoverListController *discListVC = [[DiscoverListController alloc]init];
+    
+    NSArray *array = self.valuedict[@"top"];
+    NSDictionary *dic = array[indexPath.section];
+    NSArray *arr = dic[@"top_info"];
+    NSDictionary *dic1 = arr[indexPath.row];
+    NSString *nameStr = dic1[@"record_play_name"];
+    
+    NSString *keyStr = dic1[@"record_play_key"];
+    
+    discListVC.keyString = keyStr;
+    discListVC.string = nameStr;
+    
+    
     [self showViewController:discListVC sender:nil];
 }
 

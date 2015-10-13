@@ -10,4 +10,9 @@
 
 @interface DiscoverListController : UITableViewController
 
+@property (nonatomic,strong)NSString *string;
+
+@property (nonatomic,strong)NSString *keyString;
+
+
 @end

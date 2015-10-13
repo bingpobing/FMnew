@@ -25,6 +25,7 @@
             <connections>
                 <outlet property="lab4headerName" destination="yDa-yj-ExT" id="wkl-jr-Z6V"/>
             </connections>
+            <point key="canvasLocation" x="681.5" y="584"/>
         </collectionReusableView>
     </objects>
 </document>
