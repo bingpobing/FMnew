@@ -7,6 +7,7 @@
 //
 
 #import "DiscoverListController.h"
+#import "PlayerController.h"
 
 @interface DiscoverListController ()
 
@@ -233,6 +234,23 @@
     cell.discoverListModel = model;
     
     return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    PlayerController *playerVC = [[PlayerController alloc]init];
+    
+    DiscoverListModel *model = self.valueArr[indexPath.row];
+    
+    NSURL *url = [NSURL URLWithString:model.record_image_url];
+    playerVC.PicUrl = url;
+    playerVC.radioTitle = model.record_title;
+    playerVC.nickname = model.record_name;
+    playerVC.duration = model.record_file_duration;
+    playerVC.playPathAacv224 = model.record_file_url;
+    
+    [self showDetailViewController:playerVC sender:nil];
 }
 
 

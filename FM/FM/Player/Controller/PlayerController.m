@@ -15,6 +15,8 @@
 
 //可以使用AVPlayer播放本地音频和支持流媒体播放
 @property(nonatomic , strong)AVPlayer *radioPalyer;
+@property (nonatomic,strong)NSTimer *timer;
+@property (nonatomic,assign)BOOL playOrPause;
 
 @end
 
@@ -57,6 +59,12 @@
     
     self.radioPalyer = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:_playPathAacv224]];
     [self.radioPalyer play];
+    self.playOrPause = YES;
+    
+
+    //进度条使用NStimer监控播放的进度
+    _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerRadio) userInfo:nil repeats:YES];
+    
     
     [self loadViewStyle];
     
@@ -138,18 +146,17 @@
     
     //滑块
     _timeSlider = [[UISlider alloc]initWithFrame:CGRectMake(40, CGRectGetMaxY(_imgView.frame)+210, kScreenWidth-80, 31)];
-    [_timeSlider addTarget:self action:@selector(timeSliderAction:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:_timeSlider];
     
-    //播放时间
-    _playedTimeLab = [[UILabel alloc]initWithFrame:CGRectMake(40, CGRectGetMaxY(_imgView.frame)+215, 100, 100)];
-    _playedTimeLab.text = @"播放时间";
-    [self.view addSubview:_playedTimeLab];
-    
-    //剩余时间
-    _lastTimeLab = [[UILabel alloc]initWithFrame:CGRectMake(40+kScreenWidth-80-70, CGRectGetMaxY(_imgView.frame)+215, 100, 100)];
-    _lastTimeLab.text = @"剩余时间";
-    [self.view addSubview:_lastTimeLab];
+//    //播放时间
+//    _playedTimeLab = [[UILabel alloc]initWithFrame:CGRectMake(40, CGRectGetMaxY(_imgView.frame)+215, 100, 100)];
+//    _playedTimeLab.text = @"播放时间";
+//    [self.view addSubview:_playedTimeLab];
+//    
+//    //剩余时间
+//    _lastTimeLab = [[UILabel alloc]initWithFrame:CGRectMake(40+kScreenWidth-80-70, CGRectGetMaxY(_imgView.frame)+215, 100, 100)];
+//    _lastTimeLab.text = @"剩余时间";
+//    [self.view addSubview:_lastTimeLab];
     
     //开始暂停
     _startOrPuaseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -183,24 +190,14 @@
 }
 
 
+- (void)timerRadio{
+    
+    _timeSlider.value = CMTimeGetSeconds(self.radioPalyer.currentItem.currentTime)/CMTimeGetSeconds(self.radioPalyer.currentItem.duration);
+}
 //返回事件
 - (void)clickBackBtn:(UIButton *)sender{
     
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-//时间滑条拖动事件
-- (void)timeSliderAction:(UISlider *)sender{
-    NSLog(@"%f",sender.value);
-    
-}
-- (void)clickStartOrPuaseBtnBtn:(UIButton *)sender{
-    
-}
-- (void)clickPreviousBtn:(UIButton *)sender{
-    
-}
-- (void)clickNextBtn:(UIButton *)sender{
-    
 }
 //列表事件
 - (void)clickLiebiaoBtn:(UIButton *)sender{
@@ -230,6 +227,26 @@
 }
 //收藏事件
 - (void)clickShoucangBtn:(UIButton *)sender{
+    
+}
+- (void)clickStartOrPuaseBtnBtn:(UIButton *)sender{
+    UIButton *btn = (UIButton *)sender;
+    if (self.playOrPause == YES) {
+        self.playOrPause = NO;
+        [self.radioPalyer pause];
+        
+        [btn setImage:[UIImage imageNamed:@"bofang"] forState:UIControlStateNormal];
+    }else{
+        self.playOrPause = YES;
+        [self.radioPalyer play];
+        
+        [btn setImage:[UIImage imageNamed:@"zanting"] forState:UIControlStateNormal];
+    }
+}
+- (void)clickPreviousBtn:(UIButton *)sender{
+    
+}
+- (void)clickNextBtn:(UIButton *)sender{
     
 }
 

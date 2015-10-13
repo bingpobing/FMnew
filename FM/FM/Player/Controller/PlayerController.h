@@ -42,8 +42,8 @@
 @property (nonatomic,strong)UILabel *shoucangLab;
 
 @property (nonatomic,strong)UISlider *timeSlider;
-@property (nonatomic,strong)UILabel *playedTimeLab;
-@property (nonatomic,strong)UILabel *lastTimeLab;
+//@property (nonatomic,strong)UILabel *playedTimeLab;
+//@property (nonatomic,strong)UILabel *lastTimeLab;
 @property (nonatomic,strong)UIButton *previousBtn;
 @property (nonatomic,strong)UIButton *startOrPuaseBtn;
 @property (nonatomic,strong)UIButton *nextBtn;
