@@ -10,7 +10,8 @@
 #import "UIImageView+WebCache.h"
 #import <AVFoundation/AVFoundation.h>
 #import "FMmodel.h"
-
+#import "SCModel.h"
+#import "AppDelegate.h"
 @interface PlayerController ()
 
 //可以使用AVPlayer播放本地音频和支持流媒体播放
@@ -230,7 +231,20 @@
 }
 //收藏事件
 - (void)clickShoucangBtn:(UIButton *)sender{
-    
+    AppDelegate *bbb = [UIApplication sharedApplication].delegate;
+    if (bbb.tempID) {
+        [SCModel creatTable];
+        NSString *img = [NSString stringWithFormat:@"%@",self.PicUrl];
+        
+        SCModel *model = [SCModel modelWithMusicName:self.radioTitle people:self.nickname imgUrl:img playPath:self.playPathAacv224 ];
+        
+        if (self.radioTitle != nil) {
+            [model insertToTable];
+        }
+    }else{
+        NSLog(@"请登录");
+    }
+
 }
 
 

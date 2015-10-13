@@ -57,6 +57,8 @@
 		C23340981BC54E200045EA8E /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340841BC54E200045EA8E /* UIImageView+HighlightedWebCache.m */; };
 		C23340991BC54E200045EA8E /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340861BC54E200045EA8E /* UIImageView+WebCache.m */; };
 		C233409A1BC54E200045EA8E /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340881BC54E200045EA8E /* UIView+WebCacheOperation.m */; };
+		C245D33D1BCD3E1600515310 /* SCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C245D33C1BCD3E1600515310 /* SCModel.m */; };
+		C245D3401BCD3E3B00515310 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C245D33F1BCD3E3B00515310 /* DataManager.m */; };
 		C24CEAFD1BCB40840059ACC5 /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24CEAFC1BCB40840059ACC5 /* CollectViewController.m */; };
 		C255C7601BC6A98900EAF02C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C255C74C1BC6A98900EAF02C /* DetailViewController.m */; };
 		C255C7611BC6A98900EAF02C /* iconfont-svgmoban16.png in Resources */ = {isa = PBXBuildFile; fileRef = C255C74D1BC6A98900EAF02C /* iconfont-svgmoban16.png */; };
@@ -233,6 +235,10 @@
 		C23340861BC54E200045EA8E /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		C23340871BC54E200045EA8E /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		C23340881BC54E200045EA8E /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		C245D33B1BCD3E1600515310 /* SCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCModel.h; sourceTree = "<group>"; };
+		C245D33C1BCD3E1600515310 /* SCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCModel.m; sourceTree = "<group>"; };
+		C245D33E1BCD3E3B00515310 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		C245D33F1BCD3E3B00515310 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		C24CEAFB1BCB40840059ACC5 /* CollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectViewController.h; sourceTree = "<group>"; };
 		C24CEAFC1BCB40840059ACC5 /* CollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectViewController.m; sourceTree = "<group>"; };
 		C255C74B1BC6A98900EAF02C /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -461,6 +467,10 @@
 			children = (
 				C23340481BC54DE10045EA8E /* MineModel.h */,
 				C23340491BC54DE10045EA8E /* MineModel.m */,
+				C245D33B1BCD3E1600515310 /* SCModel.h */,
+				C245D33C1BCD3E1600515310 /* SCModel.m */,
+				C245D33E1BCD3E3B00515310 /* DataManager.h */,
+				C245D33F1BCD3E3B00515310 /* DataManager.m */,
 				C2319E951BC7BA330054BBE7 /* FMmodel.h */,
 				C2319E961BC7BA330054BBE7 /* FMmodel.m */,
 				C2319E9A1BC7BA910054BBE7 /* DatabaseManager.h */,
@@ -1023,6 +1033,7 @@
 				C255C7641BC6A98900EAF02C /* DetailModel.m in Sources */,
 				C233408E1BC54E200045EA8E /* SDWebImageCompat.m in Sources */,
 				C2F6B0B21BC74D7C0004D155 /* AFURLRequestSerialization.m in Sources */,
+				C245D3401BCD3E3B00515310 /* DataManager.m in Sources */,
 				C2F6B0B41BC74D7C0004D155 /* AFURLSessionManager.m in Sources */,
 				C23340981BC54E200045EA8E /* UIImageView+HighlightedWebCache.m in Sources */,
 				C2E35BA01BC670AD00FB1685 /* LoginMineController.m in Sources */,
@@ -1040,6 +1051,7 @@
 				C255C7681BC6A98900EAF02C /* ListCell.m in Sources */,
 				C233408F1BC54E200045EA8E /* SDWebImageDecoder.m in Sources */,
 				C255C7631BC6A98900EAF02C /* RadioController.m in Sources */,
+				C245D33D1BCD3E1600515310 /* SCModel.m in Sources */,
 				C223BAD61BC771ED00EA4C8F /* CarouselFingure.m in Sources */,
 				C2E35BC41BC68CA100FB1685 /* PlayerModel.m in Sources */,
 				C255C7671BC6A98900EAF02C /* DetailCell.m in Sources */,

@@ -9,6 +9,7 @@
 #import "LoginMineController.h"
 #import "LoginController.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "AppDelegate.h"
 @interface LoginMineController ()
 
 @end
@@ -45,6 +46,8 @@
 }
 -(void)action4Quit{
     NSLog(@"退出登录");
+    AppDelegate *aaa = [[UIApplication sharedApplication] delegate];
+    aaa.tempID = NO;
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning {
