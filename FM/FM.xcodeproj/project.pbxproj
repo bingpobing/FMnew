@@ -25,11 +25,15 @@
 		C228CFE81BCE3B02001BE823 /* loginBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C228CFE61BCE3B02001BE823 /* loginBG.jpg */; };
 		C228CFEA1BCE3B09001BE823 /* loginn.png in Resources */ = {isa = PBXBuildFile; fileRef = C228CFE91BCE3B09001BE823 /* loginn.png */; };
 		C228CFEC1BCE3B0D001BE823 /* registerBG.png in Resources */ = {isa = PBXBuildFile; fileRef = C228CFEB1BCE3B0D001BE823 /* registerBG.png */; };
+		C228D1901BCE7837001BE823 /* download.m in Sources */ = {isa = PBXBuildFile; fileRef = C228D18F1BCE7837001BE823 /* download.m */; };
+		C228D1DC1BCE788D001BE823 /* libTCBlobDownload.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C228D1D71BCE7856001BE823 /* libTCBlobDownload.a */; };
+		C228D1DF1BCE7B15001BE823 /* downloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C228D1DE1BCE7B15001BE823 /* downloadModel.m */; };
+		C228D1E21BCE7B30001BE823 /* downloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C228D1E11BCE7B30001BE823 /* downloadManager.m */; };
+		C228D1E51BCE7F4A001BE823 /* DownLoadController.m in Sources */ = {isa = PBXBuildFile; fileRef = C228D1E41BCE7F4A001BE823 /* DownLoadController.m */; };
 		C2319E1D1BC766B00054BBE7 /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2319E1C1BC766B00054BBE7 /* SettingController.m */; };
 		C2319E971BC7BA330054BBE7 /* FMmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2319E961BC7BA330054BBE7 /* FMmodel.m */; };
 		C2319E991BC7BA4A0054BBE7 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2319E981BC7BA4A0054BBE7 /* libsqlite3.0.dylib */; };
 		C2319E9C1BC7BA910054BBE7 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2319E9B1BC7BA910054BBE7 /* DatabaseManager.m */; };
-		C23340511BC54DE10045EA8E /* DownLoadController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340341BC54DE10045EA8E /* DownLoadController.m */; };
 		C23340521BC54DE10045EA8E /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340361BC54DE10045EA8E /* LoginController.m */; };
 		C23340531BC54DE10045EA8E /* LoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23340371BC54DE10045EA8E /* LoginController.xib */; };
 		C23340541BC54DE10045EA8E /* MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23340391BC54DE10045EA8E /* MineController.m */; };
@@ -138,6 +142,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C228D1D61BCE7856001BE823 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C228D1AF1BCE7855001BE823 /* TCBlobDownload.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 217761FC172FFBBB001956C7;
+			remoteInfo = TCBlobDownload;
+		};
+		C228D1D81BCE7856001BE823 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C228D1AF1BCE7855001BE823 /* TCBlobDownload.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21203AD4178C593900C19335;
+			remoteInfo = TCBlobDownloadTests;
+		};
+		C228D1DA1BCE7888001BE823 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C228D1AF1BCE7855001BE823 /* TCBlobDownload.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 217761FB172FFBBB001956C7;
+			remoteInfo = TCBlobDownload;
+		};
 		C2FFA5271BC3B068004B69B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C2FFA50B1BC3B068004B69B0 /* Project object */;
@@ -178,6 +203,15 @@
 		C228CFE61BCE3B02001BE823 /* loginBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBG.jpg; sourceTree = "<group>"; };
 		C228CFE91BCE3B09001BE823 /* loginn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginn.png; sourceTree = "<group>"; };
 		C228CFEB1BCE3B0D001BE823 /* registerBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerBG.png; sourceTree = "<group>"; };
+		C228D18E1BCE7837001BE823 /* download.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = download.h; sourceTree = "<group>"; };
+		C228D18F1BCE7837001BE823 /* download.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = download.m; sourceTree = "<group>"; };
+		C228D1AF1BCE7855001BE823 /* TCBlobDownload.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = TCBlobDownload.xcodeproj; sourceTree = "<group>"; };
+		C228D1DD1BCE7B15001BE823 /* downloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = downloadModel.h; sourceTree = "<group>"; };
+		C228D1DE1BCE7B15001BE823 /* downloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = downloadModel.m; sourceTree = "<group>"; };
+		C228D1E01BCE7B30001BE823 /* downloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = downloadManager.h; sourceTree = "<group>"; };
+		C228D1E11BCE7B30001BE823 /* downloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = downloadManager.m; sourceTree = "<group>"; };
+		C228D1E31BCE7F4A001BE823 /* DownLoadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadController.h; sourceTree = "<group>"; };
+		C228D1E41BCE7F4A001BE823 /* DownLoadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadController.m; sourceTree = "<group>"; };
 		C2319E1B1BC766B00054BBE7 /* SettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingController.h; sourceTree = "<group>"; };
 		C2319E1C1BC766B00054BBE7 /* SettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingController.m; sourceTree = "<group>"; };
 		C2319E951BC7BA330054BBE7 /* FMmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMmodel.h; sourceTree = "<group>"; };
@@ -185,8 +219,6 @@
 		C2319E981BC7BA4A0054BBE7 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		C2319E9A1BC7BA910054BBE7 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		C2319E9B1BC7BA910054BBE7 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
-		C23340331BC54DE10045EA8E /* DownLoadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownLoadController.h; sourceTree = "<group>"; };
-		C23340341BC54DE10045EA8E /* DownLoadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownLoadController.m; sourceTree = "<group>"; };
 		C23340351BC54DE10045EA8E /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		C23340361BC54DE10045EA8E /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		C23340371BC54DE10045EA8E /* LoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginController.xib; sourceTree = "<group>"; };
@@ -369,6 +401,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C228D1DC1BCE788D001BE823 /* libTCBlobDownload.a in Frameworks */,
 				C2319E991BC7BA4A0054BBE7 /* libsqlite3.0.dylib in Frameworks */,
 				C2E35B901BC64D5800FB1685 /* SystemConfiguration.framework in Frameworks */,
 				C2E35B8E1BC64D4C00FB1685 /* MobileCoreServices.framework in Frameworks */,
@@ -434,6 +467,23 @@
 			path = CategoryController;
 			sourceTree = "<group>";
 		};
+		C228D1911BCE7855001BE823 /* TCBlobDownload */ = {
+			isa = PBXGroup;
+			children = (
+				C228D1AF1BCE7855001BE823 /* TCBlobDownload.xcodeproj */,
+			);
+			path = TCBlobDownload;
+			sourceTree = "<group>";
+		};
+		C228D1B01BCE7855001BE823 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C228D1D71BCE7856001BE823 /* libTCBlobDownload.a */,
+				C228D1D91BCE7856001BE823 /* TCBlobDownloadTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C233402F1BC54DE10045EA8E /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,8 +507,8 @@
 				C2E35B9F1BC670AD00FB1685 /* LoginMineController.m */,
 				C24CEAFB1BCB40840059ACC5 /* CollectViewController.h */,
 				C24CEAFC1BCB40840059ACC5 /* CollectViewController.m */,
-				C23340331BC54DE10045EA8E /* DownLoadController.h */,
-				C23340341BC54DE10045EA8E /* DownLoadController.m */,
+				C228D1E31BCE7F4A001BE823 /* DownLoadController.h */,
+				C228D1E41BCE7F4A001BE823 /* DownLoadController.m */,
 				C23340351BC54DE10045EA8E /* LoginController.h */,
 				C23340361BC54DE10045EA8E /* LoginController.m */,
 				C23340371BC54DE10045EA8E /* LoginController.xib */,
@@ -494,6 +544,12 @@
 				C2319E961BC7BA330054BBE7 /* FMmodel.m */,
 				C2319E9A1BC7BA910054BBE7 /* DatabaseManager.h */,
 				C2319E9B1BC7BA910054BBE7 /* DatabaseManager.m */,
+				C228D1DD1BCE7B15001BE823 /* downloadModel.h */,
+				C228D1DE1BCE7B15001BE823 /* downloadModel.m */,
+				C228D1E01BCE7B30001BE823 /* downloadManager.h */,
+				C228D1E11BCE7B30001BE823 /* downloadManager.m */,
+				C228D18E1BCE7837001BE823 /* download.h */,
+				C228D18F1BCE7837001BE823 /* download.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -833,7 +889,11 @@
 		C2FFA5451BC3B4B4004B69B0 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				C2A676F01BCE833D0010A0D9 /* SVPullToRefresh */,
+=======
+				C228D1911BCE7855001BE823 /* TCBlobDownload */,
+>>>>>>> 9bbe09be9582a14c8392db4e11bdd3e9aac152f5
 				C2F6B0981BC74D7B0004D155 /* AFNetworking */,
 				C223BAC91BC771ED00EA4C8F /* CarouselFingure.h */,
 				C223BACA1BC771ED00EA4C8F /* CarouselFingure.m */,
@@ -928,6 +988,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C228D1DB1BCE7888001BE823 /* PBXTargetDependency */,
 			);
 			name = FM;
 			productName = FM;
@@ -981,6 +1042,12 @@
 			mainGroup = C2FFA50A1BC3B068004B69B0;
 			productRefGroup = C2FFA5141BC3B068004B69B0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C228D1B01BCE7855001BE823 /* Products */;
+					ProjectRef = C228D1AF1BCE7855001BE823 /* TCBlobDownload.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C2FFA5121BC3B068004B69B0 /* FM */,
@@ -988,6 +1055,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C228D1D71BCE7856001BE823 /* libTCBlobDownload.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTCBlobDownload.a;
+			remoteRef = C228D1D61BCE7856001BE823 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C228D1D91BCE7856001BE823 /* TCBlobDownloadTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TCBlobDownloadTests.xctest;
+			remoteRef = C228D1D81BCE7856001BE823 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C2FFA5111BC3B068004B69B0 /* Resources */ = {
@@ -1068,6 +1152,7 @@
 				C233408D1BC54E200045EA8E /* SDImageCache.m in Sources */,
 				C223BAE41BC790E800EA4C8F /* RecommendedController.m in Sources */,
 				C255C7641BC6A98900EAF02C /* DetailModel.m in Sources */,
+				C228D1DF1BCE7B15001BE823 /* downloadModel.m in Sources */,
 				C233408E1BC54E200045EA8E /* SDWebImageCompat.m in Sources */,
 				C2F6B0B21BC74D7C0004D155 /* AFURLRequestSerialization.m in Sources */,
 				C245D3401BCD3E3B00515310 /* DataManager.m in Sources */,
@@ -1112,11 +1197,14 @@
 				C23340891BC54E200045EA8E /* LBPersonalPage_VC.m in Sources */,
 				C223BAE71BC7916400EA4C8F /* Category4ScrollViewController.m in Sources */,
 				C23340961BC54E200045EA8E /* UIImage+MultiFormat.m in Sources */,
+				C228D1E21BCE7B30001BE823 /* downloadManager.m in Sources */,
 				C223BAF31BC7927D00EA4C8F /* HeaderView.m in Sources */,
+				C228D1901BCE7837001BE823 /* download.m in Sources */,
 				C23340971BC54E200045EA8E /* UIImage+WebP.m in Sources */,
 				C2F6B0B31BC74D7C0004D155 /* AFURLResponseSerialization.m in Sources */,
 				C23340941BC54E200045EA8E /* UIButton+WebCache.m in Sources */,
 				C2F6B0AF1BC74D7C0004D155 /* AFNetworkReachabilityManager.m in Sources */,
+				C228D1E51BCE7F4A001BE823 /* DownLoadController.m in Sources */,
 				C23340581BC54DE10045EA8E /* RegisterViewController.m in Sources */,
 				C2F6B0AD1BC74D7C0004D155 /* AFHTTPRequestOperationManager.m in Sources */,
 				C223BAEE1BC7924800EA4C8F /* DiscoverCell.m in Sources */,
@@ -1128,7 +1216,6 @@
 				C255C7691BC6A98900EAF02C /* RadioViewCell.m in Sources */,
 				C2B32C1C1BC8AD180079AD55 /* AboutController.m in Sources */,
 				C223BAD91BC771ED00EA4C8F /* SCNavTabBar.m in Sources */,
-				C23340511BC54DE10045EA8E /* DownLoadController.m in Sources */,
 				C255C7601BC6A98900EAF02C /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1144,6 +1231,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C228D1DB1BCE7888001BE823 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TCBlobDownload;
+			targetProxy = C228D1DA1BCE7888001BE823 /* PBXContainerItemProxy */;
+		};
 		C2FFA5281BC3B068004B69B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C2FFA5121BC3B068004B69B0 /* FM */;
@@ -1246,6 +1338,7 @@
 		C2FFA5311BC3B068004B69B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1261,12 +1354,14 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_TEMP_DIR)/../UninstalledProducts/include";
 			};
 			name = Debug;
 		};
 		C2FFA5321BC3B068004B69B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1282,6 +1377,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_TEMP_DIR)/../UninstalledProducts/include";
 			};
 			name = Release;
 		};
