@@ -889,11 +889,11 @@
 		C2FFA5451BC3B4B4004B69B0 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
+
 				C2A676F01BCE833D0010A0D9 /* SVPullToRefresh */,
-=======
+
 				C228D1911BCE7855001BE823 /* TCBlobDownload */,
->>>>>>> 9bbe09be9582a14c8392db4e11bdd3e9aac152f5
+
 				C2F6B0981BC74D7B0004D155 /* AFNetworking */,
 				C223BAC91BC771ED00EA4C8F /* CarouselFingure.h */,
 				C223BACA1BC771ED00EA4C8F /* CarouselFingure.m */,
