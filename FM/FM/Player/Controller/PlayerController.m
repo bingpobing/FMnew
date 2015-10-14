@@ -21,6 +21,7 @@
 @property (nonatomic,strong)NSTimer *timer;
 @property (nonatomic,assign)BOOL playOrPause;
 @property (nonatomic,assign) int numOfMusic;
+@property (nonatomic,strong)UIImage *img;
 @end
 
 
@@ -51,7 +52,7 @@
     //背景颜色
     self.view.backgroundColor = [UIColor colorWithRed:193/255.0 green:230/255.0 blue:252/255.0 alpha:1];
     [self play];
-
+     self.playOrPause = YES;
     //进度条使用NStimer监控播放的进度
     _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerRadio) userInfo:nil repeats:YES];
     
@@ -72,7 +73,7 @@
     
     self.radioPalyer = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:self.playPathAacv224]];
     [self.radioPalyer play];
-    self.playOrPause = YES;
+   
 }
 - (void)pause{
     [self.radioPalyer pause];
@@ -111,6 +112,7 @@
     [self.view addSubview:_djLab];
     
     //列表
+    [_liebiaoBtn removeFromSuperview];
     _liebiaoBtn = nil;
     _liebiaoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _liebiaoBtn.frame = CGRectMake(0, 0, 50, 50);
@@ -126,6 +128,7 @@
     [self.view addSubview:_liebiaoLab];
     
     //下载
+    [_xiazaiBtn removeFromSuperview];
     _xiazaiBtn = nil;
     _xiazaiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _xiazaiBtn.frame = CGRectMake(0, 0, 50, 50);
@@ -141,6 +144,7 @@
     [self.view addSubview:_xiazaiLab];
     
     //收藏
+    [_shoucangBtn removeFromSuperview];
     _shoucangBtn = nil;
     _shoucangBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _shoucangBtn.frame = CGRectMake(0, 0, 50, 50);
@@ -171,15 +175,19 @@
 //    [self.view addSubview:_lastTimeLab];
     
     //开始暂停
+    [_startOrPuaseBtn removeFromSuperview];
     _startOrPuaseBtn = nil;
     _startOrPuaseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _startOrPuaseBtn.frame = CGRectMake(0, 0, 50, 50);
     _startOrPuaseBtn.center = CGPointMake(kScreenWidth/2, kScreenHeight/2+260);
-    [_startOrPuaseBtn setImage:[UIImage imageNamed:@"zanting"] forState:UIControlStateNormal];
+    self.img = nil;
+    self.img = [UIImage imageNamed:@"zanting"];
+    [_startOrPuaseBtn setImage:self.img forState:UIControlStateNormal];
     [_startOrPuaseBtn addTarget:self action:@selector(clickStartOrPuaseBtnBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_startOrPuaseBtn];
     
     //上一首
+    [_previousBtn removeFromSuperview];
     _previousBtn = nil;
     _previousBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _previousBtn.frame = CGRectMake(0, 0, 50, 50);
@@ -189,6 +197,7 @@
     [self.view addSubview:_previousBtn];
     
     //下一首
+    [_nextBtn removeFromSuperview];
     _nextBtn = nil;
     _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _nextBtn.frame = CGRectMake(0, 0, 50, 50);
@@ -275,11 +284,13 @@
         [self presentViewController:alert animated:YES completion:nil];
     }
 }
+//暂停播放按钮
 - (void)clickStartOrPuaseBtnBtn:(UIButton *)sender{
     UIButton *btn = (UIButton *)sender;
     if (self.playOrPause == YES) {
         self.playOrPause = NO;
         [self.radioPalyer pause];
+        
         [btn setImage:[UIImage imageNamed:@"bofang"] forState:UIControlStateNormal];
     }else{
         self.playOrPause = YES;
