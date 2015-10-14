@@ -24,6 +24,10 @@
 //简介
 @property (nonatomic,strong)UILabel *lab4play_decription;
 
+
+//刷新的当前页面
+@property (nonatomic,assign)NSInteger currentPage;
+
 @end
 
 @implementation DiscoverListController
@@ -60,17 +64,49 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self requestDateCell];
-    [self requestDateHeader];
+
     [self myTableHeaderViewDidLoad];
+    
+    //返回按钮
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"return32"] style:UIBarButtonItemStylePlain target:self action:@selector(returnPage)];
+    //收藏按钮
+    UIBarButtonItem *collectBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"collect1"] style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem *shareBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationItem.rightBarButtonItems = @[shareBtn,collectBtn];
+    
     
     self.title = self.string;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"DiscoverListCell" bundle:nil] forCellReuseIdentifier:@"cell"];
 
+    _currentPage = 0;
+    [self requestDateCell];
+    [self requestDateHeader];
+    //下拉刷新
+    __weak typeof (self)weakSelf = self;
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        weakSelf.tableView.frame = CGRectMake(0, 64, weakSelf.view.frame.size.width, weakSelf.view.frame.size.height - 50);
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.pullToRefreshView stopAnimating];
+    }];
+    //下拉加载
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        weakSelf.currentPage++;
+        [weakSelf requestDateCell];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.infiniteScrollingView stopAnimating];
+    
+    }];
+    
 
 }
+
+//返回
+
+- (void)returnPage{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)myTableHeaderViewDidLoad{
     //TableHeaderView背景图片

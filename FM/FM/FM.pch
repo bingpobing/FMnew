@@ -28,6 +28,10 @@
 //第三方
 #import "CarouselFingure.h"
 #import "UIImageView+WebCache.h"
+#import "SVPullToRefresh.h"
+
+
+
 
 //推荐(get)接口:
 #define chooseURL @"http://fmlive.shuoba.org/v3/playback/recommend/page_info"
