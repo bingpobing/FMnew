@@ -24,6 +24,8 @@
 @property(nonatomic , strong) NSString *duration;
 //电台地址
 @property (nonatomic,strong)NSString *playPathAacv224;
+//电台下载地址
+@property (nonatomic,strong)NSString *file_m4a_url;
 
 @property (nonatomic,strong)FMmodel *playModel;
 

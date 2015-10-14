@@ -57,6 +57,7 @@
             model.duration = [NSString stringWithFormat:@"%@",Dic[@"duration"]];
             
             model.playPathAacv224 = Dic[@"playPathAacv224"];//电台地址
+            model.downloadUrl = Dic[@"downloadUrl"];//电台下载地址
             
             [_Array addObject:model];
             [_DIC setObject:_Array forKey:responseObject[@"tracks"][@"list"]];
@@ -110,6 +111,8 @@
     self.playerController.nickname = model.nickname;
     self.playerController.duration = model.duration;
     self.playerController.playPathAacv224 = model.playPathAacv224;
+    self.playerController.file_m4a_url = model.downloadUrl;
+    
     self.playerController.str = (int)indexPath.row;
     self.playerController.musicArray = [self.DIC[self.DIC.allKeys[indexPath.section]] mutableCopy];
     self.playerController.tag = @"2000";

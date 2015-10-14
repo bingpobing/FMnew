@@ -24,5 +24,7 @@
 
 //电台地址
 @property (nonatomic,strong)NSString *playPathAacv224;
+//电台下载地址
+@property (nonatomic,strong)NSString *downloadUrl;
 
 @end

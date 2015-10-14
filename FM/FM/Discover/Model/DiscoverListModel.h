@@ -42,7 +42,7 @@
 
 @property (nonatomic,strong)NSString *record_image_url;//图片地址
 
-@property (nonatomic,strong)NSString *file_m4a_url;
+@property (nonatomic,strong)NSString *file_m4a_url;//电台下载地址
 
 
 //headerView上的属性
