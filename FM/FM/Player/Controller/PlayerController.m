@@ -80,6 +80,7 @@
 - (void)loadViewStyle{
     
     //返回按钮
+    _backBtn.titleLabel.text = nil;
     _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _backBtn.frame = CGRectMake(0, 0, 100, 64);
     [_backBtn setTitle:@"返回" forState:UIControlStateNormal];
@@ -103,19 +104,21 @@
     [self.view addSubview:_titleLab];
     
     //电台主持
+    _djLab.text = nil;
     _djLab = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_imgView.frame)+60, self.view.frame.size.width, 30)];
     _djLab.text = self.nickname;
     _djLab.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_djLab];
     
     //列表
+    _liebiaoBtn = nil;
     _liebiaoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _liebiaoBtn.frame = CGRectMake(0, 0, 50, 50);
     _liebiaoBtn.center = CGPointMake(kScreenWidth/2-100, kScreenHeight/2+100);
     [_liebiaoBtn setImage:[UIImage imageNamed:@"liebiao"] forState:UIControlStateNormal];
     [_liebiaoBtn addTarget:self action:@selector(clickLiebiaoBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_liebiaoBtn];
-    
+    _liebiaoLab.text = nil;
     _liebiaoLab = [[UILabel alloc]init];
     _liebiaoLab.frame = CGRectMake(0, 0, 50, 50);
     _liebiaoLab.center = CGPointMake(kScreenWidth/2-95, kScreenHeight/2+130);
@@ -123,13 +126,14 @@
     [self.view addSubview:_liebiaoLab];
     
     //下载
+    _xiazaiBtn = nil;
     _xiazaiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _xiazaiBtn.frame = CGRectMake(0, 0, 50, 50);
     self.xiazaiBtn.center = CGPointMake(kScreenWidth/2, kScreenHeight/2+100);
     [_xiazaiBtn setImage:[UIImage imageNamed:@"xiazai"] forState:UIControlStateNormal];
     [_xiazaiBtn addTarget:self action:@selector(clickXiazaiBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_xiazaiBtn];
-    
+    _xiazaiLab.text = nil;
     _xiazaiLab = [[UILabel alloc]init];
     _xiazaiLab.frame = CGRectMake(0, 0, 50, 50);
     _xiazaiLab.center = CGPointMake(kScreenWidth/2+5, kScreenHeight/2+130);
@@ -137,13 +141,14 @@
     [self.view addSubview:_xiazaiLab];
     
     //收藏
+    _shoucangBtn = nil;
     _shoucangBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _shoucangBtn.frame = CGRectMake(0, 0, 50, 50);
     _shoucangBtn.center = CGPointMake(kScreenWidth/2+100, kScreenHeight/2+100);
     [_shoucangBtn setImage:[UIImage imageNamed:@"weishoucang"] forState:UIControlStateNormal];
     [_shoucangBtn addTarget:self action:@selector(clickShoucangBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_shoucangBtn];
-    
+    _shoucangLab.text = nil;
     _shoucangLab = [[UILabel alloc]init];
     _shoucangLab.frame = CGRectMake(0, 0, 50, 50);
     _shoucangLab.center = CGPointMake(kScreenWidth/2+105, kScreenHeight/2+130);
@@ -166,6 +171,7 @@
 //    [self.view addSubview:_lastTimeLab];
     
     //开始暂停
+    _startOrPuaseBtn = nil;
     _startOrPuaseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _startOrPuaseBtn.frame = CGRectMake(0, 0, 50, 50);
     _startOrPuaseBtn.center = CGPointMake(kScreenWidth/2, kScreenHeight/2+260);
@@ -174,6 +180,7 @@
     [self.view addSubview:_startOrPuaseBtn];
     
     //上一首
+    _previousBtn = nil;
     _previousBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _previousBtn.frame = CGRectMake(0, 0, 50, 50);
     _previousBtn.center = CGPointMake(kScreenWidth/2-80, kScreenHeight/2+260);
@@ -182,6 +189,7 @@
     [self.view addSubview:_previousBtn];
     
     //下一首
+    _nextBtn = nil;
     _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _nextBtn.frame = CGRectMake(0, 0, 50, 50);
     _nextBtn.center = CGPointMake(kScreenWidth/2+80, kScreenHeight/2+260);
@@ -258,6 +266,7 @@
         }];
         
         UIAlertAction *alertAction2 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+         
         }];
         [alert addAction:alertAction1];
         [alert addAction:alertAction2];
@@ -270,12 +279,11 @@
     UIButton *btn = (UIButton *)sender;
     if (self.playOrPause == YES) {
         self.playOrPause = NO;
-        [self pause];
-        
+        [self.radioPalyer pause];
         [btn setImage:[UIImage imageNamed:@"bofang"] forState:UIControlStateNormal];
     }else{
         self.playOrPause = YES;
-        [self play];
+        [self.radioPalyer play];
         
         [btn setImage:[UIImage imageNamed:@"zanting"] forState:UIControlStateNormal];
     }
@@ -317,9 +325,6 @@
     if (self.numOfMusic > self.musicArray.count) {
         return;
     }
-    self.playPathAacv224 = nil;
-    
-    
     self.playPathAacv224 = nil;
     
     if ([self.tag isEqualToString:@"2000"]) {
