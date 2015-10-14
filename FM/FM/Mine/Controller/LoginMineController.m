@@ -26,7 +26,7 @@
     AVQuery *query = [AVQuery queryWithClassName:@"FM"];
     AVObject *post = [query getObjectWithId:self.temp];
     //设置cell
-    NSMutableArray *arr =[[NSMutableArray alloc]initWithObjects:@"收藏列表",@"下载列表",@"最近收听",@"定时功能",@"设置",@"意见与反馈", nil];
+    NSMutableArray *arr =[[NSMutableArray alloc]initWithObjects:@"收藏列表",@"下载列表",@"最近收听",@"设置", nil];
     
     [self addArray:arr];
     //头像设置
