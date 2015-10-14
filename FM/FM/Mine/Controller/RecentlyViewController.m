@@ -36,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationController.view.backgroundColor = [UIColor whiteColor];
     self.title = @"最近收听";
     self.rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(deleteArr:)];
     self.navigationItem.rightBarButtonItem = self.rightBtn;

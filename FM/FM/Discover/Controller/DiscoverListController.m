@@ -249,7 +249,9 @@
     playerVC.nickname = model.record_name;
     playerVC.duration = model.record_file_duration;
     playerVC.playPathAacv224 = model.record_file_url;
-    
+    playerVC.musicArray = [self.valueArr mutableCopy];
+    playerVC.str = (int)indexPath.row;
+    playerVC.tag = @"1000";
     [self showDetailViewController:playerVC sender:nil];
 }
 

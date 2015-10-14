@@ -11,7 +11,9 @@
 
 @interface PlayerController : UIViewController
 
-
+@property (nonatomic, strong) NSMutableArray *musicArray;
+@property (nonatomic, assign) int str;
+@property (nonatomic, strong) NSString *tag;
 //图片
 @property(nonatomic , strong) NSURL *PicUrl;
 //小标题

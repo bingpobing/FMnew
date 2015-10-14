@@ -32,6 +32,7 @@
     [super viewDidLoad];
     self.title = @"我的收藏";
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationController.view.backgroundColor = [UIColor whiteColor];
     [self.tableView registerNib:[UINib nibWithNibName:@"CollectCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     self.rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(deleteArr:)];
     self.navigationItem.rightBarButtonItem = self.rightBtn;

@@ -110,7 +110,9 @@
     self.playerController.nickname = model.nickname;
     self.playerController.duration = model.duration;
     self.playerController.playPathAacv224 = model.playPathAacv224;
-    
+    self.playerController.str = (int)indexPath.row;
+    self.playerController.musicArray = [self.DIC[self.DIC.allKeys[indexPath.section]] mutableCopy];
+    self.playerController.tag = @"2000";
     [self showDetailViewController:self.playerController sender:nil];
 }
 

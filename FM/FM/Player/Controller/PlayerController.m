@@ -12,13 +12,15 @@
 #import "FMmodel.h"
 #import "SCModel.h"
 #import "AppDelegate.h"
+#import "ListModel.h"
+#import "DiscoverListModel.h"
 @interface PlayerController ()
 
 //可以使用AVPlayer播放本地音频和支持流媒体播放
 @property(nonatomic , strong)AVPlayer *radioPalyer;
 @property (nonatomic,strong)NSTimer *timer;
 @property (nonatomic,assign)BOOL playOrPause;
-
+@property (nonatomic,assign) int numOfMusic;
 @end
 
 
@@ -45,23 +47,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [FMmodel creatTable];
-    NSString *img = [NSString stringWithFormat:@"%@",self.PicUrl];
-
-    FMmodel *model = [FMmodel modelWithMusicName:self.radioTitle people:self.nickname imgUrl:img playPath:self.playPathAacv224];
-    if (self.radioTitle != nil) {
-        [model insertToTable];
-    }
-    
-    
+    self.numOfMusic = self.str;
     //背景颜色
     self.view.backgroundColor = [UIColor colorWithRed:193/255.0 green:230/255.0 blue:252/255.0 alpha:1];
-    
-    self.radioPalyer = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:_playPathAacv224]];
-    [self.radioPalyer play];
-    self.playOrPause = YES;
-    
+    [self play];
 
     //进度条使用NStimer监控播放的进度
     _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerRadio) userInfo:nil repeats:YES];
@@ -72,7 +61,22 @@
     //[self.view addSubview:self.liebiaoBtn];
     // Do any additional setup after loading the view from its nib.
 }
-
+- (void)play{
+    [FMmodel creatTable];
+    NSString *img = [NSString stringWithFormat:@"%@",self.PicUrl];
+    
+    FMmodel *model = [FMmodel modelWithMusicName:self.radioTitle people:self.nickname imgUrl:img playPath:self.playPathAacv224];
+    if (self.radioTitle != nil) {
+        [model insertToTable];
+    }
+    
+    self.radioPalyer = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:self.playPathAacv224]];
+    [self.radioPalyer play];
+    self.playOrPause = YES;
+}
+- (void)pause{
+    [self.radioPalyer pause];
+}
 - (void)loadViewStyle{
     
     //返回按钮
@@ -92,6 +96,7 @@
     [self.view addSubview:_imgView];
     
     //小标题
+    _titleLab.text = nil;
     _titleLab = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_imgView.frame)+20, self.view.frame.size.width, 30)];
     _titleLab.text = self.radioTitle;
     _titleLab.textAlignment = NSTextAlignmentCenter;
@@ -146,6 +151,7 @@
     [self.view addSubview:_shoucangLab];
     
     //滑块
+    [_timeSlider removeFromSuperview];
     _timeSlider = [[UISlider alloc]initWithFrame:CGRectMake(40, CGRectGetMaxY(_imgView.frame)+210, kScreenWidth-80, 31)];
     [self.view addSubview:_timeSlider];
     
@@ -197,7 +203,7 @@
 }
 //返回事件
 - (void)clickBackBtn:(UIButton *)sender{
-    
+    [self.radioPalyer pause];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 //列表事件
@@ -247,21 +253,79 @@
     UIButton *btn = (UIButton *)sender;
     if (self.playOrPause == YES) {
         self.playOrPause = NO;
-        [self.radioPalyer pause];
+        [self pause];
         
         [btn setImage:[UIImage imageNamed:@"bofang"] forState:UIControlStateNormal];
     }else{
         self.playOrPause = YES;
-        [self.radioPalyer play];
+        [self play];
         
         [btn setImage:[UIImage imageNamed:@"zanting"] forState:UIControlStateNormal];
     }
 }
 - (void)clickPreviousBtn:(UIButton *)sender{
+ 
+    self.numOfMusic --;
+    if (self.numOfMusic < 0) {
+        return;
+    }
+    self.playPathAacv224 = nil;
     
+    if ([self.tag isEqualToString:@"2000"]) {
+        ListModel *model = [ListModel new];
+        model = self.musicArray[self.numOfMusic];
+        self.PicUrl = model.PicUrl;
+        self.radioTitle = model.title;
+        self.nickname = model.nickname;
+        self.duration = model.duration;
+        self.playPathAacv224 = model.playPathAacv224;
+    }else if([self.tag isEqualToString:@"1000"]){
+        DiscoverListModel *model = [DiscoverListModel new];
+        NSURL *url = [NSURL URLWithString:model.record_image_url];
+        model = self.musicArray[self.numOfMusic];
+        self.PicUrl = url;
+        self.radioTitle = model.record_title;
+        self.nickname = model.record_name;
+        self.duration = model.record_file_duration;
+        self.playPathAacv224 = model.record_file_url;
+    }
+    
+    [self play];
+    [self loadViewStyle];
+ 
 }
+
 - (void)clickNextBtn:(UIButton *)sender{
+    self.numOfMusic ++;
+    if (self.numOfMusic > self.musicArray.count) {
+        return;
+    }
+    self.playPathAacv224 = nil;
     
+    
+    self.playPathAacv224 = nil;
+    
+    if ([self.tag isEqualToString:@"2000"]) {
+        ListModel *model = [ListModel new];
+        model = self.musicArray[self.numOfMusic];
+        self.PicUrl = model.PicUrl;
+        self.radioTitle = model.title;
+        self.nickname = model.nickname;
+        self.duration = model.duration;
+        self.playPathAacv224 = model.playPathAacv224;
+    }else if([self.tag isEqualToString:@"1000"]){
+        DiscoverListModel *model = [DiscoverListModel new];
+        NSURL *url = [NSURL URLWithString:model.record_image_url];
+        model = self.musicArray[self.numOfMusic];
+        self.PicUrl = url;
+        self.radioTitle = model.record_title;
+        self.nickname = model.record_name;
+        self.duration = model.record_file_duration;
+        self.playPathAacv224 = model.record_file_url;
+    }
+
+    [self play];
+    [self loadViewStyle];
 }
 
 
