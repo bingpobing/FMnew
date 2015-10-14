@@ -10,6 +10,7 @@
 #import "CollectCell.h"
 #import "downloadModel.h"
 #import "PlayerController.h"
+#import "download.h"
 @interface DownLoadController ()
 @property(nonatomic,strong) UIBarButtonItem *rightBtn;
 @property(nonatomic,strong) NSMutableArray *array;
@@ -84,9 +85,11 @@
 
 //tableview删除
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    download *down = [download new];
     
     downloadModel *moe = [downloadModel new];
     moe = self.array[indexPath.row];
+    [down deleteFileWithFileName:moe.nameOfSave];
     [moe deleteToTable];
     [self.array removeObjectAtIndex:indexPath.row];
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];

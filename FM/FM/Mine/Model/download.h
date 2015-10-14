@@ -12,7 +12,7 @@
 
 
 @property (nonatomic,strong)NSString *string;
-
+- (void)deleteFileWithFileName:(NSString *)name;
 - (void)downloadWithUrl:(NSString *)url start:(TCBlobDownloadManager *)DownloadManager radioTitle:(NSString *)radioTitle nickname:(NSString *)nickname PicUrl:(NSString *)PicUrl playPathAacv224:(NSString *)playPathAacv224;
 
 @end

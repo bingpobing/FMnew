@@ -11,7 +11,31 @@
 #import "PlayerController.h"
 
 @implementation download
-
+// 删除沙盒里的文件
+-(void)deleteFileWithFileName:(NSString *)name {
+    NSFileManager* fileManager=[NSFileManager defaultManager];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    
+    //文件名
+    NSString *uniquePath=[[paths objectAtIndex:0] stringByAppendingPathComponent:name];
+    NSArray *array = [uniquePath componentsSeparatedByString:@"Documents/"];
+    NSString *string = [NSString stringWithFormat:@"%@tmp/example/%@",array[0],name];
+    BOOL blHave=[[NSFileManager defaultManager] fileExistsAtPath:string];
+    if (!blHave) {
+        NSLog(@"no  have");
+        return ;
+    }else {
+        NSLog(@" have");
+        BOOL blDele= [fileManager removeItemAtPath:string error:nil];
+        if (blDele) {
+            NSLog(@"dele success");
+        }else {
+            NSLog(@"dele fail");
+        }
+        
+    }
+}
+//下载
 - (void)downloadWithUrl:(NSString *)url start:(TCBlobDownloadManager *)DownloadManager radioTitle:(NSString *)radioTitle nickname:(NSString *)nickname PicUrl:(NSString *)PicUrl playPathAacv224:(NSString *)playPathAacv224{
     // Blocks
     [DownloadManager startDownloadWithURL:[NSURL URLWithString:url]  customPath:[NSString pathWithComponents:@[NSTemporaryDirectory(), @"example"]]firstResponse:NULL progress:^(uint64_t receivedLength, uint64_t totalLength, NSInteger remainingTime, float progress) {
