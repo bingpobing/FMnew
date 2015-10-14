@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TCBlobDownload/TCBlobDownload.h>
 @class FMmodel;
 
 @interface PlayerController : UIViewController
@@ -26,7 +27,7 @@
 @property (nonatomic,strong)NSString *playPathAacv224;
 //电台下载地址
 @property (nonatomic,strong)NSString *file_m4a_url;
-
+@property (nonatomic,strong)NSString *file_low_url;
 @property (nonatomic,strong)FMmodel *playModel;
 
 

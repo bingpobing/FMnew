@@ -13,7 +13,6 @@
 
 @interface CollectViewController ()
 @property(nonatomic,strong) NSMutableArray *array;
-@property(nonatomic,strong) NSArray *nameArr;
 @property(nonatomic,strong) CollectCell *cell;
 @property(nonatomic,strong) UIBarButtonItem *rightBtn;
 @end
@@ -144,10 +143,5 @@
     }
     return _array;
 }
--(NSArray *)nameArr{
-    if (_nameArr ==nil) {
-        _nameArr = [NSArray array];
-    }
-    return _nameArr;
-}
+
 @end

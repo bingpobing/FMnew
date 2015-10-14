@@ -14,6 +14,9 @@
 #import "AppDelegate.h"
 #import "ListModel.h"
 #import "DiscoverListModel.h"
+#import "download.h"
+#import "downloadManager.h"
+#import "downloadModel.h"
 @interface PlayerController ()
 
 //可以使用AVPlayer播放本地音频和支持流媒体播放
@@ -234,23 +237,56 @@
 }
 //下载事件
 - (void)clickXiazaiBtn:(UIButton *)sender{
+    if ([self.tag isEqualToString:@"2000"]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"下载" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+        //常规
+        UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"高品质" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            download *down = [download new];
+            TCBlobDownloadManager *manger = [TCBlobDownloadManager new];
+            NSString *img = [NSString stringWithFormat:@"%@",self.PicUrl];
+            [down downloadWithUrl:self.file_m4a_url start:manger radioTitle:self.radioTitle nickname:self.nickname PicUrl:img playPathAacv224:self.playPathAacv224];
+           
+        }];
+        //取消
+        UIAlertAction *alertAction2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        }];
+        [alert addAction:alertAction1];
+        [alert addAction:alertAction2];
+        //显示提示框视图控制器
+        [self presentViewController:alert animated:YES completion:nil];
+    }else if([self.tag isEqualToString:@"1000"]){
+        
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"下载" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+        //常规
+        UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"高品质" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            download *down = [download new];
+            TCBlobDownloadManager *manger = [TCBlobDownloadManager new];
+            NSString *img = [NSString stringWithFormat:@"%@",self.PicUrl];
+            [down downloadWithUrl:self.file_m4a_url start:manger radioTitle:self.radioTitle nickname:self.nickname PicUrl:img playPathAacv224:self.playPathAacv224];
+        }];
+        UIAlertAction *alertAction2 = [UIAlertAction actionWithTitle:@"标准品质" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            download *down = [download new];
+            TCBlobDownloadManager *manger = [TCBlobDownloadManager new];
+            NSString *img = [NSString stringWithFormat:@"%@",self.PicUrl];
+            [down downloadWithUrl:self.file_low_url start:manger radioTitle:self.radioTitle nickname:self.nickname PicUrl:img playPathAacv224:self.playPathAacv224];
+            
+        }];
+        //取消
+        UIAlertAction *alertAction3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        }];
+        
+        [alert addAction:alertAction1];
+        [alert addAction:alertAction2];
+        [alert addAction:alertAction3];
+        
+        //显示提示框视图控制器
+        [self presentViewController:alert animated:YES completion:nil];
+    }
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"下载" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-    //常规
-    UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"高品质" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-    }];
-    UIAlertAction *alertAction2 = [UIAlertAction actionWithTitle:@"标准品质" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-    }];
-    //取消
-    UIAlertAction *alertAction3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-    }];
     
-    [alert addAction:alertAction1];
-    [alert addAction:alertAction2];
-    [alert addAction:alertAction3];
-    
-    //显示提示框视图控制器
-    [self presentViewController:alert animated:YES completion:nil];
 }
 //收藏事件
 - (void)clickShoucangBtn:(UIButton *)sender{
