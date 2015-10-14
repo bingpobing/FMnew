@@ -21,6 +21,10 @@
 		C223BAEF1BC7924800EA4C8F /* DiscoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C223BAED1BC7924800EA4C8F /* DiscoverCell.xib */; };
 		C223BAF31BC7927D00EA4C8F /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C223BAF11BC7927D00EA4C8F /* HeaderView.m */; };
 		C223BAF41BC7927D00EA4C8F /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C223BAF21BC7927D00EA4C8F /* HeaderView.xib */; };
+		C228CFE71BCE3B02001BE823 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = C228CFE51BCE3B02001BE823 /* login.png */; };
+		C228CFE81BCE3B02001BE823 /* loginBG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C228CFE61BCE3B02001BE823 /* loginBG.jpg */; };
+		C228CFEA1BCE3B09001BE823 /* loginn.png in Resources */ = {isa = PBXBuildFile; fileRef = C228CFE91BCE3B09001BE823 /* loginn.png */; };
+		C228CFEC1BCE3B0D001BE823 /* registerBG.png in Resources */ = {isa = PBXBuildFile; fileRef = C228CFEB1BCE3B0D001BE823 /* registerBG.png */; };
 		C2319E1D1BC766B00054BBE7 /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2319E1C1BC766B00054BBE7 /* SettingController.m */; };
 		C2319E971BC7BA330054BBE7 /* FMmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2319E961BC7BA330054BBE7 /* FMmodel.m */; };
 		C2319E991BC7BA4A0054BBE7 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2319E981BC7BA4A0054BBE7 /* libsqlite3.0.dylib */; };
@@ -164,6 +168,10 @@
 		C223BAF01BC7927D00EA4C8F /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeaderView.h; path = FM/Discover/HeaderView.h; sourceTree = SOURCE_ROOT; };
 		C223BAF11BC7927D00EA4C8F /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeaderView.m; path = FM/Discover/HeaderView.m; sourceTree = SOURCE_ROOT; };
 		C223BAF21BC7927D00EA4C8F /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderView.xib; path = FM/Discover/HeaderView.xib; sourceTree = SOURCE_ROOT; };
+		C228CFE51BCE3B02001BE823 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
+		C228CFE61BCE3B02001BE823 /* loginBG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBG.jpg; sourceTree = "<group>"; };
+		C228CFE91BCE3B09001BE823 /* loginn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginn.png; sourceTree = "<group>"; };
+		C228CFEB1BCE3B0D001BE823 /* registerBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerBG.png; sourceTree = "<group>"; };
 		C2319E1B1BC766B00054BBE7 /* SettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingController.h; sourceTree = "<group>"; };
 		C2319E1C1BC766B00054BBE7 /* SettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingController.m; sourceTree = "<group>"; };
 		C2319E951BC7BA330054BBE7 /* FMmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMmodel.h; sourceTree = "<group>"; };
@@ -424,6 +432,10 @@
 		C23340301BC54DE10045EA8E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C228CFEB1BCE3B0D001BE823 /* registerBG.png */,
+				C228CFE91BCE3B09001BE823 /* loginn.png */,
+				C228CFE51BCE3B02001BE823 /* login.png */,
+				C228CFE61BCE3B02001BE823 /* loginBG.jpg */,
 				C23340381BC54DE10045EA8E /* MineController.h */,
 				C23340391BC54DE10045EA8E /* MineController.m */,
 				C2E35B9E1BC670AD00FB1685 /* LoginMineController.h */,
@@ -958,6 +970,7 @@
 				C223BAEF1BC7924800EA4C8F /* DiscoverCell.xib in Resources */,
 				C26C86CE1BC69650001ED1E1 /* faxian.png in Resources */,
 				C2FFA5211BC3B068004B69B0 /* LaunchScreen.xib in Resources */,
+				C228CFE81BCE3B02001BE823 /* loginBG.jpg in Resources */,
 				C2FFA51E1BC3B068004B69B0 /* Images.xcassets in Resources */,
 				C2B80EE11BCCDAAE0059A2D2 /* play48.png in Resources */,
 				C26C86D21BC69650001ED1E1 /* shang.png in Resources */,
@@ -967,8 +980,10 @@
 				C23340591BC54DE10045EA8E /* RegisterViewController.xib in Resources */,
 				C26C86CA1BC69650001ED1E1 /* bofang.png in Resources */,
 				C2B32C241BC8EB5D0079AD55 /* RecentlyViewCell.xib in Resources */,
+				C228CFE71BCE3B02001BE823 /* login.png in Resources */,
 				C26C86D41BC69650001ED1E1 /* xia.png in Resources */,
 				C255C7611BC6A98900EAF02C /* iconfont-svgmoban16.png in Resources */,
+				C228CFEC1BCE3B0D001BE823 /* registerBG.png in Resources */,
 				C26C86D51BC69650001ED1E1 /* xiazai.png in Resources */,
 				C26C86CC1BC69650001ED1E1 /* diantai.png in Resources */,
 				C23340561BC54DE10045EA8E /* OpinionController.xib in Resources */,
@@ -976,6 +991,7 @@
 				C223BAD71BC771ED00EA4C8F /* SCNavTabBar.bundle in Resources */,
 				C2B80EDF1BCCDAAE0059A2D2 /* headerView2.png in Resources */,
 				C2E35AB21BC6053A00FB1685 /* 阿狸.jpg in Resources */,
+				C228CFEA1BCE3B09001BE823 /* loginn.png in Resources */,
 				C26C86D01BC69650001ED1E1 /* liebiao.png in Resources */,
 				C23340531BC54DE10045EA8E /* LoginController.xib in Resources */,
 				C26C86D61BC69650001ED1E1 /* yishoucang.png in Resources */,

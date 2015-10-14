@@ -52,7 +52,7 @@
     layout.minimumInteritemSpacing = 2;
     layout.headerReferenceSize = CGSizeMake(375, 30);
     layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
-    self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 375, self.view.frame.size.height) collectionViewLayout:layout];
+    self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 150) collectionViewLayout:layout];
     self.collection.backgroundColor = [UIColor whiteColor];
     self.collection.delegate = self;
     self.collection.dataSource = self;
