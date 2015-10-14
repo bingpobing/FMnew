@@ -199,16 +199,19 @@
 - (void)clickBackBtn:(UIButton *)sender{
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self.radioPalyer pause];
 }
 //列表事件
 - (void)clickLiebiaoBtn:(UIButton *)sender{
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self.radioPalyer pause];
 }
 //下载事件
 - (void)clickXiazaiBtn:(UIButton *)sender{
     
-    //上拉菜单 ActionSheet
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"下载" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     //常规
     UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"高品质" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -228,6 +231,7 @@
 }
 //收藏事件
 - (void)clickShoucangBtn:(UIButton *)sender{
+    
     AppDelegate *bbb = [UIApplication sharedApplication].delegate;
     if (bbb.tempID) {
         [SCModel creatTable];
@@ -238,10 +242,23 @@
         if (self.radioTitle != nil) {
             [model insertToTable];
         }
+        
     }else{
         NSLog(@"请登录");
-    }
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请登录" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *alertAction1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        }];
+        
+        UIAlertAction *alertAction2 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        }];
+        [alert addAction:alertAction1];
+        [alert addAction:alertAction2];
 
+        //显示提示框视图控制器
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 - (void)clickStartOrPuaseBtnBtn:(UIButton *)sender{
     UIButton *btn = (UIButton *)sender;
