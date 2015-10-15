@@ -167,16 +167,6 @@
     _timeSlider = [[UISlider alloc]initWithFrame:CGRectMake(kScreenWidth*0.107, CGRectGetMaxY(_imgView.frame)+kScreenHeight * 0.35, kScreenWidth-kScreenWidth*0.213, kScreenHeight*0.046)];
     [self.view addSubview:_timeSlider];
     
-//    //播放时间
-//    _playedTimeLab = [[UILabel alloc]initWithFrame:CGRectMake(40, CGRectGetMaxY(_imgView.frame)+215, 100, 100)];
-//    _playedTimeLab.text = @"播放时间";
-//    [self.view addSubview:_playedTimeLab];
-//    
-//    //剩余时间
-//    _lastTimeLab = [[UILabel alloc]initWithFrame:CGRectMake(40+kScreenWidth-80-70, CGRectGetMaxY(_imgView.frame)+215, 100, 100)];
-//    _lastTimeLab.text = @"剩余时间";
-//    [self.view addSubview:_lastTimeLab];
-    
     //开始暂停
     [_startOrPuaseBtn removeFromSuperview];
     _startOrPuaseBtn = nil;

@@ -10,7 +10,7 @@
 #import "RadioViewCell.h"
 #import "DetailViewController.h"
 #import "Networking.h"
-#import "PlayerModel.h"
+
 #define url @"http://mobile.ximalaya.com/m/category_tag_list?category=radio&device=iPhone&type=album"
 
 #define allURL @"http://mobile.ximalaya.com/m/explore_album_list?category_name=radio&condition=hot&device=iPhone&page=1&per_page=20&status=0&tag_name="

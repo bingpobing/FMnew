@@ -82,7 +82,7 @@
 
 -(void) showScrollView{
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:kScreenRect];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     //设置UIScrollView 的显示内容的尺寸，有n张图要显示，就设置 屏幕宽度*n ，这里假设要显示4张图
     scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * 4, [UIScreen mainScreen].bounds.size.height);
@@ -98,7 +98,7 @@
     //在UIScrollView 上加入 UIImageView
     for (int i = 0 ; i < 4; i ++) {
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenRect.size.width * i , 0, kScreenRect.size.width, [UIScreen mainScreen].bounds.size.height)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth * i , 0, kScreenWidth, kScreenHeight)];
         
         //将要加载的图片放入imageView 中
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%d",i+1]];
@@ -110,7 +110,11 @@
     //初始化 UIPageControl 和 _scrollView 显示在 同一个页面中
     UIPageControl *pageConteol = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
     pageConteol.center = CGPointMake(kScreenWidth/2, kScreenHeight/1.1);
-    pageConteol.numberOfPages = 4;//设置pageConteol 的page 和 _scrollView 上的图片一样多
+    pageConteol.numberOfPages = 4;
+    //未选中圆点的颜色
+    pageConteol.pageIndicatorTintColor = [UIColor orangeColor];
+    //选中圆点的颜色
+    pageConteol.currentPageIndicatorTintColor = [UIColor greenColor];//现在的;通用的;最近的
     pageConteol.tag = 200;
     
     [self.window addSubview:scrollView];
@@ -120,15 +124,13 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
-    // 记录scrollView 的当前位置，因为已经设置了分页效果，所以：位置/屏幕大小 = 第几页
-    int current = scrollView.contentOffset.x/kScreenRect.size.width;
-    
-    //根据scrollView 的位置对page 的当前页赋值
-    UIPageControl *page = (UIPageControl *)[self.window viewWithTag:200];
-    page.currentPage = current;
+    //获取pageControl
+    UIPageControl *pageControl = (UIPageControl *)[self.window viewWithTag:200];
+    //根据偏移量来控制currentPage
+    pageControl.currentPage = scrollView.contentOffset.x/kScreenWidth;
     
     //当显示到最后一页时，让滑动图消失
-    if (page.currentPage == 3) {
+    if (pageControl.currentPage == 3) {
         
         //调用方法，使滑动图消失
         [self scrollViewDisappear];
