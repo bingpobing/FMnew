@@ -71,8 +71,8 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"return32"] style:UIBarButtonItemStylePlain target:self action:@selector(returnPage)];
     //收藏按钮
     UIBarButtonItem *collectBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"collect1"] style:UIBarButtonItemStylePlain target:self action:nil];
-    UIBarButtonItem *shareBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:nil];
-    self.navigationItem.rightBarButtonItems = @[shareBtn,collectBtn];
+//    UIBarButtonItem *shareBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationItem.rightBarButtonItems = @[collectBtn];
     
     
     self.title = self.string;
@@ -236,26 +236,26 @@
     playCountLab.text = [NSString stringWithFormat:@"播放全部(%ld期)",self.valueArr.count];
     
     [imgView addSubview:playCountLab];
-    //添加下载和排序按钮
-    UIButton *downloadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    downloadBtn.frame = CGRectMake(250, 10, 50, 30);
-    
-    [downloadBtn setTitle:@"下载" forState:UIControlStateNormal];
-    
-    [downloadBtn setTitleColor:[UIColor magentaColor] forState:UIControlStateNormal];
-    
-    [imgView addSubview:downloadBtn];
-    
-    UIButton *rankBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    rankBtn.frame = CGRectMake(310,10, 50, 30);
-    
-    [rankBtn setTitle:@"排序" forState:UIControlStateNormal];
-    
-    [rankBtn setTitleColor:[UIColor magentaColor] forState:UIControlStateNormal];
-    
-    [imgView addSubview:rankBtn];
+//    //添加下载和排序按钮
+//    UIButton *downloadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    
+//    downloadBtn.frame = CGRectMake(250, 10, 50, 30);
+//    
+//    [downloadBtn setTitle:@"下载" forState:UIControlStateNormal];
+//    
+//    [downloadBtn setTitleColor:[UIColor magentaColor] forState:UIControlStateNormal];
+//    
+//    [imgView addSubview:downloadBtn];
+//    
+//    UIButton *rankBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    
+//    rankBtn.frame = CGRectMake(310,10, 50, 30);
+//    
+//    [rankBtn setTitle:@"排序" forState:UIControlStateNormal];
+//    
+//    [rankBtn setTitleColor:[UIColor magentaColor] forState:UIControlStateNormal];
+//    
+//    [imgView addSubview:rankBtn];
     
     
     
