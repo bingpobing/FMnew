@@ -31,8 +31,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor colorWithRed:0.500 green:1.000 blue:0.709 alpha:1.000];
-    self.navigationItem.title = @"DJ";
+    self.navigationItem.title = @"电台";
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc]init];
     flow.itemSize = CGSizeMake((self.view.frame.size.width - 60) / 3, 80);
     flow.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
@@ -41,7 +42,8 @@
     //最小的左右间距
     flow.minimumInteritemSpacing = 20;
     _CollectionView = [[UICollectionView alloc]initWithFrame:self.view.frame collectionViewLayout:flow];
-    _CollectionView.backgroundColor = [UIColor colorWithRed:0.383 green:1.000 blue:0.801 alpha:1.000];
+    //colorWithRed:0.383 green:1.000 blue:0.801 alpha:1.000
+    _CollectionView.backgroundColor = [UIColor colorWithRed:20/255.0 green:40/255.0 blue:120/255.0 alpha:1.000];
     [_CollectionView registerClass:[RadioViewCell class] forCellWithReuseIdentifier:@"cell"];
     _CollectionView.delegate = self;
     _CollectionView.dataSource = self;

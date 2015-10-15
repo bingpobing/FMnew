@@ -111,9 +111,9 @@
 - (void)myTableHeaderViewDidLoad{
     //TableHeaderView背景图片
     UIImageView *imgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"headerView02"]];
-    imgView.frame = CGRectMake(0, 0, 375, 200);
+    imgView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight * 0.3);
     //TableHeaderView左图片
-    self.imgViewUrl = [[UIImageView alloc]initWithFrame:CGRectMake(15, 40, 100, 100)];
+    self.imgViewUrl = [[UIImageView alloc]initWithFrame:CGRectMake(kScreenWidth * 0.04, kScreenHeight * 0.06, kScreenWidth * 0.267, kScreenHeight * 0.15)];
     self.imgViewUrl.backgroundColor = [UIColor redColor];
     self.imgViewUrl.layer.cornerRadius = 3;
     self.imgViewUrl.layer.masksToBounds = YES;
@@ -121,16 +121,16 @@
     self.imgViewUrl.layer.borderColor = [UIColor blackColor].CGColor;
     [imgView addSubview:self.imgViewUrl];
     //主持
-    self.lab4play_dj = [[UILabel alloc]initWithFrame:CGRectMake(150, 40, 150, 30)];
+    self.lab4play_dj = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth * 0.4, kScreenHeight * 0.06, kScreenWidth * 0.4, kScreenHeight * 0.045)];
     self.lab4play_dj.font = [UIFont systemFontOfSize:15];
     [imgView addSubview:self.lab4play_dj];
     //电台
-    self.lab4channel_name = [[UILabel alloc]initWithFrame:CGRectMake(150, 65, 150, 30)];
+    self.lab4channel_name = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth * 0.4, kScreenHeight *0.097, kScreenWidth * 0.4, kScreenHeight * 0.045)];
     self.lab4channel_name.font = [UIFont systemFontOfSize:15];
     [imgView addSubview:self.lab4channel_name];
     
     //简介
-    self.lab4play_decription = [[UILabel alloc]initWithFrame:CGRectMake(150, 90, 150, 80)];
+    self.lab4play_decription = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth * 0.4, kScreenHeight * 0.135, kScreenWidth * 0.4, kScreenHeight * 0.12)];
     self.lab4play_decription.font = [UIFont systemFontOfSize:15];
     self.lab4play_decription.numberOfLines = 0;
     [imgView addSubview:self.lab4play_decription];
