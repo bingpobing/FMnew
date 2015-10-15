@@ -67,12 +67,12 @@
 
     [self myTableHeaderViewDidLoad];
     
-    //返回按钮
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"return32"] style:UIBarButtonItemStylePlain target:self action:@selector(returnPage)];
-    //收藏按钮
-    UIBarButtonItem *collectBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"collect1"] style:UIBarButtonItemStylePlain target:self action:nil];
+//    //返回按钮
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"return32"] style:UIBarButtonItemStylePlain target:self action:@selector(returnPage)];
+//    //收藏按钮
+    //UIBarButtonItem *collectBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"collect1"] style:UIBarButtonItemStylePlain target:self action:nil];
 //    UIBarButtonItem *shareBtn = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:nil];
-    self.navigationItem.rightBarButtonItems = @[collectBtn];
+   // self.navigationItem.rightBarButtonItems = @[collectBtn];
     
     
     self.title = self.string;
@@ -89,7 +89,7 @@
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.pullToRefreshView stopAnimating];
     }];
-    //下拉加载
+    //上拉加载
     [self.tableView addInfiniteScrollingWithActionHandler:^{
         weakSelf.currentPage++;
         [weakSelf requestDateCell];
@@ -104,9 +104,9 @@
 
 //返回
 
-- (void)returnPage{
-    [self.navigationController popViewControllerAnimated:YES];
-}
+//- (void)returnPage{
+//    [self.navigationController popViewControllerAnimated:YES];
+//}
 
 
 - (void)myTableHeaderViewDidLoad{
@@ -227,7 +227,7 @@
     
     [playBtn setImage:[UIImage imageNamed:@"play48"] forState:UIControlStateNormal];
     
-    [playBtn setImage:[UIImage imageNamed:@"stop48"] forState:UIControlStateHighlighted];
+    //[playBtn setImage:[UIImage imageNamed:@"stop48"] forState:UIControlStateHighlighted];
     
     [imgView addSubview:playBtn];
     //添加文本

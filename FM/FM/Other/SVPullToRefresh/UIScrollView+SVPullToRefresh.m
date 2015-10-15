@@ -145,8 +145,8 @@ static char UIScrollViewPullToRefreshView;
         self.state = SVPullToRefreshStateStopped;
         self.showsDateLabel = NO;
         
-        self.titles = [NSMutableArray arrayWithObjects:NSLocalizedString(@"东哥的微看点正在加载",),
-                                                       NSLocalizedString(@"东哥的微看点正在刷新",),
+        self.titles = [NSMutableArray arrayWithObjects:NSLocalizedString(@"正在加载",),
+                                                       NSLocalizedString(@"正在刷新",),
                                                        NSLocalizedString(@"Loading...",),
                                                        nil];
         
