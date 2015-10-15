@@ -99,6 +99,7 @@
     }];
     
 
+    
 }
 
 //返回
@@ -144,7 +145,7 @@
 #pragma mark ================网路请求==================
 
 - (void)requestDateCell{
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://fmlive.shuoba.org/v3/playback/record_play/%@/detail_info?page_size=20&page_index=0",self.keyString]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://fmlive.shuoba.org/v3/playback/record_play/%@/detail_info?page_size=20&page_index=%ld",self.keyString,_currentPage]]];
     NSLog(@"%@",self.keyString);
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
