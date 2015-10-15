@@ -96,6 +96,7 @@
 		C245D33D1BCD3E1600515310 /* SCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C245D33C1BCD3E1600515310 /* SCModel.m */; };
 		C245D3401BCD3E3B00515310 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C245D33F1BCD3E3B00515310 /* DataManager.m */; };
 		C24CEAFD1BCB40840059ACC5 /* CollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C24CEAFC1BCB40840059ACC5 /* CollectViewController.m */; };
+		C2538A601BCF446E00D596E6 /* CopyrightController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2538A5F1BCF446E00D596E6 /* CopyrightController.m */; };
 		C255C7601BC6A98900EAF02C /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C255C74C1BC6A98900EAF02C /* DetailViewController.m */; };
 		C255C7611BC6A98900EAF02C /* iconfont-svgmoban16.png in Resources */ = {isa = PBXBuildFile; fileRef = C255C74D1BC6A98900EAF02C /* iconfont-svgmoban16.png */; };
 		C255C7621BC6A98900EAF02C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C255C74F1BC6A98900EAF02C /* ListViewController.m */; };
@@ -315,6 +316,8 @@
 		C245D33F1BCD3E3B00515310 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		C24CEAFB1BCB40840059ACC5 /* CollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectViewController.h; sourceTree = "<group>"; };
 		C24CEAFC1BCB40840059ACC5 /* CollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectViewController.m; sourceTree = "<group>"; };
+		C2538A5E1BCF446E00D596E6 /* CopyrightController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyrightController.h; sourceTree = "<group>"; };
+		C2538A5F1BCF446E00D596E6 /* CopyrightController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CopyrightController.m; sourceTree = "<group>"; };
 		C255C74B1BC6A98900EAF02C /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		C255C74C1BC6A98900EAF02C /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		C255C74D1BC6A98900EAF02C /* iconfont-svgmoban16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-svgmoban16.png"; sourceTree = "<group>"; };
@@ -532,6 +535,8 @@
 				C2319E1C1BC766B00054BBE7 /* SettingController.m */,
 				C2B32C1A1BC8AD180079AD55 /* AboutController.h */,
 				C2B32C1B1BC8AD180079AD55 /* AboutController.m */,
+				C2538A5E1BCF446E00D596E6 /* CopyrightController.h */,
+				C2538A5F1BCF446E00D596E6 /* CopyrightController.m */,
 				C23340441BC54DE10045EA8E /* TimeController.h */,
 				C23340451BC54DE10045EA8E /* TimeController.m */,
 				C23340461BC54DE10045EA8E /* TimeController.xib */,
@@ -1170,6 +1175,7 @@
 				C2F6B0B21BC74D7C0004D155 /* AFURLRequestSerialization.m in Sources */,
 				C245D3401BCD3E3B00515310 /* DataManager.m in Sources */,
 				C2F6B0B41BC74D7C0004D155 /* AFURLSessionManager.m in Sources */,
+				C2538A601BCF446E00D596E6 /* CopyrightController.m in Sources */,
 				C23340981BC54E200045EA8E /* UIImageView+HighlightedWebCache.m in Sources */,
 				C2E35BA01BC670AD00FB1685 /* LoginMineController.m in Sources */,
 				C223BAD81BC771ED00EA4C8F /* SCNavTabBarController.m in Sources */,

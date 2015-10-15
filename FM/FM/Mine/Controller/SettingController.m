@@ -8,6 +8,7 @@
 
 #import "SettingController.h"
 #import "AboutController.h"
+#import "CopyrightController.h"
 const CGFloat BackHeight = 0;
 @interface SettingController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView *tableView;
@@ -21,7 +22,7 @@ const CGFloat BackHeight = 0;
     self.title = @"设置";
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.array=[[NSMutableArray alloc]initWithObjects:@"关于FM",@"版权声明",@"版权保护投诉指引",nil];
+    self.array=[[NSMutableArray alloc]initWithObjects:@"关于FM",@"版权声明",nil];
         [self createUI];
     // Do any additional setup after loading the view.
 }
@@ -78,6 +79,10 @@ const CGFloat BackHeight = 0;
     if (index == 0) {
         AboutController *aboutVC = [AboutController new];
         [self.navigationController pushViewController:aboutVC animated:YES];
+    }else if(index == 1){
+        CopyrightController *copVC = [CopyrightController new];
+        [self.navigationController pushViewController:copVC animated:YES];
+
     }
 }
 

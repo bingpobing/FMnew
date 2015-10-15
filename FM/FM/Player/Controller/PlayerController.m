@@ -86,30 +86,30 @@
     //返回按钮
     _backBtn.titleLabel.text = nil;
     _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _backBtn.frame = CGRectMake(0, 0, 100, 64);
+    _backBtn.frame = CGRectMake(0, 0, kScreenWidth*0.26, 64);
     [_backBtn setTitle:@"返回" forState:UIControlStateNormal];
     [_backBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_backBtn addTarget:self action:@selector(clickBackBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_backBtn];
     
     //传过来的图片
-    _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
+    _imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth * 0.53, kScreenWidth * 0.53)];
     [_imgView sd_setImageWithURL:_PicUrl];
-    _imgView.layer.cornerRadius = 100;
+    _imgView.layer.cornerRadius = (kScreenWidth * 0.53)*0.5;
     _imgView.layer.masksToBounds = YES;
-    _imgView.center = CGPointMake(kScreenWidth/2, kScreenHeight/2-150);
+    _imgView.center = CGPointMake(kScreenWidth/2, kScreenHeight/5 + kScreenHeight*0.075);
     [self.view addSubview:_imgView];
     
     //小标题
     _titleLab.text = nil;
-    _titleLab = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_imgView.frame)+20, self.view.frame.size.width, 30)];
+    _titleLab = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_imgView.frame)+20, kScreenWidth, kScreenWidth*0.1)];
     _titleLab.text = self.radioTitle;
     _titleLab.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_titleLab];
     
     //电台主持
     _djLab.text = nil;
-    _djLab = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_imgView.frame)+60, self.view.frame.size.width, 30)];
+    _djLab = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_imgView.frame)+60, kScreenWidth, kScreenWidth*0.1)];
     _djLab.text = self.nickname;
     _djLab.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_djLab];
@@ -118,15 +118,15 @@
     [_liebiaoBtn removeFromSuperview];
     _liebiaoBtn = nil;
     _liebiaoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _liebiaoBtn.frame = CGRectMake(0, 0, 50, 50);
-    _liebiaoBtn.center = CGPointMake(kScreenWidth/2-100, kScreenHeight/2+100);
+    _liebiaoBtn.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
+    _liebiaoBtn.center = CGPointMake(kScreenWidth/2-kScreenWidth*0.26, kScreenHeight/2+kScreenWidth*0.26);
     [_liebiaoBtn setImage:[UIImage imageNamed:@"liebiao"] forState:UIControlStateNormal];
     [_liebiaoBtn addTarget:self action:@selector(clickLiebiaoBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_liebiaoBtn];
     _liebiaoLab.text = nil;
     _liebiaoLab = [[UILabel alloc]init];
-    _liebiaoLab.frame = CGRectMake(0, 0, 50, 50);
-    _liebiaoLab.center = CGPointMake(kScreenWidth/2-95, kScreenHeight/2+130);
+    _liebiaoLab.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
+    _liebiaoLab.center = CGPointMake(kScreenWidth/2-kScreenWidth*0.26, CGRectGetMaxY(_liebiaoBtn.frame) + kScreenHeight * 0.015);
     _liebiaoLab.text = @"列表";
     [self.view addSubview:_liebiaoLab];
     
@@ -134,15 +134,15 @@
     [_xiazaiBtn removeFromSuperview];
     _xiazaiBtn = nil;
     _xiazaiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _xiazaiBtn.frame = CGRectMake(0, 0, 50, 50);
-    self.xiazaiBtn.center = CGPointMake(kScreenWidth/2, kScreenHeight/2+100);
+    _xiazaiBtn.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
+    self.xiazaiBtn.center = CGPointMake(kScreenWidth/2, kScreenHeight/2+kScreenWidth*0.26);
     [_xiazaiBtn setImage:[UIImage imageNamed:@"xiazai"] forState:UIControlStateNormal];
     [_xiazaiBtn addTarget:self action:@selector(clickXiazaiBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_xiazaiBtn];
     _xiazaiLab.text = nil;
     _xiazaiLab = [[UILabel alloc]init];
-    _xiazaiLab.frame = CGRectMake(0, 0, 50, 50);
-    _xiazaiLab.center = CGPointMake(kScreenWidth/2+5, kScreenHeight/2+130);
+    _xiazaiLab.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
+    _xiazaiLab.center = CGPointMake(kScreenWidth/2+5, CGRectGetMaxY(_xiazaiBtn.frame) + kScreenHeight * 0.015);
     _xiazaiLab.text = @"下载";
     [self.view addSubview:_xiazaiLab];
     
@@ -150,21 +150,21 @@
     [_shoucangBtn removeFromSuperview];
     _shoucangBtn = nil;
     _shoucangBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _shoucangBtn.frame = CGRectMake(0, 0, 50, 50);
-    _shoucangBtn.center = CGPointMake(kScreenWidth/2+100, kScreenHeight/2+100);
+    _shoucangBtn.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
+    _shoucangBtn.center = CGPointMake(kScreenWidth/2+kScreenWidth*0.26, kScreenHeight/2+kScreenWidth*0.26);
     [_shoucangBtn setImage:[UIImage imageNamed:@"weishoucang"] forState:UIControlStateNormal];
     [_shoucangBtn addTarget:self action:@selector(clickShoucangBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_shoucangBtn];
     _shoucangLab.text = nil;
     _shoucangLab = [[UILabel alloc]init];
-    _shoucangLab.frame = CGRectMake(0, 0, 50, 50);
-    _shoucangLab.center = CGPointMake(kScreenWidth/2+105, kScreenHeight/2+130);
+    _shoucangLab.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
+    _shoucangLab.center = CGPointMake(kScreenWidth/2+kScreenWidth*0.27, CGRectGetMaxY(_shoucangBtn.frame) + kScreenHeight * 0.015);
     _shoucangLab.text = @"收藏";
     [self.view addSubview:_shoucangLab];
     
     //滑块
     [_timeSlider removeFromSuperview];
-    _timeSlider = [[UISlider alloc]initWithFrame:CGRectMake(40, CGRectGetMaxY(_imgView.frame)+210, kScreenWidth-80, 31)];
+    _timeSlider = [[UISlider alloc]initWithFrame:CGRectMake(kScreenWidth*0.107, CGRectGetMaxY(_imgView.frame)+kScreenHeight * 0.35, kScreenWidth-kScreenWidth*0.213, kScreenHeight*0.046)];
     [self.view addSubview:_timeSlider];
     
 //    //播放时间
@@ -181,8 +181,8 @@
     [_startOrPuaseBtn removeFromSuperview];
     _startOrPuaseBtn = nil;
     _startOrPuaseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _startOrPuaseBtn.frame = CGRectMake(0, 0, 50, 50);
-    _startOrPuaseBtn.center = CGPointMake(kScreenWidth/2, kScreenHeight/2+260);
+    _startOrPuaseBtn.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
+    _startOrPuaseBtn.center = CGPointMake(kScreenWidth/2, kScreenHeight/2+kScreenHeight*0.39);
     self.img = nil;
     self.img = [UIImage imageNamed:@"zanting"];
     [_startOrPuaseBtn setImage:self.img forState:UIControlStateNormal];
@@ -193,8 +193,8 @@
     [_previousBtn removeFromSuperview];
     _previousBtn = nil;
     _previousBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _previousBtn.frame = CGRectMake(0, 0, 50, 50);
-    _previousBtn.center = CGPointMake(kScreenWidth/2-80, kScreenHeight/2+260);
+    _previousBtn.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
+    _previousBtn.center = CGPointMake(kScreenWidth/2-kScreenWidth*0.2, kScreenHeight/2+kScreenHeight*0.39);
     [_previousBtn setImage:[UIImage imageNamed:@"shang"] forState:UIControlStateNormal];
     [_previousBtn addTarget:self action:@selector(clickPreviousBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_previousBtn];
@@ -203,8 +203,8 @@
     [_nextBtn removeFromSuperview];
     _nextBtn = nil;
     _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _nextBtn.frame = CGRectMake(0, 0, 50, 50);
-    _nextBtn.center = CGPointMake(kScreenWidth/2+80, kScreenHeight/2+260);
+    _nextBtn.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
+    _nextBtn.center = CGPointMake(kScreenWidth/2+kScreenWidth*0.2, kScreenHeight/2+kScreenHeight*0.39);
     [_nextBtn setImage:[UIImage imageNamed:@"xia"] forState:UIControlStateNormal];
     [_nextBtn addTarget:self action:@selector(clickNextBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_nextBtn];

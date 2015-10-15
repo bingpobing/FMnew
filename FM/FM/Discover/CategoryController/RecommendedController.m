@@ -46,12 +46,13 @@
     //创建集合视图
     self.view.backgroundColor = [UIColor whiteColor];
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.itemSize = CGSizeMake(120, 150);
+    layout.itemSize = CGSizeMake(kScreenWidth * 0.32, kScreenHeight * 0.225);
     layout.minimumLineSpacing = 2;
     layout.minimumInteritemSpacing = 2;
-    layout.headerReferenceSize = CGSizeMake(375, 30);
+    layout.headerReferenceSize = CGSizeMake(kScreenWidth, kScreenHeight * 0.045);
     layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
-    self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 180, kScreenWidth, kScreenHeight - 335) collectionViewLayout:layout];
+    //(0, kScreenHeight * 0.27, kScreenWidth, kScreenHeight / 2 - kScreenHeight * 0.087)
+    self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0, kScreenHeight * 0.27, kScreenWidth, kScreenHeight / 2 ) collectionViewLayout:layout];
     self.collection.backgroundColor = [UIColor whiteColor];
     self.collection.delegate = self;
     self.collection.dataSource = self;
@@ -98,7 +99,7 @@
             
             
         }
-        CarouselFingure *cView = [[CarouselFingure alloc]initWithFrame:CGRectMake(0, 0, 375, 180)];
+        CarouselFingure *cView = [[CarouselFingure alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight * 0.27)];
         cView.imagesArray = self.imageArray;
         cView.duration=2;
         cView.delegate = self;
