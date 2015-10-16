@@ -12,7 +12,7 @@
 #import "LoginMineController.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "AppDelegate.h"
-@interface LoginController ()
+@interface LoginController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btn4Login;
 @property (weak, nonatomic) IBOutlet UIButton *btn4Register;
 @property (weak, nonatomic) IBOutlet UITextField *lab4Name;
@@ -28,6 +28,13 @@
     self.title = @"登录";
     //注册按钮事件
     [self.btn4Register addTarget:self action:@selector(changeToRegister:) forControlEvents:UIControlEventTouchUpInside];
+    _lab4Name.delegate = self;
+    _lab4Password.delegate = self;
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 //点击注册按钮的事件
 - (void)changeToRegister:(id)sender{

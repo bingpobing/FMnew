@@ -9,7 +9,7 @@
 #import "RegisterViewController.h"
 #import "XWAlterview.h"
 #import <AVOSCloud/AVOSCloud.h>
-@interface RegisterViewController ()
+@interface RegisterViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *txt4Name;
 @property (weak, nonatomic) IBOutlet UITextField *txt4Password;
 @property (weak, nonatomic) IBOutlet UITextField *txt4Password2;
@@ -21,6 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"注册";
+    self.txt4Name.delegate = self;
+    self.txt4Password.delegate = self;
+    self.txt4Password2.delegate = self;
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 - (IBAction)action4Register:(id)sender {
     if ([self.txt4Name.text  isEqual: @""] || [self.txt4Password.text  isEqual: @""] || [self.txt4Password2.text  isEqual: @""]) {
