@@ -7,7 +7,7 @@
 //
 
 #import "RecommendedController.h"
-
+#include <sys/sysctl.h>
 
 @interface RecommendedController ()<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,CarouselFingureDelegate>
 
@@ -43,38 +43,110 @@
     [super viewDidLoad];
     
     
-    //创建集合视图
-    self.view.backgroundColor = [UIColor whiteColor];
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.itemSize = CGSizeMake(kScreenWidth * 0.32, kScreenHeight * 0.225);
-    layout.minimumLineSpacing = 2;
-    layout.minimumInteritemSpacing = 2;
-    layout.headerReferenceSize = CGSizeMake(kScreenWidth, kScreenHeight * 0.045);
-    layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
-    //(0, kScreenHeight * 0.27, kScreenWidth, kScreenHeight / 2 - kScreenHeight * 0.087)
-    self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0, kScreenHeight * 0.27, kScreenWidth, kScreenHeight / 2 ) collectionViewLayout:layout];
-    self.collection.backgroundColor = [UIColor whiteColor];
-    self.collection.delegate = self;
-    self.collection.dataSource = self;
+    if (iPhone6) {
+        //创建集合视图
+        self.view.backgroundColor = [UIColor whiteColor];
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+        layout.itemSize = CGSizeMake(kScreenWidth * 0.3, kScreenHeight * 0.22);//
+        layout.minimumLineSpacing = 2;
+        layout.minimumInteritemSpacing = 2;
+        layout.headerReferenceSize = CGSizeMake(kScreenWidth, kScreenHeight * 0.045);
+        //layout.footerReferenceSize = CGSizeMake(375, 30);
+        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+        self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0, kScreenHeight * 0.27, kScreenWidth, kScreenHeight * 0.5) collectionViewLayout:layout];
+        self.collection.backgroundColor = [UIColor whiteColor];
+        self.collection.delegate = self;
+        self.collection.dataSource = self;
+        //self.collection.contentSize
+        [self.collection registerNib:[UINib nibWithNibName:@"DiscoverCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+        //自定义header
+        [self.collection registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+        [self.collection registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
+        [self.view addSubview:self.collection];
+        
+        [self request];
+    }else if (iPhone5){
+        //创建集合视图
+        self.view.backgroundColor = [UIColor whiteColor];
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+        layout.itemSize = CGSizeMake(kScreenWidth * 0.3, kScreenHeight * 0.32);//
+        layout.minimumLineSpacing = 2;
+        layout.minimumInteritemSpacing = 2;
+        layout.headerReferenceSize = CGSizeMake(kScreenWidth, kScreenHeight * 0.045);
+        //layout.footerReferenceSize = CGSizeMake(375, 30);
+        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+        self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0, kScreenHeight * 0.27, kScreenWidth, kScreenHeight * 0.5) collectionViewLayout:layout];
+        self.collection.backgroundColor = [UIColor whiteColor];
+        self.collection.delegate = self;
+        self.collection.dataSource = self;
+        //self.collection.contentSize
+        [self.collection registerNib:[UINib nibWithNibName:@"DiscoverCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+        
+        //自定义header
+        [self.collection registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+        
+        [self.collection registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
+        [self.view addSubview:self.collection];
+        
+        [self request];
+        
+    }else if (iPhone4){
+        //创建集合视图
+        self.view.backgroundColor = [UIColor whiteColor];
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+        layout.itemSize = CGSizeMake(kScreenWidth * 0.31, kScreenHeight * 0.32);//
+        layout.minimumLineSpacing = 2;
+        layout.minimumInteritemSpacing = 2;
+        layout.headerReferenceSize = CGSizeMake(kScreenWidth, kScreenHeight * 0.045);
+        //layout.footerReferenceSize = CGSizeMake(375, 30);
+        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+        self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0, kScreenHeight * 0.27, kScreenWidth, kScreenHeight * 0.42) collectionViewLayout:layout];
+        self.collection.backgroundColor = [UIColor whiteColor];
+        self.collection.delegate = self;
+        self.collection.dataSource = self;
+        //self.collection.contentSize
+        [self.collection registerNib:[UINib nibWithNibName:@"DiscoverCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+        
+        //自定义header
+        [self.collection registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];      
+        [self.collection registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
+        [self.view addSubview:self.collection];
+        [self request];
+    }else{
+        //6p
+        //创建集合视图
+        self.view.backgroundColor = [UIColor whiteColor];
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+        layout.itemSize = CGSizeMake(kScreenWidth * 0.3, kScreenHeight * 0.22);//
+        layout.minimumLineSpacing = 2;
+        layout.minimumInteritemSpacing = 2;
+        layout.headerReferenceSize = CGSizeMake(kScreenWidth, kScreenHeight * 0.045);
+        //layout.footerReferenceSize = CGSizeMake(375, 30);
+        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+        self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0, kScreenHeight * 0.27, kScreenWidth, kScreenHeight - 350) collectionViewLayout:layout];
+        self.collection.backgroundColor = [UIColor whiteColor];
+        self.collection.delegate = self;
+        self.collection.dataSource = self;
+        //self.collection.contentSize
+        [self.collection registerNib:[UINib nibWithNibName:@"DiscoverCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+        
+        //自定义header
+        [self.collection registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+        [self.collection registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
+        [self.view addSubview:self.collection];
+        
+        [self request];
+        
+    }
     
-    [self.collection registerNib:[UINib nibWithNibName:@"DiscoverCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
-    //[self.collection registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
-    //自定义header
-    [self.collection registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
-    
-    
-    [self.collection registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
+
     
     
     
     
-    
-    [self.view addSubview:self.collection];
-    
-    
-    [self request];
     
 }
+
 
 #pragma mark ============json网络请求==================
 - (void)request{
@@ -187,7 +259,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    return CGSizeMake(375, 30);
+    return CGSizeMake(kScreenWidth, 30);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

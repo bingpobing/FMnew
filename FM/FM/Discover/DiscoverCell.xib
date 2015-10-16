@@ -32,7 +32,6 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" red="1" green="0.058823533359999999" blue="0.1215686351" alpha="1" colorSpace="deviceRGB"/>
             <size key="customSize" width="120" height="150"/>
             <connections>
                 <outlet property="img4play_url" destination="DQS-zK-0uq" id="Bbw-P0-Rni"/>

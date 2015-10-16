@@ -45,26 +45,102 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //创建集合视图
-    self.view.backgroundColor = [UIColor whiteColor];
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.itemSize = CGSizeMake(120, 150);
-    layout.minimumLineSpacing = 2;
-    layout.minimumInteritemSpacing = 2;
-    layout.headerReferenceSize = CGSizeMake(375, 30);
-    layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
-    self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 150) collectionViewLayout:layout];
-    self.collection.backgroundColor = [UIColor whiteColor];
-    self.collection.delegate = self;
-    self.collection.dataSource = self;
+    if (iPhone6) {
+        //创建集合视图
+        self.view.backgroundColor = [UIColor whiteColor];
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+        layout.itemSize = CGSizeMake(kScreenWidth * 0.3, kScreenHeight * 0.22);//
+        layout.minimumLineSpacing = 2;
+        layout.minimumInteritemSpacing = 2;
+        layout.headerReferenceSize = CGSizeMake(kScreenWidth, kScreenHeight * 0.045);
+        //layout.footerReferenceSize = CGSizeMake(375, 30);
+        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+                self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0,0, kScreenWidth, kScreenHeight * 0.77) collectionViewLayout:layout];
+        self.collection.backgroundColor = [UIColor whiteColor];
+        self.collection.delegate = self;
+        self.collection.dataSource = self;
+        //self.collection.contentSize
+        [self.collection registerNib:[UINib nibWithNibName:@"DiscoverCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+        //自定义header
+        [self.collection registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+        [self.collection registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
+        [self.view addSubview:self.collection];
+        
+        
+    }else if (iPhone5){
+        //创建集合视图
+        self.view.backgroundColor = [UIColor whiteColor];
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+        layout.itemSize = CGSizeMake(kScreenWidth * 0.3, kScreenHeight * 0.32);//
+        layout.minimumLineSpacing = 2;
+        layout.minimumInteritemSpacing = 2;
+        layout.headerReferenceSize = CGSizeMake(kScreenWidth, kScreenHeight * 0.045);
+        //layout.footerReferenceSize = CGSizeMake(375, 30);
+        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+        self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0,0, kScreenWidth, kScreenHeight * 0.75) collectionViewLayout:layout];
+        self.collection.backgroundColor = [UIColor whiteColor];
+        self.collection.delegate = self;
+        self.collection.dataSource = self;
+        //self.collection.contentSize
+        [self.collection registerNib:[UINib nibWithNibName:@"DiscoverCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+        
+        //自定义header
+        [self.collection registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+        
+        [self.collection registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
+        [self.view addSubview:self.collection];
+        
+        
+        
+    }else if (iPhone4){
+        //创建集合视图
+        self.view.backgroundColor = [UIColor whiteColor];
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+        layout.itemSize = CGSizeMake(kScreenWidth * 0.31, kScreenHeight * 0.32);//
+        layout.minimumLineSpacing = 2;
+        layout.minimumInteritemSpacing = 2;
+        layout.headerReferenceSize = CGSizeMake(kScreenWidth, kScreenHeight * 0.045);
+        //layout.footerReferenceSize = CGSizeMake(375, 30);
+        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+                self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0,0, kScreenWidth, kScreenHeight * 0.69) collectionViewLayout:layout];
+        self.collection.backgroundColor = [UIColor whiteColor];
+        self.collection.delegate = self;
+        self.collection.dataSource = self;
+        //self.collection.contentSize
+        [self.collection registerNib:[UINib nibWithNibName:@"DiscoverCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+        
+        //自定义header
+        [self.collection registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+        [self.collection registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
+        [self.view addSubview:self.collection];
+        
+    }else{
+        //6p
+        //创建集合视图
+        self.view.backgroundColor = [UIColor whiteColor];
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
+        layout.itemSize = CGSizeMake(kScreenWidth * 0.3, kScreenHeight * 0.22);//
+        layout.minimumLineSpacing = 2;
+        layout.minimumInteritemSpacing = 2;
+        layout.headerReferenceSize = CGSizeMake(kScreenWidth, kScreenHeight * 0.045);
+        //layout.footerReferenceSize = CGSizeMake(375, 30);
+        layout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+        self.collection = [[UICollectionView alloc]initWithFrame:CGRectMake(0,0, kScreenWidth, kScreenHeight * 0.8) collectionViewLayout:layout];
+        self.collection.backgroundColor = [UIColor whiteColor];
+        self.collection.delegate = self;
+        self.collection.dataSource = self;
+        //self.collection.contentSize
+        [self.collection registerNib:[UINib nibWithNibName:@"DiscoverCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+        
+        //自定义header
+        [self.collection registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
+        [self.collection registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
+        [self.view addSubview:self.collection];
+        
+        
+        
+    }
     
-    //自定义cell
-    [self.collection registerNib:[UINib nibWithNibName:@"DiscoverCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
-    //自定义header
-    [self.collection registerNib:[UINib nibWithNibName:@"HeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
-    //系统footer
-    [self.collection registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"footer"];
-    
-    [self.view addSubview:self.collection];
     
 }
 #pragma mark ==============Json网络请求=================
