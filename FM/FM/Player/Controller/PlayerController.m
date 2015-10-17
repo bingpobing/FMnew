@@ -109,13 +109,13 @@
     
     //列表
     [_liebiaoBtn removeFromSuperview];
-    _liebiaoBtn = nil;
     _liebiaoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _liebiaoBtn.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
     _liebiaoBtn.center = CGPointMake(kScreenWidth/2-kScreenWidth*0.26, kScreenHeight/2+kScreenWidth*0.26);
     [_liebiaoBtn setImage:[UIImage imageNamed:@"liebiao"] forState:UIControlStateNormal];
     [_liebiaoBtn addTarget:self action:@selector(clickLiebiaoBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_liebiaoBtn];
+    
     _liebiaoLab.text = nil;
     _liebiaoLab = [[UILabel alloc]init];
     _liebiaoLab.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
@@ -125,13 +125,13 @@
     
     //下载
     [_xiazaiBtn removeFromSuperview];
-    _xiazaiBtn = nil;
     _xiazaiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _xiazaiBtn.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
     self.xiazaiBtn.center = CGPointMake(kScreenWidth/2, kScreenHeight/2+kScreenWidth*0.26);
     [_xiazaiBtn setImage:[UIImage imageNamed:@"xiazai"] forState:UIControlStateNormal];
     [_xiazaiBtn addTarget:self action:@selector(clickXiazaiBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_xiazaiBtn];
+    
     _xiazaiLab.text = nil;
     _xiazaiLab = [[UILabel alloc]init];
     _xiazaiLab.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
@@ -141,13 +141,13 @@
     
     //收藏
     [_shoucangBtn removeFromSuperview];
-    _shoucangBtn = nil;
     _shoucangBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _shoucangBtn.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
     _shoucangBtn.center = CGPointMake(kScreenWidth/2+kScreenWidth*0.26, kScreenHeight/2+kScreenWidth*0.26);
     [_shoucangBtn setImage:[UIImage imageNamed:@"weishoucang"] forState:UIControlStateNormal];
     [_shoucangBtn addTarget:self action:@selector(clickShoucangBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_shoucangBtn];
+    
     _shoucangLab.text = nil;
     _shoucangLab = [[UILabel alloc]init];
     _shoucangLab.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
@@ -162,7 +162,6 @@
     
     //开始暂停
     [_startOrPuaseBtn removeFromSuperview];
-    _startOrPuaseBtn = nil;
     _startOrPuaseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _startOrPuaseBtn.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
     _startOrPuaseBtn.center = CGPointMake(kScreenWidth/2, kScreenHeight/2+kScreenHeight*0.39);
@@ -174,7 +173,6 @@
     
     //上一首
     [_previousBtn removeFromSuperview];
-    _previousBtn = nil;
     _previousBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _previousBtn.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
     _previousBtn.center = CGPointMake(kScreenWidth/2-kScreenWidth*0.2, kScreenHeight/2+kScreenHeight*0.39);
@@ -184,7 +182,6 @@
     
     //下一首
     [_nextBtn removeFromSuperview];
-    _nextBtn = nil;
     _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _nextBtn.frame = CGRectMake(0, 0, kScreenWidth*0.13, kScreenWidth*0.13);
     _nextBtn.center = CGPointMake(kScreenWidth/2+kScreenWidth*0.2, kScreenHeight/2+kScreenHeight*0.39);
@@ -326,7 +323,6 @@
     if (self.numOfMusic < 0) {
         return;
     }
-    self.playPathAacv224 = nil;
     
     if ([self.tag isEqualToString:@"2000"]) {
         ListModel *model = [ListModel new];
@@ -353,11 +349,11 @@
 }
 //下一首
 - (void)clickNextBtn:(UIButton *)sender{
+    
     self.numOfMusic ++;
     if (self.numOfMusic > self.musicArray.count) {
         return;
     }
-    self.playPathAacv224 = nil;
     
     if ([self.tag isEqualToString:@"2000"]) {
         ListModel *model = [ListModel new];

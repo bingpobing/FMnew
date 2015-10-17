@@ -149,6 +149,7 @@
         
     } completion:^(BOOL finished) {
         
+        //移除
         [scrollView removeFromSuperview];
         [page removeFromSuperview];
     }];
