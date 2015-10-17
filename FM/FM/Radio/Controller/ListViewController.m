@@ -17,10 +17,6 @@
 
 @interface ListViewController ()
 
-//因为播放页面一直存在,所以做成一个属性直接放在列表页面
-@property (nonatomic,strong)PlayerController *playerController;
-
-
 @property(nonatomic , strong) NSMutableArray *Array;
 
 @property(nonatomic , strong) NSMutableDictionary *DIC;
@@ -104,28 +100,20 @@
     
     ListModel *model = array[indexPath.row];
     
-    self.playerController = [[PlayerController alloc]init];
+    PlayerController *playerVC = [[PlayerController alloc]init];
     
-    self.playerController.PicUrl = model.PicUrl;
-    self.playerController.radioTitle = model.title;
-    self.playerController.nickname = model.nickname;
-    self.playerController.duration = model.duration;
-    self.playerController.playPathAacv224 = model.playPathAacv224;
-    self.playerController.file_m4a_url = model.downloadUrl;
+    playerVC.PicUrl = model.PicUrl;
+    playerVC.radioTitle = model.title;
+    playerVC.nickname = model.nickname;
+    playerVC.duration = model.duration;
+    playerVC.playPathAacv224 = model.playPathAacv224;
+    playerVC.file_m4a_url = model.downloadUrl;
     
-    self.playerController.str = (int)indexPath.row;
-    self.playerController.musicArray = [self.DIC[self.DIC.allKeys[indexPath.section]] mutableCopy];
-    self.playerController.tag = @"2000";
-    [self showDetailViewController:self.playerController sender:nil];
-}
-
-
-//#pragma mark - lazy load 初始化
-- (PlayerController *)playerController{
-    if (_playerController == nil) {
-        _playerController = [PlayerController shareController];
-    }
-    return _playerController;
+    playerVC.str = (int)indexPath.row;
+    playerVC.musicArray = [self.DIC[self.DIC.allKeys[indexPath.section]] mutableCopy];
+    playerVC.tag = @"2000";
+    
+    [self showDetailViewController:playerVC sender:nil];
 }
 
 

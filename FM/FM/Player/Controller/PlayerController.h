@@ -51,7 +51,5 @@
 @property (nonatomic,strong)UIButton *startOrPuaseBtn;
 @property (nonatomic,strong)UIButton *nextBtn;
 
-//因为这个页面要一直存在,所以要使用单例
-+ (PlayerController *)shareController;
 
 @end

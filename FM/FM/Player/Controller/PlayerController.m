@@ -17,6 +17,7 @@
 #import "download.h"
 #import "downloadManager.h"
 #import "downloadModel.h"
+
 @interface PlayerController ()
 
 //可以使用AVPlayer播放本地音频和支持流媒体播放
@@ -38,34 +39,29 @@
     self.nickname = playModel.people;
 }
 
-//因为这个页面要一直存在,所以要使用单例
-+(PlayerController *)shareController{
-    static PlayerController *playerController = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        playerController = [PlayerController new];
-    });
-    return playerController;
-}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.numOfMusic = self.str;
+    
     //背景颜色
     self.view.backgroundColor = [UIColor colorWithRed:193/255.0 green:230/255.0 blue:252/255.0 alpha:1];
+    
     [self play];
      self.playOrPause = YES;
+    
     //进度条使用NStimer监控播放的进度
     _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(timerRadio) userInfo:nil repeats:YES];
-    
     
     [self loadViewStyle];
     
     //[self.view addSubview:self.liebiaoBtn];
     // Do any additional setup after loading the view from its nib.
 }
+
 - (void)play{
+    
     [FMmodel creatTable];
     NSString *img = [NSString stringWithFormat:@"%@",self.PicUrl];
     
@@ -76,11 +72,8 @@
     
     self.radioPalyer = [[AVPlayer alloc]initWithURL:[NSURL URLWithString:self.playPathAacv224]];
     [self.radioPalyer play];
-   
 }
-- (void)pause{
-    [self.radioPalyer pause];
-}
+
 - (void)loadViewStyle{
     
     //返回按钮
@@ -207,13 +200,9 @@
 }
 
 
-- (void)timerRadio{
-    
-    _timeSlider.value = CMTimeGetSeconds(self.radioPalyer.currentItem.currentTime)/CMTimeGetSeconds(self.radioPalyer.currentItem.duration);
-}
 //返回事件
 - (void)clickBackBtn:(UIButton *)sender{
-    [self.radioPalyer pause];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
     [self.radioPalyer pause];
@@ -310,6 +299,11 @@
         [self presentViewController:alert animated:YES completion:nil];
     }
 }
+//滑块
+- (void)timerRadio{
+    
+    _timeSlider.value = CMTimeGetSeconds(self.radioPalyer.currentItem.currentTime)/CMTimeGetSeconds(self.radioPalyer.currentItem.duration);
+}
 //暂停播放按钮
 - (void)clickStartOrPuaseBtnBtn:(UIButton *)sender{
     UIButton *btn = (UIButton *)sender;
@@ -325,6 +319,7 @@
         [btn setImage:[UIImage imageNamed:@"zanting"] forState:UIControlStateNormal];
     }
 }
+//上一首
 - (void)clickPreviousBtn:(UIButton *)sender{
  
     self.numOfMusic --;
@@ -356,7 +351,7 @@
     [self loadViewStyle];
  
 }
-
+//下一首
 - (void)clickNextBtn:(UIButton *)sender{
     self.numOfMusic ++;
     if (self.numOfMusic > self.musicArray.count) {
